@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+
 import lec0401Util.Keisan;
 
 public class lec0402kadai extends Applet implements ActionListener, ItemListener {
@@ -49,6 +50,9 @@ public class lec0402kadai extends Applet implements ActionListener, ItemListener
         Checkbox divideCheckbox   = new Checkbox("/", cgroup, false);
         Checkbox selected;
 
+        // CardLayoutを適用するパネル
+        Panel panel = new Panel();
+        // (※layoutなのにpanelという命名はまぎらわしいです)
         CardLayout cardPanel = new CardLayout();
 
         public void init(){
@@ -90,28 +94,25 @@ public class lec0402kadai extends Applet implements ActionListener, ItemListener
             operatorPanel.add(divideCheckbox);
 
             //レイアウトマネージャの設定
-            setLayout(cardPanel);
-            add(plusPanel,"card1");
-            add(minusPanel,"card2");
-            add(multiplyPanel,"card3");
-            add(dividePanel,"card4");
+            panel.setLayout(cardPanel);
+            panel.add(plusPanel,"card1");
+            panel.add(minusPanel,"card2");
+            panel.add(multiplyPanel,"card3");
+            panel.add(dividePanel,"card4");
 
             plusCheckbox.addItemListener(this);
             minusCheckbox.addItemListener(this);
             multiplyCheckbox.addItemListener(this);
             divideCheckbox.addItemListener(this);
-            cardPanel.first(this);
+            cardPanel.first(panel);
 
             //アプレットにGridLayoutを設定し，パネルを登録し配置していく
             setLayout( new GridLayout(2, 2) );
-            add(plusPanel);
+            add(panel);
             add(answerPanel);
-            add(minusPanel);
             add(operatorPanel);
-            add(multiplyPanel);
             //ダミーのパネルを配置する
             add( new Panel() );
-            add(dividePanel);
 
             //ボタンをリスナーとして登録する
             calcButton.addActionListener(this);
@@ -164,13 +165,13 @@ public class lec0402kadai extends Applet implements ActionListener, ItemListener
             Checkbox selected = cgroup.getSelectedCheckbox();
 
             if(selected == plusCheckbox){
-                cardPanel.show(plusPanel,"card1");
+                cardPanel.show(panel,"card1");
             }else if (selected == minusCheckbox){
-               cardPanel.show(minusPanel,"card2");
+                cardPanel.show(panel,"card2");
            }else if (selected == multiplyCheckbox){
-                cardPanel.show(multiplyPanel,"card3");
+               cardPanel.show(panel,"card3");
             }else if (selected == divideCheckbox){
-                cardPanel.show(dividePanel, "card4");
+                cardPanel.show(panel, "card4");
             }
         }
 }
