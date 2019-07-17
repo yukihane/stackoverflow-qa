@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form role="form" action="/actor/save" th:action="@{/actor/save}"
+		th:object="${actorForm}" method="post">
+
+		<!-- birthday -->
+		<div class="form-group">
+			<label for="id_birthday" class="col-sm-2 control-label"
+				th:utext="#{actor.birthday}">birthday</label>
+			<div class="col-sm-12">
+				<input id="id_birthday" class="form-control" type="text"
+					name="birthday" th:field="*{birthday}"
+					th:placeholder="#{actor.create.birthday}" /> <span
+					th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"
+					class="help-block">error!</span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
