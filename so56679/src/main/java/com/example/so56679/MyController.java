@@ -59,9 +59,8 @@ public class MyController {
         if (StringUtils.isNotEmpty(form.getBlood())) {
             actor.setBlood(form.getBlood());
         }
-        if (StringUtils.isNotEmpty(form.getBirthday())) {
-            DateTimeFormatter withoutZone = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime parsed = LocalDateTime.parse(form.getBirthday() + " 00:00:00", withoutZone);
+        if (form.getBirthday() != null) {
+            LocalDateTime parsed = form.getBirthday().atStartOfDay();
             Instant instant = parsed.toInstant(ZoneOffset.ofHours(9));
             actor.setBirthday(Date.from(instant));
         }
