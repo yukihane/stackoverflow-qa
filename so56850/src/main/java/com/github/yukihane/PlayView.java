@@ -11,7 +11,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
-public class PlayView extends JPanel implements KeyListener, Runnable {
+// いまの形では JPanel を継承する必要はない
+public class PlayView implements KeyListener, Runnable {
+
+    public class Lane extends JPanel {
+
+        @Override
+        public void paintComponent(Graphics g) {
+            //System.out.println("paintComponent");
+            //super.paintComponent(g);
+            g.setColor(new Color(255, 255, 255));//211,211,211
+            for (int i = 0; i < 4; i++) {
+                g.fillRect(200 * i, 0, (int) PlayView.this.panelsize.getWidth(),
+                    (int) PlayView.this.panelsize.getHeight());
+            }
+            //座標をランダムに変えて画像を描画
+            g.drawImage((new ImageIcon("hoge.png")).getImage(),
+                (int) Math.random() * (int) PlayView.this.panelsize.getWidth(),
+                (int) Math.random() * (int) PlayView.this.panelsize.getHeight(), this);
+        }
+    }
 
     public JPanel panel = new JPanel(); //全部のコンポ―ネントを乗せるJPanel
     public static JPanel[] lane = new JPanel[4];
@@ -22,7 +41,7 @@ public class PlayView extends JPanel implements KeyListener, Runnable {
     public PlayView() {
 
         for (int i = 0; i < 4; i++) {
-            lane[i] = new JPanel();
+            lane[i] = new Lane();
             judge[i] = new JLabel();
         }
 
@@ -50,28 +69,13 @@ public class PlayView extends JPanel implements KeyListener, Runnable {
 
     @Override
     public void run() {
-        while (this.isVisible()) {
+        while (panel.isVisible()) {
             panel.repaint(); //10msごとにpanelの再描画
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        //System.out.println("paintComponent");
-        //super.paintComponent(g);
-        g.setColor(new Color(255, 255, 255));//211,211,211
-        for (int i = 0; i < 4; i++) {
-            g.fillRect(200 * i, 0, (int) this.panelsize.getWidth(), (int) this.panelsize.getHeight());
-        }
-        //座標をランダムに変えて画像を描画
-        for (int i = 0; i < 4; i++) {
-            g.drawImage((new ImageIcon("hoge.png")).getImage(), (int) Math.random() * (int) this.panelsize.getWidth(),
-                (int) Math.random() * (int) this.panelsize.getHeight(), lane[i]);
         }
     }
 
