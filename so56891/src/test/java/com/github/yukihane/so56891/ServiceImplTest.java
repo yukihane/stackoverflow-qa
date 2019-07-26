@@ -1,6 +1,7 @@
 package com.github.yukihane.so56891;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.doThrow;
 
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class ServiceImplTest {
         boolean actual = false;
         try {
             // TODO:throwされない
-            doThrow(new NullPointerException()).when(rep).saveAndFlush(new UserMst());
+            doThrow(new NullPointerException()).when(rep).saveAndFlush(any());
             actual = service.insert("user");
         } catch (Exception e) {
         }
