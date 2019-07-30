@@ -1,8 +1,12 @@
 package com.github.yukihane.so57030;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.sql.DataSource;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
@@ -60,7 +64,12 @@ public class LoginLogicTest {
 //(LoginLogicTest.java:92)  
 
         cleanlyInsert("src/test/resources/setup_dataset.xml");
-//        :
-//        :
+
+        DataSource ds = dataSource();
+        PreparedStatement ps = ds.getConnection().prepareStatement("select name from member where id=1");
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        String name = rs.getString("name");
+        assertEquals("suzuki", name);
     }
 }
