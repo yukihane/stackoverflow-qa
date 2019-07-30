@@ -34,7 +34,7 @@ public class LoginLogicTest {
         dbTester.onSetup();
     }
 
-    public DataSource dataSource() {
+    public static DataSource dataSource() {
         JdbcDataSource dataSource = new JdbcDataSource();
         dataSource.setURL(JDBC_URL);
         dataSource.setUser(USER);
