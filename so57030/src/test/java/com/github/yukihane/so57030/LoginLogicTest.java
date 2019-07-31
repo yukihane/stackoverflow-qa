@@ -3,21 +3,15 @@ package com.github.yukihane.so57030;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.sql.DataSource;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
-import org.dbunit.database.DatabaseConnection;
-import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatDtdDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.h2.jdbcx.JdbcDataSource;
-import org.h2.tools.RunScript;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -27,11 +21,18 @@ public class LoginLogicTest {
     private static final String USER = "sa";
     private static final String PASSWORD = "";
 
-    public static void cleanlyInsert(String dataPath) throws Exception {
+    //(変更後)
+    public static IDataSet readDataSet(String dataPath) throws Exception {
 
-//(LoginLogicTest.java:65)
+        //(LoginLogicTest.java:33)
 
         IDataSet dataSet = new FlatXmlDataSetBuilder().build(new File(dataPath));
+
+        return dataSet;
+    }
+
+    public static void cleanlyInsert(IDataSet dataSet) throws Exception {
+
         IDatabaseTester dbTester = new JdbcDatabaseTester(JDBC_DRIVER, JDBC_URL, USER, PASSWORD);
         dbTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
         dbTester.setDataSet(dataSet);
@@ -48,11 +49,11 @@ public class LoginLogicTest {
 
     @BeforeAll
     public static void createSchema() throws Exception {
-        RunScript.execute(JDBC_URL, USER, PASSWORD, "src/test/resources/schema.sql", null, false);
-        Connection conn = null;
-        conn = dataSource().getConnection();
-        IDatabaseConnection iDconn = new DatabaseConnection(conn);
-        FlatDtdDataSet.write(iDconn.createDataSet(), new FileOutputStream("test.dtd"));
+
+        //(LoginLogicTest.java:59)
+
+        IDataSet dataset = readDataSet("src/test/resources/setup_dataset.xml");
+        cleanlyInsert(dataset);
     }
 
     /**
@@ -60,10 +61,6 @@ public class LoginLogicTest {
      */
     @Test
     public void testLoginLogic() throws Exception {
-
-//(LoginLogicTest.java:92)  
-
-        cleanlyInsert("src/test/resources/setup_dataset.xml");
 
         DataSource ds = dataSource();
         PreparedStatement ps = ds.getConnection().prepareStatement("select name from member where id=1");
