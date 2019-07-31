@@ -1,0 +1,10 @@
+<!ELEMENT dataset (
+    member*)>
+
+<!ELEMENT member EMPTY>
+<!ATTLIST member
+    id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    age CDATA #REQUIRED
+>
+
