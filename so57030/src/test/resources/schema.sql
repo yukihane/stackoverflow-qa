@@ -1,5 +1,6 @@
-create table member (
-id integer primary key,
-name varchar(255) not null,
-age integer not null
+create table account (
+userid varchar(255),
+pass varchar(255),
+name varchar(255),
+age integer
 );

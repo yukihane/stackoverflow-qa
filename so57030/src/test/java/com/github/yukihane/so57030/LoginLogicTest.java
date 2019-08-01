@@ -3,17 +3,12 @@ package com.github.yukihane.so57030;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.sql.DataSource;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
-import org.dbunit.database.DatabaseConnection;
-import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatDtdDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.h2.jdbcx.JdbcDataSource;
@@ -56,10 +51,6 @@ public class LoginLogicTest {
     @BeforeAll
     public static void createSchema() throws Exception {
         RunScript.execute(JDBC_URL, USER, PASSWORD, "src/test/resources/schema.sql", null, false);
-        Connection conn = null;
-        conn = dataSource().getConnection();
-        IDatabaseConnection iDconn = new DatabaseConnection(conn);
-        FlatDtdDataSet.write(iDconn.createDataSet(), new FileOutputStream("test.dtd"));
 
         //(LoginLogicTest.java:59)
 
@@ -74,10 +65,10 @@ public class LoginLogicTest {
     public void testLoginLogic() throws Exception {
 
         DataSource ds = dataSource();
-        PreparedStatement ps = ds.getConnection().prepareStatement("select name from member where id=1");
+        PreparedStatement ps = ds.getConnection().prepareStatement("select name from account where userid='Shima5'");
         ResultSet rs = ps.executeQuery();
         rs.next();
         String name = rs.getString("name");
-        assertEquals("suzuki", name);
+        assertEquals("Shima.I", name);
     }
 }
