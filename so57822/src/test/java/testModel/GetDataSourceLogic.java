@@ -15,9 +15,6 @@ public class GetDataSourceLogic {
             dataSource.setURL(props.getProperty("JDBC_URL"));
             dataSource.setUser(props.getProperty("USER"));
             dataSource.setPassword(props.getProperty("PASSWORD"));
-
-        } catch (final IOException e) {
-            e.printStackTrace();
         }
         return dataSource;
 
