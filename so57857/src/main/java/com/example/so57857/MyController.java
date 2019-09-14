@@ -17,32 +17,34 @@ public class MyController {
     }
 
     @RequestMapping(value = "/profile/save", method = RequestMethod.POST)
-    public String form(@ModelAttribute 161formList 161formList1, Model model1) {
+    public String form(@ModelAttribute S161formList S100601formList, Model model1) {
+        int id = S100601formList.getId();
+        int password = S100601formList.getPassword();
 
         System.out.println(id);
-System.out.println(password);
+        System.out.println(password);
         return "S161.html";
     }
 
-    public class S161formList {
+    public static class S161formList {
 
-    private int id;
-    private int password;
+        private int id;
+        private int password;
 
-    public int getId() {
-        return id;
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getPassword() {
+            return password;
+        }
+
+        public void setPassword(int password) {
+            this.password = password;
+        }
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPassword() {
-        return password;
-    }
-
-    public void setPassword(int password) {
-        this.password = password;
-    }
-}
 }
