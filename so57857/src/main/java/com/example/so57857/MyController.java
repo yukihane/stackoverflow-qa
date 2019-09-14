@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MyController {
+
     @RequestMapping(value = "/profile/save", method = RequestMethod.GET)
     public String S161formList(Model model) {
 
@@ -23,12 +24,25 @@ System.out.println(password);
         return "S161.html";
     }
 
-
     public class S161formList {
 
     private int id;
     private int password;
 
-各setter getter
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
 }
 }
