@@ -1,0 +1,23 @@
+<html>
+<head></head>
+<body>
+<form th:action="@{/profile/save}" method="post" th:object="${161formList}">
+<table class="table table-bordered table-condensed">
+    <colgroup>
+        <col style="width: 15%">
+        <col style="width: 30%">
+        <col style="width: 15%">
+        <col style="width: 30%">
+    </colgroup>
+    <tbody>
+        <tr>
+            <th>ログインID<span class="">&nbsp;*</span></th>
+            <td><input type="text" class="input-sm" value=""  name="id" required></td>
+        </tr>
+        <tr>
+            <th>パスワード</th>
+            <td><input type="password" class=""  name="password"></td> 
+        </tr></tbody>
+</table></form>
+</body>
+</html>
