@@ -22,6 +22,11 @@ public class TopController {
         return "top";
     }
 
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView show(@ModelAttribute MyData mydata, ModelAndView mav) {
+        return new ModelAndView("redirect:/edit/" + mydata.getId());
+    }
+
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView edit(@ModelAttribute MyData mydata, @PathVariable int id, ModelAndView mav) {
         mav.setViewName("edit");
