@@ -1,0 +1,1 @@
+insert into my_data (id, name) values (1, 'name #1');

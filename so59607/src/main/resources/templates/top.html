@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Top page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <form method="post" action="/edit">
+    <h1>Please input the number</h1>
+    <input type="text" name="id" th:value="${id}" />
+    <input type="submit" value="Send" >
+    <br>
+    <a th:href="@{/}">Back enter display</a>
+    </form>
+</body>
+</html>
