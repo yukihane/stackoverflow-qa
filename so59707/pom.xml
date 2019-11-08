@@ -7,8 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>A project based on java8maven</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -17,6 +15,12 @@
   </properties>
 
   <dependencies>
+    <!-- https://github.com/yukihane/Sudachi/tree/feature/dict-as-resource -->
+    <dependency>
+      <groupId>com.github.yukihane</groupId>
+      <artifactId>sudachi</artifactId>
+      <version>0.3.1-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
