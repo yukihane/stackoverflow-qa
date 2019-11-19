@@ -27,12 +27,23 @@ public class PasswordEncoderSampleApplication implements CommandLineRunner {
 
     @Override
     public void run(final String... args) throws Exception {
+
+        // パスワードのハッシュ化
         final String password = passwordEncoder.encode("mypassword");
         log.info("Encoded Password: {}", password);
 
         final String name = "myname";
 
         jdbcTemplate.update("insert into user_table (name,password) values (?, ?)", name, password);
+
+        final String dbpw = (String) jdbcTemplate
+            .queryForList("select password from user_table where name = ?", "myname")
+            .get(0).values().iterator().next();
+        log.info("Pwssword from DB: {}", dbpw);
+
+        // ハッシュ化したパスワードとの照合
+        final boolean match = passwordEncoder.matches("mypassword", dbpw);
+        log.info("Password is match?: {}", match);
     }
 
     public static void main(final String[] args) {
