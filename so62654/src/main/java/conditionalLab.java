@@ -10,15 +10,12 @@ public class conditionalLab extends JPanel {
     ImageIcon picture4;
     int jobs;
 
-    public conditionalLab() {
+    public conditionalLab(int jobs, int age) {
         // Your custom initialization code here
         super();
 
-        jobs = JOptionPane.showConfirmDialog(null, "Are you Student or Military?", "Laie Palms Cinemas",
-                JOptionPane.YES_NO_OPTION);
-
-        final String mike = JOptionPane.showInputDialog("Please enter your age.");
-        age = Integer.parseInt(mike);
+        this.jobs = jobs;
+        this.age = age;
 
         picture1 = new ImageIcon("dolittle.png");
         picture2 = new ImageIcon("frozen2.png");
@@ -69,10 +66,17 @@ public class conditionalLab extends JPanel {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+
+            int jobs = JOptionPane.showConfirmDialog(null, "Are you Student or Military?", "Laie Palms Cinemas",
+                    JOptionPane.YES_NO_OPTION);
+
+            final String mike = JOptionPane.showInputDialog("Please enter your age.");
+            int age = Integer.parseInt(mike);
+
             JFrame window = new JFrame();
             window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             window.setSize(300, 300);
-            window.setContentPane(new conditionalLab());
+            window.setContentPane(new conditionalLab(jobs, age));
             window.setVisible(true);
         });
     }
