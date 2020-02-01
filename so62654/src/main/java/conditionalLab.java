@@ -12,6 +12,8 @@ public class conditionalLab extends JPanel {
 
     public conditionalLab() {
         // Your custom initialization code here
+        super();
+
         jobs = JOptionPane.showConfirmDialog(null, "Are you Student or Military?", "Laie Palms Cinemas",
                 JOptionPane.YES_NO_OPTION);
 
