@@ -34,25 +34,25 @@ public class conditionalLab extends JPanel {
 
         }
 
-        if ((jobs == JOptionPane.NO_OPTION) && (age >= 0) && (age <= 2)) {
+        else if ((jobs == JOptionPane.NO_OPTION) && (age >= 0) && (age <= 2)) {
             g.drawString("You get free!", 10, 10);
             picture1.paintIcon(null, g, 10, 50);
 
         }
 
-        if ((jobs == JOptionPane.NO_OPTION) && (age >= 3) && (age <= 11)) {
+        else if ((jobs == JOptionPane.NO_OPTION) && (age >= 3) && (age <= 11)) {
             g.drawString("You owe $7.00!", 10, 10);
             picture2.paintIcon(null, g, 10, 50);
 
         }
 
-        if ((jobs == JOptionPane.NO_OPTION) && (age >= 12) && (age <= 59)) {
+        else if ((jobs == JOptionPane.NO_OPTION) && (age >= 12) && (age <= 59)) {
             g.drawString("You owe $10.00!", 10, 10);
             picture3.paintIcon(null, g, 10, 50);
 
         }
 
-        if ((jobs == JOptionPane.NO_OPTION) && (age >= 60) && (age <= 119)) {
+        else if ((jobs == JOptionPane.NO_OPTION) && (age >= 60) && (age <= 119)) {
             g.drawString("That will be $7.00, please", 10, 10);
             picture4.paintIcon(null, g, 10, 50);
 
