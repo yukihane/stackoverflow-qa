@@ -66,10 +66,12 @@ public class conditionalLab extends JPanel {
     }
 
     public static void main(String[] args) {
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(300, 300);
-        window.setContentPane(new conditionalLab());
-        window.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            JFrame window = new JFrame();
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setSize(300, 300);
+            window.setContentPane(new conditionalLab());
+            window.setVisible(true);
+        });
     }
 }
