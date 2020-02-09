@@ -1,0 +1,22 @@
+== これは何？
+
+スタックオーバーフローで行った、次の質問のサンプルコードです。
+
+* https://ja.stackoverflow.com/q/62868/2808[動的確保したメモリー領域の解放戦略 - スタック・オーバーフロー]
+
+== ファイル
+
+=== `pattern-examples-in-c`
+
+質問文に記載した、ラリブラリが動的メモリ領域を必要とするような状況での、メモリ確保、解放戦略パターンです。
+
+=== `build.sh`
+
+実際に行おうとしていることの、サンプル実装ビルドスクリプトです。
+
+Java(https://openjdk.java.net/projects/panama/[Project Panama利用])からRustで実装したcdylib内関数(動的メモリ領域を必要とする想定)の呼び出しを行います。
+
+* rust 1.41.0
+* Java; https://jdk.java.net/panama/[Build 14-panama+1-15 (2019/8/8)]
+
+を前提としています。
