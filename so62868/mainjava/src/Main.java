@@ -22,7 +22,7 @@ public class Main extends JFrame {
 
         final JButton greetButton = new JButton("greet");
         greetButton.addActionListener((e) -> {
-            final Scope scope = greeter_lib.scope();
+            final Scope scope = Scope.globalScope();
 
             final Pointer<Byte> name = scope.allocateCString(nameField.getText());
             final long size = 256;
