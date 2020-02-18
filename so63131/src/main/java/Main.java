@@ -62,7 +62,7 @@ public class Main {
 
             cell1_1.setCellValue(l);
             cell1_2.setCellValue(k);
-            cell2_3.setCellFormula("T.INV.2T(B2,C2)");
+            cell2_3.setCellFormula("_xlfn.T.INV.2T(B2,C2)");
 
             FileOutputStream out = null;
             try {
