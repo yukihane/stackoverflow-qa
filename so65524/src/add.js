@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 
 class Add extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+    };
+  }
   onInput = (e) => {
     this.setState({
       name: e.target.value,
     });
   };
   addTodo = () => {
-    const { todos, name } = this.state;
-    this.setState({
-      todos: [...todos, name],
-    });
+    const name = this.state.name;
+    this.props.onAddTodo(name);
   };
 
   render() {
