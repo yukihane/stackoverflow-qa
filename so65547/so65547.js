@@ -18,22 +18,22 @@ const user_turn = (user_selection_vertical, user_selection_horizontal) => {
     let user_turn_flag = true;
     let user_turn_count = 0;
     while (user_turn_flag) {
-        if (!user_x + user_turn_count == 0) {
+        if (user_x - user_turn_count > 0) {
             if (board[user_x - user_turn_count][user_y] == 2&&board[user_x - (user_turn_count + 1)][user_y] == 1) {
                 changehost(user_x - user_turn_count,user_y,1);
             }
         }
-        if (!user_x + user_turn_count == 7) {
+        if (user_x + user_turn_count < 7) {
             if (board[user_x + user_turn_count][user_y] == 2&&board[user_x +(user_turn_count + 1)][user_y] == 1) {
                 changehost(user_x - user_turn_count,user_y,1);
             }
         }
-        if (!user_y + user_turn_count == 0) {
+        if (user_y - user_turn_count > 0) {
             if (board[user_x][user_y - user_turn_count] == 2&&board[user_x][user_y - (user_turn_count + 1)] == 1) {
                 changehost(user_x - user_turn_count,user_y,1);
             }   
         }
-        if (!user_y + user_turn_count == 7) {
+        if (user_y + user_turn_count < 7) {
             if (board[user_x][user_y + user_turn_count] == 2&&board[user_x][user_y + (user_turn_count + 1)] == 1) {
                 changehost(user_x - user_turn_count,user_y,1);
             }
