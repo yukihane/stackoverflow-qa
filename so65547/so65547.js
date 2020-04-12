@@ -18,7 +18,6 @@ const user_turn = (user_selection_vertical, user_selection_horizontal) => {
     let user_turn_flag = true;
     let user_turn_count = 0;
     while (user_turn_flag) {
-        user_turn_count++;
         if (!user_x + user_turn_count == 0) {
             if (board[user_x - user_turn_count][user_y] == 2&&board[user_x - (user_turn_count + 1)][user_y] == 1) {
                 changehost(user_x - user_turn_count,user_y,1);
@@ -40,6 +39,7 @@ const user_turn = (user_selection_vertical, user_selection_horizontal) => {
             }
         }
         if (user_turn_count == 7) {user_turn_flag = false;}
+        user_turn_count++;
     }
 }
 
