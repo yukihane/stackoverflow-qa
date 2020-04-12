@@ -48,5 +48,7 @@ const changehost = (host_selection_vertical, host_selection_horizontal,Human) =>
     let host_y = host_selection_horizontal;
     board[host_x][host_y] = Human;
 }
+
+
 user_turn(4,2);
-console.log(board_display());
+console.table(board);
