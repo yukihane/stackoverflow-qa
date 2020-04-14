@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import com.github.yukihane.so.deps.Dept;
 import com.github.yukihane.so.deps.DeptDao;
 import com.github.yukihane.so.deps.EditBean;
-import com.github.yukihane.so.deps.EditLogicImpl;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import org.jglue.cdiunit.CdiRunner;

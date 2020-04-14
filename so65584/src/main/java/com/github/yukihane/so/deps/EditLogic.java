@@ -5,7 +5,8 @@ public interface EditLogic {
     /**
      * 保存処理
      * @param bean 編集画面のバッキングBean
+     * @return 
      */
-    void save(EditBean bean);
+    boolean save(EditBean bean);
 
 }

@@ -4,13 +4,13 @@ import com.github.yukihane.so.deps.CommonUtil;
 import com.github.yukihane.so.deps.Dept;
 import com.github.yukihane.so.deps.DeptDao;
 import com.github.yukihane.so.deps.EditBean;
+import com.github.yukihane.so.deps.EditLogic;
 import com.github.yukihane.so.deps.FacesContext;
-import com.github.yukihane.so.deps.MyBean;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-@RequestScoped
-public class MyBeanImpl implements MyBean {
+@Dependent
+public class EditLogicImpl implements EditLogic{
 
     @Inject
     private DeptDao dao;
