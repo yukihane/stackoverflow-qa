@@ -9,10 +9,12 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
+@RunWith(Enclosed.class)
 public class AppTest {
     @RunWith(CdiRunner.class)
     public static class SaveTest {
@@ -24,7 +26,7 @@ public class AppTest {
         @Produces
         private DeptDao dao;
 
-            /**
+        /**
          * 登録成功
          */
         @Test
