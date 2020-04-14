@@ -1,0 +1,8 @@
+https://ja.stackoverflow.com/a/65607/2808 の再現コード。
+
+https://github.com/yukihane/stackoverflow-qa/blob/012f040fd8253f921c093b69ea53cce31ae06121/so65584/src/main/java/com/github/yukihane/so/EditLogicImpl.java#L73[`dao.insert(dept);`]をコメントアウトして
+
+ mvn clean test
+
+を実行すれば質問のエラーが再現できます。
+(コメントアウトしないと再現できないのですが、理由は提示されている情報からは分かりませんでした)
