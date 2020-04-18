@@ -3,6 +3,7 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 //メイン・クラス
 
@@ -14,7 +15,10 @@ public class framemoving
  //メイン・メソッド
  public static void main(String[] args)
  {
-  framemoving test = new framemoving();
+  // https://ja.stackoverflow.com/a/4560/2808
+  SwingUtilities.invokeLater(() -> {
+   framemoving test = new framemoving();
+  });
  }
  //コンストラクタ
  public framemoving()
