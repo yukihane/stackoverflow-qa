@@ -1,4 +1,5 @@
 //インポート・ファイル
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
@@ -8,8 +9,7 @@ import javax.swing.JFrame;
 public class framemoving
 {
 
-    int x = 100;
-    int y = 100;
+    private final JFrame frame;
 
  //メイン・メソッド
  public static void main(String[] args)
@@ -21,9 +21,9 @@ public class framemoving
  {
 
  //基礎フレームの設定。
- JFrame frame = new JFrame();
+ frame = new JFrame();
  frame.setSize(250,250);
- frame.setLocation(x, y);
+ frame.setLocation(100, 100);
  frame.setTitle("Key_test");
  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  frame.setVisible(true);
@@ -42,12 +42,17 @@ class Keyboard_input implements KeyListener
     {
         System.out.println("keyPressed.");
 
+        // 現在の位置
+        Point point = frame.getLocation();
+        int x = point.x;
+        int y = point.y;
         switch(e.getKeyCode()){
         case KeyEvent.VK_UP : y = y - 10; break;
         case KeyEvent.VK_RIGHT : x=x+10; break;
         case KeyEvent.VK_DOWN : y=y+10; break;
         case KeyEvent.VK_LEFT : x=x-10;  break;
     }
+    frame.setLocation(x, y);
 }
   public void keyReleased(KeyEvent e)
  {
