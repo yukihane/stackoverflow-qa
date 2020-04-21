@@ -32,6 +32,7 @@ public class UserController {
         private String name;
         private int age;
         private String address;
+        private long targetId;
     }
 
     private static final List<User> USERS = List.of(new User(1, "山田", 20,
@@ -51,6 +52,7 @@ public class UserController {
 
 
         log.info("Received: {}", listForm);
+        log.info("Target: {}", listForm.getTargetId());
 
         // 以下ダミーコード
         final Map<String, Object> model = Map.of("list", USERS, "listForm", new ListForm());

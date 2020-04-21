@@ -10,17 +10,18 @@
 <title>user page</title>
 </head>
 <body>
+
+<c:forEach items="${list}" var="user">
 <form:form method="POST" action="/user"
   modelAttribute="listForm">
-<c:forEach items="${list}" var="user">
     <tr>
         <td><form:label path="id">${user.id}"</form:label><td>
         <td><form:label path="name">${user.name}</form:label><td>
         <td><form:label path="age">${user.age}</form:label><td>
         <td><form:label path="address">${user.address}</form:label><td>
-        <td><input type="submit" value="更新" name="update" /><td>
+        <td><form:hidden path="targetId" value="${user.id}" /><input type="submit" value="更新" name="update" /><td>
     </tr>
-</c:forEach>
 </form:form>
+</c:forEach>
 </body>
 </html>
