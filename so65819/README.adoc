@@ -1,0 +1,10 @@
+== これは何？
+
+https://ja.stackoverflow.com/q/65819/2808 の回答サンプルコード。
+
+== 実行方法
+
+ mvn clean package
+ java -jar target/so65819-0.0.1-SNAPSHOT.war
+
+正常に実行されたら http://localhost:8080/user へアクセス。
