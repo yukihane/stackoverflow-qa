@@ -1,0 +1,19 @@
+link:../jar-version[jar-version]との違いは:
+
+* Spring Initializr で packaging 設定を war に変更
+* Thymeleaf の https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#messages[message expressions]でメッセージリソースを利用
+
+---
+
+https://ja.stackoverflow.com/q/65859/2808
+
+ mvn clean package
+
+でビルドし、
+
+ java -jar target/demo-0.0.1-SNAPSHOT.war \
+ --spring.messages.basename=file:external-resources/messages
+
+で実行。
+
+http://localhost:8080/ へアクセス。
