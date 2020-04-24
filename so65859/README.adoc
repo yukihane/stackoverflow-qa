@@ -1,0 +1,12 @@
+https://ja.stackoverflow.com/q/65859/2808
+
+ mvn clean package
+
+でビルドし、
+
+ java -jar target/messages-properties-example-0.0.1-SNAPSHOT.jar \
+ --spring.messages.basename="file://$PWD/external-resources/messages"
+
+で実行。
+
+http://localhost:8080/ へアクセス。
