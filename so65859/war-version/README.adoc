@@ -17,3 +17,28 @@ https://ja.stackoverflow.com/q/65859/2808
 で実行。
 
 http://localhost:8080/ へアクセス。
+
+---
+
+Tomcat9にデプロイし `/tmp/external-resources` ディレクトリ配下のメッセージリソースを読む場合を例にすると、
+
+- `external-resources/messages.properties` ファイルを `/tmp/external-resources/` ディレクトリ下に移動する
+- Tomcatの本体配下に `conf/Catalina/localhost/demo-0.0.1-SNAPSHOT.xml` ファイルを作成する。内容は次の通り:
+```
+<Context>
+  <Resources>
+    <PostResources
+      className="org.apache.catalina.webresources.DirResourceSet"
+      base="/tmp/external-resources"
+      webAppMount="/WEB-INF/classes" />
+  </Resources>
+</Context>
+```
+
+この設定で `/tmp/external-resources` ディレクトリがwarファイル内 `/WEB-INF/classes` に差し込まれますのでアプリケーションはメッセージリソースをクラスパス内で見つけることができるようになります。
+
+参考:
+
+* https://stackoverflow.com/a/26126563/4506703[Can I create a custom classpath on a per application basis in Tomcat - Stack Overflow]
+* http://tomcat.apache.org/tomcat-9.0-doc/config/resources.html[Apache Tomcat 9 Configuration Reference (9.0.34) - The Resources Component]
+
