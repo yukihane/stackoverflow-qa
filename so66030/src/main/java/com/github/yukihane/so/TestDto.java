@@ -11,7 +11,7 @@ public class TestDto {
     public List<Result> result;
 
     @Data
-    public class Result {
+    public static class Result {
         public String hostid;
 
         public String name;
