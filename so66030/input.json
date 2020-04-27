@@ -1,15 +1,15 @@
 {
     "jsonrpc": "2.0",
-    "result":[
+    "result": [
         {
         "hostid": "9999",
         "name": "test",
-        "type": "1",
+        "type": "1"
         },
         {
         "hostid": "9998",
         "name": "test2",
-        "type": "1",
+        "type": "1"
         }
     ],
     "id": 1
