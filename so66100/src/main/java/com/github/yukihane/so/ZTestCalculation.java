@@ -19,19 +19,22 @@ public class ZTestCalculation extends JFrame
 //        engine.eval("dev.off()");
 //        engine.end();
 //
-//This is a method to stick png file to JFrame 
-        ZTestCalculation frame = new ZTestCalculation();
+//This is a method to stick png file to JFrame
+        SwingUtilities.invokeLater(() -> {
+            ZTestCalculation frame = new ZTestCalculation();
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(10, 10, 150, 150);
-        frame.setTitle("Z-Graph");
-        frame.setVisible(true);
-        JPanel p = new JPanel();
-        p.setSize(500,640);
-        ImageIcon icon = new ImageIcon("normal.png");
-        JLabel label = new JLabel(icon);
-        label.setIcon(icon); 
-        p.add(label);
-        frame.getContentPane().add(p, BorderLayout.CENTER);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setBounds(10, 10, 150, 150);
+            frame.setTitle("Z-Graph");
+            JPanel p = new JPanel();
+            p.setSize(500, 640);
+            ImageIcon icon = new ImageIcon("normal.png");
+            JLabel label = new JLabel(icon);
+            label.setIcon(icon);
+            p.add(label);
+            frame.getContentPane().add(p, BorderLayout.CENTER);
+            frame.pack();
+            frame.setVisible(true);
+        });
     }
 }
