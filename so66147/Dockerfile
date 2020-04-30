@@ -8,7 +8,8 @@ curl \
 
 RUN curl -s "https://get.sdkman.io" | bash \
 && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-&& sdk install java 8.0.252.hs-adpt
+&& sdk install java 8.0.252.hs-adpt \
+&& sdk install maven 3.6.3
 
 RUN export JAVA_HOME=/root/.sdkman/candidates/java/current \
 && R CMD javareconf \
