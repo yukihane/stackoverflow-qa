@@ -17,3 +17,5 @@ RUN source ~/.bashrc \
 && mvn install:install-file -Dfile=/usr/local/lib/R/site-library/rJava/jri/JRI.jar -DgroupId=com.github.yukihane.rjava -DartifactId=jri -Dversion=0.1.0-SNAPSHOT -Dpackaging=jar \
 && mvn install:install-file -Dfile=/usr/local/lib/R/site-library/rJava/jri/JRIEngine.jar -DgroupId=com.github.yukihane.rjava -DartifactId=jri-engine -Dversion=0.1.0-SNAPSHOT -Dpackaging=jar \
 && mvn install:install-file -Dfile=/usr/local/lib/R/site-library/rJava/jri/REngine.jar -DgroupId=com.github.yukihane.rjava -DartifactId=r-engine -Dversion=0.1.0-SNAPSHOT -Dpackaging=jar
+
+RUN echo 'export R_HOME=/usr/lib/R' >> ~/.bashrc
