@@ -1,0 +1,11 @@
+rJava(JRI)を実行するDocker環境。
+
+ docker build . -t rjava
+ docker run -it --rm -v "$PWD/project":/project rjava /bin/bash
+
+でdockerコンテナに入り、
+
+ cd /project
+ ./exec.sh
+
+でサンプルコードをビルド、実行。
