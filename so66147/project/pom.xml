@@ -12,9 +12,25 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <jri.version>0.1.0-SNAPSHOT</jri.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.github.yukihane.rjava</groupId>
+      <artifactId>jri</artifactId>
+      <version>${jri.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.yukihane.rjava</groupId>
+      <artifactId>jri-engine</artifactId>
+      <version>${jri.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.yukihane.rjava</groupId>
+      <artifactId>r-engine</artifactId>
+      <version>${jri.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
