@@ -4,7 +4,8 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build tsconfig.json"
+    "build": "tsc",
+    "execute": "tsc && node build/main.js"
   },
   "devDependencies": {
     "@types/node": "^13.13.4",
