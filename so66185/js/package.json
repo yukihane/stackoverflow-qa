@@ -1,0 +1,13 @@
+{
+  "name": "so66185js",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.4",
+    "typescript": "^3.8.3"
+  }
+}
