@@ -1,0 +1,14 @@
+== 実行方法
+
+ ./gradlew bootRun
+
+で、 リソースファイル link:src/main/resources/templates/hello.html[`hello.html`]を編集した際に変更を検知して自動で(再起動なしに)更新される。
+
+link:./src/main/kotlin/com/example/so66615/HelloController.kt[`HelloController.kt`] の変更は誰かがコンパイルを行う必要がある。
+通常IDEの自動再コンパイル機能で賄えるが、Gradleの https://docs.gradle.org/current/userguide/command_line_interface.html#sec:continuous_build[Continuous Build] 機能を用いて
+
+ ./gradlew -t build
+
+としても良い(別窓で実行)。
+
+クラスファイルが更新されると、それを検知して再起動される。
