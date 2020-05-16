@@ -2,14 +2,15 @@ package com.github.yukihane.so;
 
 public class Bus extends Car{
     private static int pass_num = 1;
-    private int pass_max;
+    private final int pass_max;
     private static int fee_sum = 0;
 
     public Bus(int x){
         pass_max = x;
+        passengers = new Person[pass_max];
     }
 
-    Person passengers[] = new Person[pass_max];
+    final Person passengers[];
 
     int getBusNum(){
         return super.num;
