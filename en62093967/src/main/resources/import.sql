@@ -1,0 +1,1 @@
+INSERT INTO my_entity (id,version,message) VALUES (1,0,null);
