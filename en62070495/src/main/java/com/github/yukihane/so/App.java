@@ -10,10 +10,10 @@ import org.modelmapper.TypeMap;
  * Hello world!
  */
 public class App {
+    static final ModelMapper modelMapper = new ModelMapper();
    
 
     public static TaskDTO converTaskToDTO(Task source) {
-        final ModelMapper modelMapper = new ModelMapper();
         
         List<Double> icList = new ArrayList<>();
         for (ChargeInitial c : source.getCharge()) {
