@@ -2,6 +2,8 @@ package com.github.yukihane.so;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.modelmapper.TypeMap;
@@ -11,15 +13,9 @@ import org.modelmapper.TypeMap;
  */
 public class App {
     static final ModelMapper modelMapper = new ModelMapper();
-   
 
     public static TaskDTO converTaskToDTO(Task source) {
-        
-        List<Double> icList = new ArrayList<>();
-        for (ChargeInitial c : source.getCharge()) {
-            icList.add(c.getCharge());
-        }
-        System.out.println(icList);
+
         TypeMap<Task, TaskDTO> typeMap = modelMapper.getTypeMap(Task.class, TaskDTO.class);
         if (typeMap == null) {
 
@@ -29,10 +25,23 @@ public class App {
                     map().setLot(source.getLot().getName());
                     map().setProject(source.getLot().getProject().getName());
                     map().setCollaborator(source.getCollaborator().getEmail());
-                    map().setCharge(icList);
                 }
             };
             modelMapper.addMappings(mapping);
+
+            Converter<List<ChargeInitial>, List<Double>> chargeInitialConverter = new AbstractConverter<>() {
+                @Override
+                protected List<Double> convert(List<ChargeInitial> source) {
+                    List<Double> icList = new ArrayList<>();
+                    for (ChargeInitial c : source) {
+                        icList.add(c.getCharge());
+                    }
+                    System.out.println(icList);
+                    return icList;
+                }
+            };
+            modelMapper.addConverter(chargeInitialConverter);
+
         }
 
         return modelMapper.map(source, TaskDTO.class);
