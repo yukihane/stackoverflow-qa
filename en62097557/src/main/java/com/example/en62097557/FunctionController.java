@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FunctionController {
     @RequestMapping("/function/hash")
     public String hashPage(final Model m) {
-        return "html/hashcode.html";
+        return "/html/hashcode.html";
     }
 }
