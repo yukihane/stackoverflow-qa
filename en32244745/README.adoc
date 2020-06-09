@@ -1,0 +1,19 @@
+== Run
+
+ mvn spring-boot:run
+
+http://localhost:8080/hello
+
+== Login
+
+link:src/main/resources/data.sql[]
+
+|===
+|ID|password
+
+|user1
+|password1
+
+|user2
+|password2
+|===
