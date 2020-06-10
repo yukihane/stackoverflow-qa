@@ -13,6 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ApplicationUser {
 
+    public ApplicationUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
@@ -20,8 +25,8 @@ public class ApplicationUser {
     @Version
     private int version;
 
-    @Column
-    private String name;
+    @Column(unique = true)
+    private String username;
 
     @Column
     private String password;
