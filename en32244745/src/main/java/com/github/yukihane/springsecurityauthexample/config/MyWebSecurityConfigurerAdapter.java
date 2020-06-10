@@ -16,7 +16,9 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
     protected void configure(final HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .anyRequest().authenticated()
+            .antMatchers(
+                "/hello")
+            .authenticated()
             .and()
             .httpBasic();
         http.authenticationProvider(authProvider);
