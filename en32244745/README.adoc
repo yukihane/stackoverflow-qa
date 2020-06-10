@@ -2,18 +2,5 @@
 
  mvn spring-boot:run
 
-http://localhost:8080/hello
-
-== Login
-
-link:src/main/resources/data.sql[]
-
-|===
-|ID|password
-
-|user1
-|password1
-
-|user2
-|password2
-|===
+* user registration page: http://localhost:8080/register
+* login required page: http://localhost:8080/hello
