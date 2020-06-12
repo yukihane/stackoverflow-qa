@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CitizenRepository extends JpaRepository<Citizen, Long> {
     
-    @Query(value = "SELECT name FROM Citizen c, Police p, Arrest a WHERE c.id = p.id AND a.id = p.id AND a.duration = ?1")
-public List<Citizen> getCitizenByDuration(int duration);
+    @Query(value = "SELECT c.name FROM Citizen c, Police p, Arrest a WHERE c.id = p.id AND a.id = p.id AND a.duration = ?1")
+public List<String> getCitizenByDuration(int duration);
 
 
     public List<Citizen> getCitizenById(long Id);
