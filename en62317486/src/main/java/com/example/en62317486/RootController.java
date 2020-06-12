@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RootController {
     @RequestMapping("/")
     public String root() {
-        return "index.html";
+        return "forward:index.html";
     }
 }
