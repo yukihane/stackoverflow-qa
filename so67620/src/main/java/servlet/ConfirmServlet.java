@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -44,6 +45,7 @@ public class ConfirmServlet extends HttpServlet {
         List<Answer> answerList = GetAnswerLogic.getAnswer(question_id);
         session.setAttribute("answerList", answerList);
 
+        request.getSession().setAttribute("EditQuestionList", Arrays.asList(new Question()));
         //質問リスト画面へフォワード
         RequestDispatcher dispatcher =
                 request.getRequestDispatcher("/WEB-INF/jsp/QandAComfirm.jsp");

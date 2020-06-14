@@ -32,7 +32,7 @@
 </header>
 <section class="regist-form">
  <div class="container">
- <form action="/QandASystem/EditQuestionServlet" method="post">
+ <form action="EditQuestionServlet" method="post">
   <table border="1">
   <% for (int i=0; i<elist.size(); i++) { %>
     <tr>
