@@ -52,6 +52,22 @@ public class SampleController {
         model.addAttribute("comment", comment);
         return "blog";
     }
+    
+    @GetMapping("/comment")
+    public String createDummyComment() {
+        Comment comment = new Comment();
+        comment.setPostDateTime(LocalDateTime.now());
+        comment.setText("ダミーテキスト: " + comment.getPostDateTime());
+        Blog blog = new Blog();
+        blog.setComments( List.of(comment));
+        blog.setContents("コンテンツ");
+        blog.setTitle("タイトル");
+        Blog saved = blogRepository.save(blog);
+        comment.setBlog(saved);
+        commentRepository.save(comment);
+        return "redirect:/blog/" + comment.getBlog().getId();
+    }
+    
 
     @PostMapping("/comment")
     public String createComment(Comment comment) {
