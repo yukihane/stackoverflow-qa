@@ -22,7 +22,7 @@
 
         <form action="/comment" method="post" th:object="${comment}">
                     コメントをどうぞ<br>
-            <input type="hidden" name="blog" th:value="*{blog.id}">
+            <input type="hidden" name="blogId" th:value="${blog.id}">
             <input type="text" size="40" th:field="*{text}">
             <input type="submit">
         </form>
