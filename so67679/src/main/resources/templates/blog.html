@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${blog.title}">ブログタイトル</title>
+</head>
+<body>
+    <p>
+        <a href="/">一覧に戻る</a>
+    </p>
+    <div th:object="${blog}">
+            <h1 th:text="*{title}">タイトル</h1>
+        <div>
+            投稿日時
+            <span th:text="*{postDateTime}">投稿日時</span>
+        </div>
+        <p>
+            <th:block th:each="line : *{contents.split('\n')}">
+            <th:block th:text="${line}"></th:block><br>
+            </th:block>
+        </p>
+
+        <form action="/comment" method="post" th:object="${comment}">
+                    コメントをどうぞ<br>
+            <input type="hidden" name="blog" th:value="*{blog.id}">
+            <input type="text" size="40" th:field="*{text}">
+            <input type="submit">
+        </form>
+
+        <ul>
+            <li th:each="c : *{comments}" th:object="${c}">
+                <span  th:text="*{postDateTime}"></span>
+                <span  th:text="*{text}"></span>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
