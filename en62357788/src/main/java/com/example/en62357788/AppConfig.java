@@ -1,5 +1,6 @@
 package com.example.en62357788;
 
+import javax.naming.NamingException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,12 +21,11 @@ public class AppConfig {
     }
 
     @Bean
-    public String emailPassword(){
-        return passwordDecryptor.decrypt(password);
-    }
-
-    @Bean(initMethod = "init" )
-    public ExternalContext externalContext(){
-        return new ExternalContext();
+    public ExternalContext externalContext() throws NamingException {
+        ExternalContext ctx = new ExternalContext();
+        ctx.setEmailUsername(emailUsername);
+        ctx.setEmailPassword(passwordDecryptor.decrypt(password));
+        ctx.init();
+        return ctx;
     }
 }
