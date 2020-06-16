@@ -1,12 +1,18 @@
 package com.example.en62396625;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "visitors")
 public class newvisitor {
+
+	@Id
+	@GeneratedValue
+	private Long id;
 
     @NotBlank
     private String firstname;
