@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.DependsOn;
 
 @SpringBootApplication
 @Slf4j
@@ -21,6 +22,7 @@ public class En62400654Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         //      Thread.sleep(1000);  --------------------------------------------------> line 1
         log.info("All users -> {}", dao.findAll());
+        System.exit(0);
     }
 
 }
