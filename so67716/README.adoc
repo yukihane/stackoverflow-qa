@@ -1,0 +1,20 @@
+== これは何？
+
+https://github.com/spring-projects/spring-security/tree/5.3.3.RELEASE/samples/boot/oauth2login#github-login[Login with GitHubのサンプル]をベースにして、
+
+* ログアウト、セッションexpired時に
+** 認可サーバ(GitHub)へのtoken revocation requestを行う
+** 自身(OAuth2.0クライアント)が管理しているトークン(等の情報)を削除する
+
+機能を追加したサンプル。
+
+https://ja.stackoverflow.com/q/67716/2808
+
+== 実行方法
+
+. https://github.com/settings/apps/new からOAuth Appsを作成する。**Authorization callback URL** には `http://localhost:8080/login/oauth2/code/github` を指定する
+. 上記で作成したAppsのClient ID, Client Secretを link:src/main/resources/application.properties[`src/main/resources/application.properties`] に設定する
+. `mvn spring-boot:run`
+. http://localhost:8080/ へアクセス
+
+セッションタイムアウトは60秒に設定しています。ログアウトは、画面右部に表示されているlogoutボタンから試せます。
