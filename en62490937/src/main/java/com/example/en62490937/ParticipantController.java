@@ -26,6 +26,7 @@ public class ParticipantController {
         Participant participant = req.getParticipant();
         Conference conference = req.getConference();
 
+        log.info("has error: {}", bindingResult.hasErrors());
         log.info("Call for ParticipantController -> removeParticipantFromConference");
         log.info("Received message is {}, {}", participant, conference);
 
