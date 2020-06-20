@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,10 @@ public class ParticipantController {
     ParticipantServiceImpl participantService;
 
     @DeleteMapping(value = "/removeParticipantFromConference", consumes = "application/json")
-    public String removeParticipantFromConference(@RequestBody @Valid Participant participant, @Valid Conference conference, BindingResult bindingResult) {
+    public String removeParticipantFromConference(@RequestBody @Valid RemoveParticipantFromConferenceRequest req, BindingResult bindingResult) {
+        Participant participant = req.getParticipant();
+        Conference conference = req.getConference();
+
         log.info("Call for ParticipantController -> removeParticipantFromConference");
         log.info("Received message is {}, {}", participant, conference);
 
