@@ -1,5 +1,6 @@
 package com.example.en62492087;
 
+import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class ProjectConverter {
         @Override
         public List<Long> convert(final MappingContext<List<Location>, List<Long>> context) {
             final List<Location> source = context.getSource();
-            final List<Long> destination = context.getDestination();
+            final List<Long> destination = new ArrayList<>();
 
             for (final Location location : source) {
                 destination.add(location.getId());
