@@ -1,5 +1,7 @@
 package com.example.en62492087;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +20,7 @@ public class En62492087Application implements CommandLineRunner {
 
     @Override
     public void run(final String... args) throws Exception {
-        final Project source = new Project();
+        final Project source = new Project(List.of(new Location(1L, "hello")));
         final ProjectDTO dest = modelMapper.map(source, ProjectDTO.class);
         System.out.println(dest);
 
