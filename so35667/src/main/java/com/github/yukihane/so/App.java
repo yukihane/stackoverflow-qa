@@ -8,6 +8,10 @@ public class App {
 
     @Data
     public static class car {
+        public car(final long id) {
+            this.carId = id;
+        }
+
         private long carId;
 
         public long carId() {
@@ -15,7 +19,7 @@ public class App {
         }
     }
 
-    private long carId;
+    private final long carId = 1;
 
     public static void main(final String[] args) {
         new App().method();
