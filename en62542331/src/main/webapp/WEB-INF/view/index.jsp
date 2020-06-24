@@ -6,6 +6,6 @@
 <title>SpringBoot + JSP</title>
 </head>
 <body>
-    <% out.println(new java.util.Date()); %>
+    <div>${myResource}</div>
 </body>
 </html>
