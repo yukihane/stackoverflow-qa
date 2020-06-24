@@ -1,12 +1,12 @@
 package org.example.rest;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Path("/test")
-@Stateless
+@RequestScoped
 public class TestResource {
 
     @Inject TestBean testBean;

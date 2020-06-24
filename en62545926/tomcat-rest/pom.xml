@@ -10,4 +10,26 @@
       <modelVersion>4.0.0</modelVersion>
     
       <artifactId>tomcat-rest</artifactId>
+
+      <dependencies>
+        <dependency>
+          <!-- https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general -->
+          <groupId>org.glassfish.jersey.containers</groupId>
+          <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jersey.inject</groupId>
+          <artifactId>jersey-hk2</artifactId>
+        </dependency>
+        <dependency>
+          <!-- https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/cdi.support.html#cdi.support.existing.containers -->
+          <groupId>org.glassfish.jersey.ext.cdi</groupId>
+          <artifactId>jersey-cdi1x</artifactId>
+        </dependency>
+        <dependency>
+          <!-- https://docs.jboss.org/weld/reference/latest-3.1/en-US/html/environments.html#weld-servlet -->
+          <groupId>org.jboss.weld.servlet</groupId>
+          <artifactId>weld-servlet-core</artifactId>
+        </dependency>
+      </dependencies>
     </project>

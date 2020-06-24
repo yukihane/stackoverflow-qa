@@ -18,27 +18,38 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <jersey.version>2.31</jersey.version>
+        <weld.version>3.1.4.Final</weld.version>
       </properties>
     
       <dependencyManagement>
         <dependencies>
           <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
+            <!-- https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general -->
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>${jersey.version}</version>
+          </dependency>
+          <dependency>
+            <!-- https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/cdi.support.html#cdi.support.existing.containers -->
+            <groupId>org.glassfish.jersey.ext.cdi</groupId>
+            <artifactId>jersey-cdi1x</artifactId>
+            <version>${jersey.version}</version>
+          </dependency>
+          <dependency>
+            <!-- https://docs.jboss.org/weld/reference/latest-3.1/en-US/html/environments.html#weld-servlet -->
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>${weld.version}</version>
           </dependency>
         </dependencies>
       </dependencyManagement>
-    
-      <dependencies>
-        <dependency>
-          <groupId>javax</groupId>
-          <artifactId>javaee-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-    
+
       <build>
         <resources>
           <resource>

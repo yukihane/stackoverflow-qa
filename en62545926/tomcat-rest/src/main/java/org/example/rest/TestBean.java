@@ -1,8 +1,8 @@
 package org.example.rest;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 
-@Stateless
+@RequestScoped
 public class TestBean {
     public String test() {
         return "Test Bean";
