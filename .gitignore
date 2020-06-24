@@ -1,3 +1,4 @@
+.attach_pid*
 node_modules/
 build/
 dist/
