@@ -27,7 +27,7 @@ public class MyController {
     }
 
     @GetMapping("/jsp")
-    public String input(final Model model) {
+    public String indexJsp(final Model model) {
         final MyResource res = createResource();
         model.addAttribute(res);
         return "index";
