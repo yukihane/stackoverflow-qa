@@ -35,6 +35,7 @@ test {
 
 bootRun {
       debugOptions {
-        suspend = false
+        server = false
+        port = 5005
     }
 }
