@@ -10,21 +10,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // Authentication : User --> Roles
     protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
+        throws Exception {
         auth.inMemoryAuthentication().withUser("user1").password("{noop}Secret1").roles("USER");
-
     }
 
- 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/claims/id/").hasRole("USER")
-                .and()
-                .httpBasic();
-            
-
+            .antMatchers("/").permitAll()
+            .antMatchers("/claims/id/").hasRole("USER")
+            .and()
+            .httpBasic();
     }
-
 }
