@@ -6,6 +6,7 @@
 <title>SpringBoot + JSP</title>
 </head>
 <body>
+    <div>${text}</div>
     <div>${myResource}</div>
 </body>
 </html>

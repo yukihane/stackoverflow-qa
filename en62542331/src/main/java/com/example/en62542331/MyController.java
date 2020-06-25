@@ -1,5 +1,8 @@
 package com.example.en62542331;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,22 +17,22 @@ public class MyController {
         private String text;
     }
 
-    private MyResource createResource() {
-        final MyResource res = new MyResource();
-        res.setText("Hello, world!");
-        return res;
-    }
-
     @GetMapping("/json")
     @ResponseBody
-    public MyResource idexJson() {
-        return createResource();
+    public String indexRoute() {
+        return "{\"text\": \"JSON HERE\"}";
     }
 
     @GetMapping("/jsp")
-    public String indexJsp(final Model model) {
-        final MyResource res = createResource();
-        model.addAttribute(res);
+    public String indexJsp(final Model model) throws JsonMappingException, JsonProcessingException {
+        final String jsonText = indexRoute();
+
+        final ObjectMapper mapper = new ObjectMapper();
+        final MyResource myResource = mapper.readValue(jsonText, MyResource.class);
+
+        model.addAttribute("text", jsonText);
+        model.addAttribute(myResource);
+
         return "index";
     }
 
