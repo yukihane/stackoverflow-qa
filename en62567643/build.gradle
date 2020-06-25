@@ -32,3 +32,9 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+bootRun {
+      debugOptions {
+        suspend = false
+    }
+}
