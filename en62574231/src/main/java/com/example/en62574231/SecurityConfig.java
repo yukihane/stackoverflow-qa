@@ -11,7 +11,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // Authentication : User --> Roles
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.inMemoryAuthentication().withUser("user1").password("Secret1").roles("USER");
+        auth.inMemoryAuthentication().withUser("user1").password("{noop}Secret1").roles("USER");
 
     }
 
@@ -20,7 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/id").hasAuthority("USER");
+                .antMatchers("/claims/id/").hasRole("USER")
+                .and()
+                .httpBasic();
             
 
     }
