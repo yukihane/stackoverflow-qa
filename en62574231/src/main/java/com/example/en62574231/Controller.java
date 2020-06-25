@@ -1,6 +1,9 @@
 package com.example.en62574231;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/claims", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class Controller {
 
-    
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Response {
+        private String userId;
+        private String id;
+    }
 
     /**
      * @param policyIdentifier
@@ -32,7 +41,7 @@ public class Controller {
 //        List<Claims> claims = mongoOps.find(query, Claims.class);
 //        LOG.info("Claims returned: " + claims.toString());
 //        return claims;
-        return "";
+        return new Response(null, userId);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -67,7 +76,7 @@ public class Controller {
 //        }
 //        JsonWriterSettings writerSettings = JsonWriterSettings.builder().outputMode(JsonMode.SHELL).indent(true).build();
 //        return claimsUpdatedList != null ? claimsUpdatedList.get(0).toJson(writerSettings) : null;
-        return null;
+        return new Response(userId, id).toString();
     }
 
 
