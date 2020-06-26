@@ -20,7 +20,7 @@ public class En62588892Application implements CommandLineRunner {
     public void run(final String... args) throws Exception {
         final someOtherClass obj = new someOtherClass();
         obj.setText("Hello, world!");
-        final someClass bean = (someClass) context.getBean("someClass", obj);
+        final someClass bean = (someClass) context.getBean("method", obj);
         System.out.println(bean.getText());
 
         System.exit(0);
