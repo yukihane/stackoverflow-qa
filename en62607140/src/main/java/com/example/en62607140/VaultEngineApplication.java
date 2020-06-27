@@ -15,6 +15,6 @@ public class VaultEngineApplication {
 
     @GetMapping("/h")
     public String greetingForm() {
-        return "index.html";
+        return "index";
     }
 }
