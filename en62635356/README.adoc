@@ -1,0 +1,6 @@
+== 実行方法
+
+ mvn clean compile && \
+ rm target/classes/com/example/en62635356/MyConf.class && \
+ mvn surefire:test
+
