@@ -56,13 +56,14 @@ public class En62675219Application implements CommandLineRunner {
         final HttpHeaders messageheaders = new HttpHeaders();
         messageheaders.setContentType(MediaType.valueOf("application/vnd.kafka.avro.v2+json"));
         messageheaders.setBasicAuth("username", "password");
-        final HttpEntity<JSONObject> message = new HttpEntity<>(event, messageheaders);
+        final HttpEntity<String> message = new HttpEntity<>(event.toString(), messageheaders);
 
         final ResponseEntity<String> result1 = restTemplate.exchange(kafkarwsrproxyURL, HttpMethod.POST,
             message, String.class);
 
         if (result1.getStatusCodeValue() == 200) {
             System.out.println("Message is pushed to Kafka");
+            System.out.println(result1.getBody());
         }
 
         System.exit(0);
