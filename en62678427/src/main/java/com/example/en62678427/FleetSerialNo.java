@@ -5,10 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class FleetSerialNo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "FLT_ID")
     private int fltId;
 
@@ -18,6 +23,7 @@ public class FleetSerialNo {
     @Column(name = "SER_NO_BDY")
     private String serialNoBody;
 
+    @ManyToOne
     private Fleet fleet;
 
     public FleetSerialNo() {
@@ -31,8 +37,9 @@ public class FleetSerialNo {
         this.fleet = fleet;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //    @Id
+    //    @GeneratedValue(strategy = GenerationType.AUTO)
+    //    @Column(name = "FLT_ID")
     public int getFltId() {
         return fltId;
     }

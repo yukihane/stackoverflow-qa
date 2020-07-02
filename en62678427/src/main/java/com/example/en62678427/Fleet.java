@@ -1,10 +1,13 @@
 package com.example.en62678427;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
@@ -22,7 +25,8 @@ public class Fleet{
     @Column(name = "FLT_ASSN")
     private String fleetAssignment;
 
-    //private List<FleetSerialNo> fleetSerialNo;
+    @OneToMany(mappedBy = "fleet", cascade = CascadeType.ALL)
+    private List<FleetSerialNo> fleetSerialNo;
 
     public Fleet( ) {
 
