@@ -7,14 +7,14 @@ import java.util.Collections;
 import java.util.List;
 import mockit.Expectations;
 import mockit.Mocked;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
     @Test
-    public void test(@Mocked Hoge hoge) {
+    public void test(@Mocked final Hoge hoge) {
 
         new Expectations() {
             {
