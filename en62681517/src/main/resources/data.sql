@@ -1,1 +1,1 @@
-insert into tasks (id, title, description) values (1, 'the-title', null);
+insert into tasks (id, title, description) values (1, 'the-title', null)
