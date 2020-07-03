@@ -10,10 +10,15 @@ public class App {
     }
     private void newOrLoadChooser() {
         XMLParsed hexUserObject = new XMLParsed();
-        JPanel dialogPanel = new NewOrLoadPanel(hexUserObject);
+        NewOrLoadPanel dialogPanel = new NewOrLoadPanel(hexUserObject);
+
         int result = JOptionPane.showConfirmDialog(null, dialogPanel, "", JOptionPane.OK_CANCEL_OPTION);
+        boolean isLoadCloset = dialogPanel.loadCloset.isSelected();
+        boolean isNewCloset = dialogPanel.newCloset.isSelected();
+
         boolean userChoice = dialogPanel.getComponent(1).isFocusOwner();
-        System.out.println(userChoice);
+        System.out.println(isLoadCloset);
+        System.out.println(isNewCloset);
 //        if (userChoice == true) { // new file
 //            newClosetChooser();
 //            myInv = new ParsedInventory(hexValue, username);
