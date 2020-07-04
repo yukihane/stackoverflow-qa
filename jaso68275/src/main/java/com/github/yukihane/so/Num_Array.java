@@ -20,12 +20,12 @@ public class Num_Array {
             String str2 = null;
             str2 = br2.readLine();
             
-            while(str1 != null && str2 != null){
+            while(str1 != null || str2 != null){
                 int num = 0;
                 int add_num = 0;
  
-                String[] nstr1 = str1.split(",");
-                String[] nstr2 = str2.split(",");
+                String[] nstr1 = str1 != null ? str1.split(",") : new String[0];
+                String[] nstr2 = str2 != null ? str2.split(",") : new String[0];
                 row = new ArrayList<Integer>();
            
                 for(int i = 0; i < nstr1.length || i < nstr2.length; i++){
@@ -51,7 +51,7 @@ public class Num_Array {
                 }
                 list.add(row);
                 str1 = br.readLine();
-                str2 = br.readLine();
+                str2 = br2.readLine();
             }
             for(int i = 0; i < list.size(); i++){
                 for(int j = 0; j < list.get(i).size(); j++){
