@@ -41,7 +41,7 @@ public class ToDoController {
     public String getUpdateForm(final ModelMap model, @RequestParam final int id) {
         // To work with command bean
         model.addAttribute("todo", service.retrieveTodo(id));
-        model.clear();
+        // model.clear();
         return "updateToDo";
     }
 
