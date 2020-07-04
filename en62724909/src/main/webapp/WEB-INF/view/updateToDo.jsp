@@ -10,7 +10,7 @@
     <div class="container">
         <H1>update your task!</H1>
     
-        <form:form method="POST" commandName="todo">
+        <form:form method="POST" modelAttribute="todo">
             
             <fieldset class="form-group">
                 <form:label path="description">Description:</form:label>
