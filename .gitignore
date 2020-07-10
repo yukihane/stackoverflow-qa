@@ -1,3 +1,4 @@
+.gradle/
 .attach_pid*
 node_modules/
 build/
