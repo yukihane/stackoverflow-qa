@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <div th:each="note : ${allNotes}">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <form action="#" method="POST"
+              th:action="@{'/home/editNote/' + ${note.noteId}}"
+              th:object="${note}">
+              <!--                                        <input type="hidden" name="noteId" th:value="*{getNoteId()}">-->
+              <!-- 
+              <button type="button" class="btn btn-success"
+                onclick="editNoteModal('updateNote', this.getAttribute('data-noteId'),
+                                            this.getAttribute('data-noteTitle'),
+                                             this.getAttribute('data-noteDescription'))">Edit
+              </button>
+              -->
+              <button type="submit">Edit</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
