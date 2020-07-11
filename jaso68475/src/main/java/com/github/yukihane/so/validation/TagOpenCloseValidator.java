@@ -25,6 +25,7 @@ public class TagOpenCloseValidator implements ConstraintValidator<TagOpenClose, 
     private boolean isValidClose(final String value, final ConstraintValidatorContext context) {
         final boolean ret = value.contains("</mytag>");
         if (!ret) {
+            // プロパティファイルからメッセージテンプレートを読む場合
             context.buildConstraintViolationWithTemplate("{com.github.yukihane.so.validation.TagOpenClose.noclose}")
                 .addConstraintViolation();
         }
