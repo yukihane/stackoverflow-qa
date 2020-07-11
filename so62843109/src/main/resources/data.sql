@@ -1,0 +1,1 @@
+insert into vehicle(id,year) values (1,2009),(2,2010),(3,2011);
