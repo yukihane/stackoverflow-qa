@@ -21,7 +21,10 @@ import javax.validation.Payload;
 @Repeatable(TagOpenClose.List.class)
 public @interface TagOpenClose {
 
-    String message() default "(使用しない)";
+    // disableDefaultConstraintViolation() により
+    // デフォルトConstraintViolation生成は抑制されるため
+    // 結果的にこのメッセージは利用されない
+    String message() default "タグ検証エラー";
 
     Class<?>[] groups() default {};
 
