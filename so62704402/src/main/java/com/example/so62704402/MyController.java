@@ -33,7 +33,7 @@ public class MyController {
 
         modelAndView.setViewName("profile");
 
-        //        user.setEmail("my.email@example.com");
+        user.setEmail("my.email@example.com");
 
         return modelAndView;
     }
