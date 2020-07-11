@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 public class MyController {
-    @GetMapping(value = "students", params = { "name" })
-    public ResponseEntity<?> getByName(@RequestParam final String name) {
-        return new ResponseEntity<>(true, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "students", params = { "tag" })
-    public ResponseEntity<?> getByTag(@RequestParam final String tag) {
+    @GetMapping(value = "students")
+    public ResponseEntity<?> get(@RequestParam(required = false) final String name,
+        @RequestParam(required = false) final String tag) {
+        if ((name == null) == (tag == null)) {
+            return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 }
