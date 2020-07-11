@@ -4,7 +4,7 @@ import com.github.yukihane.so.validation.TagOpenClose;
 import lombok.Data;
 
 @Data
-public class Car {
+public class MyEntity {
 
     @TagOpenClose
     private String text;

@@ -21,7 +21,7 @@ import javax.validation.Payload;
 @Repeatable(TagOpenClose.List.class)
 public @interface TagOpenClose {
 
-    String message() default "{com.github.yukihane.so.validation.TagOpenClose." + "message}";
+    String message() default "(使用しない)";
 
     Class<?>[] groups() default {};
 
