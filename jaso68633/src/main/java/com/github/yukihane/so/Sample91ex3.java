@@ -31,6 +31,9 @@ public class Sample91ex3 extends JPanel {
                     }
 
                 }
+                // このタイミングだと、円の座標は移動後のものが取得されるがそれで良い？
+                // (NGなら、上のfor-loopの前で実行する必要がある。)
+                // また、配列は0始まりなのでこれは実際には4つめの円を指している
                 circles[3].hito(evt.getX(), evt.getY());
             }
         });
@@ -81,8 +84,10 @@ public class Sample91ex3 extends JPanel {
         }
 
         public void hito(int x, int y) {
-            double a = x + y;
-            System.out.println(a);
+            if (hit(x, y)) {
+                double a = x + y;
+                System.out.println(a);
+            }
 
         }
 
