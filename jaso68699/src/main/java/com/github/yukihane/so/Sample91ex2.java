@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Sample91ex2 extends JPanel {
-    Circle c1 = new Circle(Color.RED, 100, 50, 30);
+    Circle c1 = new Circle(Color.RED, 100, 50, 50);
     Circle c2 = new Circle(Color.BLUE, 150, 90, 40);
     Circle sel;
 
