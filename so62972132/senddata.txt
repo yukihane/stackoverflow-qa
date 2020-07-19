@@ -1,18 +1,19 @@
 {
-  "id": 1,
-  "name": "user-name",
-  "gender": "male",
-  "emailId": "user@example.com",
-  "userpurchase": [
-    {
-      "productid": 1,
-      "productname": "product-name-1",
-      "cost": 100
-    },
-    {
-      "productid": 2,
-      "productname": "product-name-2",
-      "cost": 200
-    }
-  ]
+  "user": {
+    "name": "deep",
+    "gender": "male",
+    "emailId": "d@gmail.com",
+    "userpurchase": [
+      {
+        "productid": 2,
+        "productname": "laptop",
+        "cost": 50000
+      },
+      {
+        "productid": 3,
+        "productname": "earphone",
+        "cost": 500
+      }
+    ]
+  }
 }
