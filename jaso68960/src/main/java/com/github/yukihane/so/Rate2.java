@@ -45,17 +45,15 @@ public class Rate2 extends JFrame {
 
         item01.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-
                 a = true;
-
+                b = !a;
             }
         });
 
         item02.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-
                 b = true;
-
+                a = !b;
             }
         });
 
