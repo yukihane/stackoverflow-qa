@@ -47,7 +47,9 @@ public class SampleController {
         //getメソッドを呼び出して中身を取り出す。
         model.addAttribute("blog", blog.get());
 
-        model.addAttribute("comment", new CommentForm());
+        Comment comment = new Comment();
+        comment.setBlog(blog.get());
+        model.addAttribute("comment", comment);
         return "blog";
     }
     
@@ -68,11 +70,7 @@ public class SampleController {
     
 
     @PostMapping("/comment")
-    public String createComment(CommentForm commentForm) {
-        Comment comment = new Comment();
-        Blog blog = blogRepository.findById(commentForm.getBlogId()).get();
-        comment.setBlog(blog);
-        comment.setText(commentForm.getText());
+    public String createComment(Comment comment) {
         comment.setPostDateTime(LocalDateTime.now());
         commentRepository.save(comment);
         return "redirect:/blog/" + comment.getBlog().getId();
