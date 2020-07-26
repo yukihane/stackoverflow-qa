@@ -23,8 +23,14 @@ public class Rate2 extends JFrame {
   boolean a=false;
  // boolean b=false;boolean c=false;boolean d;boolean e;boolean f;
   boolean[]t=new boolean[6];
- 
-  
+
+  // 対応する配列要素をtrueに、それ以外をfalseにする
+  private void setSelected(int menuNum) {
+    for (int i = 0; i < 6; i++) {
+      t[i] = false;
+    }
+    t[menuNum] = true;
+  }
 
   public Rate2() {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,9 +54,8 @@ public class Rate2 extends JFrame {
     item01.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
        
-       t[0]=true;t[1-5]=false;
-       //b=c=d=e=f=false;
-       
+       // t[0]=true;t[1-5]=false;
+       setSelected(0);
     }
 });
 
@@ -58,47 +63,36 @@ public class Rate2 extends JFrame {
 
     item02.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        
-        t[1]=true;t[0]=t[2-5]=false;
-        //a=c=d=e=f=false;
-        
+        // t[1]=true;t[0]=t[2-5]=false;
+        setSelected(1);
       }
     });
 
     item03.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        
-        t[2]=true;t[0-1]=t[3-5]=false;
-       // a=false;b=!c;d=false;e=false;f=false;
-        
+        // t[2]=true;t[0-1]=t[3-5]=false;
+        setSelected(2);
       }
     });
 
     item04.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        
-        t[3]=true;t[0-2]=t[4-5]=false;
-        //a=false;b=!d;c=false;e=false;f=false;
-        
+        // t[3]=true;t[0-2]=t[4-5]=false;
+        setSelected(3);
       }
     });
 
     item05.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        
-        
-        t[4]=true;t[0-3]=t[5]=false;
-        //a=false;b=false;c=false;d=false;f=false;
-        
+        // t[4]=true;t[0-3]=t[5]=false;
+        setSelected(4);
       }
     });
 
     item06.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        
-        t[5]=true;t[0-4]=false;
-       // a=false;b=false;c=false;d=false;e=false;
-        
+        // t[5]=true;t[0-4]=false;
+        setSelected(5);
       }
     });
     
@@ -151,8 +145,6 @@ public class Rate2 extends JFrame {
     
         }
       });
-
-      
 }
 
 
