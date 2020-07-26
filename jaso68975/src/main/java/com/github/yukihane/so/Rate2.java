@@ -20,8 +20,11 @@ public class Rate2 extends JFrame {
     JMenuItem item05 = new JMenuItem("JPY to CNY");
     JMenuItem item06 = new JMenuItem("JPY to Euro");
 
-    boolean a=false;
-    boolean b=false;boolean c=false;boolean d;boolean e;boolean f;
+    // それぞれのメニューについての選択/非選択状態は不要
+    // boolean a=false;
+    // boolean b=false;boolean c=false;boolean d;boolean e;boolean f;
+    // 代わりに、どのメニューが選択状態か(1つに限られると思います)を覚えておく
+    private JMenuItem selected;
 
     public Rate2() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,46 +42,36 @@ public class Rate2 extends JFrame {
         //pack(); 
         setSize(400, 300);
 
-        item01.addActionListener(new ActionListener() {
+        ActionListener menuItemActionListener = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                a=true;
-                b=false;
-                c=false;
-                d=false;
-                e=false;
-                f=false;
+                // a=true;
+                // b=false;
+                // c=false;
+                // d=false;
+                // e=false;
+                // f=false;
+                selected = (JMenuItem) evt.getSource();
             }
-        });
-
-        item02.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                b=true;
-                a=false;c=false;d=false;e=false;f=false;
-            }
-        });
-
-        item03.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                c=true;
-                a=false;b=!c;
-            }
-        });
+        };
+        item01.addActionListener(menuItemActionListener);
+        item02.addActionListener(menuItemActionListener);
+        item03.addActionListener(menuItemActionListener);
 
         b0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                if(a){Double n=Double.parseDouble(f0.getText());
+                if(selected == item01){Double n=Double.parseDouble(f0.getText());
 
                 Dollar d1=new Dollar(n);
                 Double d2=d1.Ex();
                 l1.setText(n+"USDは"+d2+"円");}
-                else if(b){Double n=Double.parseDouble(f0.getText());
+                else if(selected == item02){Double n=Double.parseDouble(f0.getText());
                 //l1.C1(n);
                 Other c1=new Other(n);
                 Double c2=c1.Ex2();
 
                 l1.setText(n+"人民元は"+c2+"円");}
 
-                else if(c){Double n=Double.parseDouble(f0.getText());
+                else if(selected == item03){Double n=Double.parseDouble(f0.getText());
                 //l1.C1(n);
                 Other c3=new Other(n);
                 Double c4=c3.Ex3();
