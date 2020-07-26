@@ -53,7 +53,7 @@ public class Rate2 extends JFrame {
         item02.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 b=true;
-                a=false;c=false;d,e,f=false;
+                a=false;c=false;d=false;e=false;f=false;
             }
         });
 
