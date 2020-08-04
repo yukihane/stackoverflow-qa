@@ -5,8 +5,6 @@ package com.github.yukihane.so;
  */
 public class TargetSubClass {
 
-    public String someMethod(final String[] any) {
-        // TODO Auto-generated method stub
-        return "hello";
+    public void someMethod(final String[] any) {
     }
 }

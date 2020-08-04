@@ -8,9 +8,7 @@ public class TestMockito {
     @Test
     public void testMockito() {
         final TargetSubClass mock = mock(TargetSubClass.class);
-        when(mock.someMethod(any()))
-            .thenReturn(null)
-            .thenThrow(new NullPointerException());
+        doNothing().doThrow(new NullPointerException()).when(mock).someMethod(any());
 
         mock.someMethod(new String[] { "test" });
         mock.someMethod(new String[] { "test" });
