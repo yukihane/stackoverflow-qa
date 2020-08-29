@@ -32,8 +32,8 @@ mkdir -p "$(rbenv root)"/plugins
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
 # ruby インストール
-rbenv install 2.7.1
-rbenv global 2.7.1
+rbenv install 2.6.5
+rbenv global 2.6.5
 
 # sqlite3 最新版利用設定
 # https://url4u.jp/centos7-rails6-sqlite3/
