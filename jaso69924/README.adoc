@@ -1,3 +1,3 @@
-https://ja.stackoverflow.com/a/66035/2808
-
-CentOS7にRuby2.7, Rails6(それぞれ最新版)をインストールして実行する。
+https://ja.stackoverflow.com/q/69924/2808 
+link:../so65998[] をベースにして(そちらはCentOS7, ruby2.7)
+CentOS6にRuby2.6.5, Rails6をインストールして実行する。
