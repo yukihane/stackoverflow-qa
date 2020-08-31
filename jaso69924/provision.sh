@@ -5,7 +5,7 @@ sudo yum -y install gdbm-devel openssl-devel readline-devel zlib-devel
 
 # GCC4
 pushd /tmp
-curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-4.9.4/gcc-4.9.4.tar.gz
+curl -s -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-4.9.4/gcc-4.9.4.tar.gz
 tar xf gcc-4.9.4.tar.gz
 cd gcc-4.9.4
 ./contrib/download_prerequisites
