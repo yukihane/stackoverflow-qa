@@ -11,6 +11,7 @@ cd gcc-4.9.4
 ./contrib/download_prerequisites
 make -j 5
 sudo make install
+# https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96
 sudo mv /opt/gcc-4.9.4/lib64/{,bak.}libstdc++.so.6.0.20-gdb.py
 sudo bash -c 'cat > /etc/ld.so.conf.d/gcc-4.9.4.conf' << EOF
 /opt/gcc-4.9.4/lib64
