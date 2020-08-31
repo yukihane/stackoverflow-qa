@@ -9,6 +9,7 @@ curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-4.9.4/gcc-4.9
 tar xf gcc-4.9.4.tar.gz
 cd gcc-4.9.4
 ./contrib/download_prerequisites
+./configure --enable-languages=c,c++ --prefix=/opt/gcc-4.9.4 --disable-bootstrap --disable-multilib
 make -j 5
 sudo make install
 # https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96
