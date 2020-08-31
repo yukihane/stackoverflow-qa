@@ -22,23 +22,6 @@ echo 'export PATH=/opt/gcc-4.9.4/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 popd
 
-# glibc 2.17 (nodeが必要としている)
-# https://gist.github.com/harv/f86690fcad94f655906ee9e37c85b174
-pushd /tmp
-
-curl -L -O http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-2.17-55.el6.x86_64.rpm
-curl -L -O http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-common-2.17-55.el6.x86_64.rpm
-curl -L -O http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-devel-2.17-55.el6.x86_64.rpm
-curl -L -O http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-headers-2.17-55.el6.x86_64.rpm
-
-sudo rpm -Uvh glibc-2.17-55.el6.x86_64.rpm \
-glibc-common-2.17-55.el6.x86_64.rpm \
-glibc-devel-2.17-55.el6.x86_64.rpm \
-glibc-headers-2.17-55.el6.x86_64.rpm
-
-popd
-
-
 # SQLite >= 3.8 インストール(ここでは3.31.1をインストール)
 # https://www.sqlite.org/download.html
 curl -s https://www.sqlite.org/2020/sqlite-autoconf-3310100.tar.gz | tar xz -C /tmp
@@ -47,11 +30,13 @@ cd /tmp/sqlite-autoconf-3310100
 make
 sudo make install
 
-# nodejs v12(LTS) インストール
-# https://nodejs.org/ja/download/
+# node インストール
+# 新しいバージョンは要求するglibcのバージョンが大きいので利用できない
+# https://guides.rubyonrails.org/getting_started.html#installing-node-js-and-yarn
+# https://nodejs.org/en/download/releases/
 mkdir -p ~/opt
-curl -sL https://nodejs.org/dist/v12.18.3/node-v12.18.3-linux-x64.tar.xz | tar xJ -C ~/opt
-echo 'export PATH=$HOME/opt/node-v12.18.3-linux-x64/bin:$PATH' >> ~/.bashrc
+curl -sL https://nodejs.org/download/release/v8.17.0/node-v8.17.0-linux-x64.tar.xz | tar xJ -C ~/opt
+echo 'export PATH=$HOME/opt/node-v8.17.0-linux-x64/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 
 # yarn インストール
