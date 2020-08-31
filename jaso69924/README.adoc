@@ -1,3 +1,5 @@
-https://ja.stackoverflow.com/q/69924/2808 
+https://ja.stackoverflow.com/q/69924/2808
+
+'''
 link:../so65998[] をベースにして(そちらはCentOS7, ruby2.7)
 CentOS6にRuby2.6.5, Rails6をインストールして実行する。
