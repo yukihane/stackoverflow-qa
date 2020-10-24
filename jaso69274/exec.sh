@@ -9,6 +9,7 @@ git commit --allow-empty -m init
 
 # 1.ブランチfeatureで作業開始(hello.txt作成)
 git checkout -b feature
+git tag start-feature
 echo 'Hello!' > hello.txt
 git add hello.txt
 git commit -m hello
