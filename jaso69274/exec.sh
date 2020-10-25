@@ -9,10 +9,10 @@ git commit --allow-empty -m init
 
 # 1.ブランチfeatureで作業開始(hello.txt作成)
 git checkout -b feature
-git tag start-feature
+git tag start-working
 echo 'Hello!' > hello.txt
 git add hello.txt
-git commit -m hello
+git commit -m 'hello.txtを追加しました'
 
 # 2.ブランチmasterにfeatureをマージしたけれど...
 git checkout master
@@ -25,7 +25,8 @@ git revert --no-edit -m 1 @
 git checkout feature
 echo 'World!' > world.txt
 git add world.txt
-git commit -m world
+git commit -m 'world.txtを追加しました'
+git tag end-working
 
 # 5.featureでの作業が完了したのでmasterにマージ
 git checkout master
