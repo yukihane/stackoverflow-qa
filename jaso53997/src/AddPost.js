@@ -21,8 +21,9 @@ class AddPost extends Component {
   };
 
   handleSubmit = (e) => {
+    console.log("submit");
     e.preventDefault();
-    this.props.mapDispatchToProps(this.props.post.id);
+    // this.props.mapDispatchToProps(this.props.post.id);
     this.setState({
       title: "",
       body: " ",
@@ -47,6 +48,7 @@ class AddPost extends Component {
             onChange={this.handleChangeBody}
             value={this.state.body}
           />
+          <input type="submit" id="myadd" name="myadd" />
         </form>
       </div>
     );
