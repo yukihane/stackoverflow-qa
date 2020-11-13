@@ -32,15 +32,16 @@ public class MyController {
 
             // 実際にはこの地点で認証などの共通処理を実施
 
-            response.getWriter().write(" <HTML>\n" +
-                "            <HEAD>\n" +
-                "                <TITLE>Sample-Page</TITLE>\n" +
-                "            <HEAD>\n" +
-                "            <BODY>\n" +
-                "                <H1>Sample-Page</H1>\n" +
-                "                <script src=\"./js/sample.js\"></script>\n" +
-                "            </BODY>\n" +
-                "        </HTML>");
+            response.getWriter().write(
+                " <HTML>" +
+                "   <HEAD>" +
+                "     <TITLE>Sample-Page</TITLE>" +
+                "   </HEAD>" +
+                "   <BODY>" +
+                "     <H1>Sample-Page</H1>" +
+                "     <script src=\"./js/sample.js\"></script>" +
+                "   </BODY>" +
+                " </HTML>");
 
         } else {
             response.getWriter().write("<HTML>Forbidden</HTML>");
