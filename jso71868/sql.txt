@@ -1,0 +1,50 @@
+1. create table
+
+create table table1 (
+  date1 timestamp(6) with local time zone,
+  date2 timestamp(6) with local time zone,
+  same_date number(1)
+  generated always as
+  (
+    case
+      when date1 = date2 then 1
+      else 0
+    end
+  ) virtual
+);
+
+create bitmap index idx_same_date on table1(same_date);
+
+
+2. alter table
+
+create table table1 (
+  date1 timestamp(6) with local time zone,
+  date2 timestamp(6) with local time zone
+);
+
+alter table table1 add (
+  same_date number(1)
+  generated always as
+  (
+    case
+      when date1 = date2 then 1
+      else 0
+    end
+  ) virtual
+);
+
+create bitmap index idx_same_date on table1(same_date);
+
+
+
+サンプルクエリ:
+
+insert into table1 (date1, date2) values 
+(timestamp '2010-11-13 12:00:00', timestamp '2010-11-13 00:00:00'),
+(timestamp '2010-11-13 00:00:00', timestamp '2010-11-14 00:00:00'),
+(timestamp '2010-11-14 00:00:00', timestamp '2010-11-14 00:00:00');
+
+
+select * from table1 where same_date = 1;
+
