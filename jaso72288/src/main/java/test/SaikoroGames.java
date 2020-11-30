@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SaikoroGames {
 
     public static void main(String[] args) {
@@ -9,14 +12,13 @@ public class SaikoroGames {
 
         // プレイヤー人数を決める
         int player = 3;
-        int sum = 0;
         int dice = 0;
 
         int max = Integer.MIN_VALUE;
         // 人数分ループする
         for (int j = 0; j < player; j++) {
             System.out.printf("[%d] : ", j + 1);
-            sum = 0;
+            int sum = 0;
             for (int i = 1; i <= player; i++) {
                 dice = (int) (Math.random() * 6) + 1;
                 System.out.print(dice + " ");
@@ -31,12 +33,23 @@ public class SaikoroGames {
             System.out.println();
         }
         // 勝者判定
+        // 最大値(max)を獲得したプレーヤをピックアップ
+        List<Integer> winners = new ArrayList<>();
         for (int j = 0; j < player; j++) {
             if (hokan[j] == max) {
-                System.out.println();
-                System.out.printf("勝者は[%d]、", j + 1);
-                System.out.print("合計値は" + hokan[j]);
+                winners.add(j);
             }
         }
+        // maxを獲得したプレーヤとmax値を出力
+        System.out.println();
+        System.out.printf("勝者は");
+        for (int winner : winners) {
+            System.out.printf("[%d]", winner + 1);
+        }
+        // maxを獲得したプレーヤが2人以上なら引き分け
+        if (winners.size() >= 2) {
+            System.out.print("(引き分け)");
+        }
+        System.out.print("、合計値は" + max);
     }
 }
