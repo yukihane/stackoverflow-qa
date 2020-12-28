@@ -1,4 +1,4 @@
-package com.example.jaso72939;
+package com.github.yukihane;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 public class test_apri1 {
     public static void main(final String[] args) {
