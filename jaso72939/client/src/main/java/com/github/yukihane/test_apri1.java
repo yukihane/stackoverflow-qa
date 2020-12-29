@@ -18,7 +18,7 @@ public class test_apri1 {
         HttpURLConnection conn = null;
         final StringBuffer json = new StringBuffer();
         URL url = null;
-        InputStream is = null;
+        final InputStream is = null;
         final StringBuffer v_param = new StringBuffer();
         final Map params = new HashMap();
         params.put("tantousya_id", "KANRI");
@@ -56,9 +56,14 @@ public class test_apri1 {
             ps.flush();
             ps.close();
 
-            is = conn.getInputStream();
-            final BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-
+            //            is = conn.getInputStream();
+            //            final BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            final BufferedReader reader;
+            if (100 <= conn.getResponseCode() && conn.getResponseCode() <= 399) {
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            } else {
+                reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+            }
             String s;
             while ((s = reader.readLine()) != null) {
                 json.append(s);
