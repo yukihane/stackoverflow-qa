@@ -32,7 +32,6 @@ public class test_apri1 {
             conn.setUseCaches(false);
             conn.setRequestProperty("Accept-Language", "jp");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            //            conn.setRequestProperty("Accept", "application/json");
             final String v_id_pass = "TEST:TEST";
             final byte[] v_id_pass_str64 = Base64.encodeBase64(v_id_pass.getBytes());
             conn.setRequestProperty("Authorization", "Basic " + new String(v_id_pass_str64));
