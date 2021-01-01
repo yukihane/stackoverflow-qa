@@ -1,0 +1,25 @@
+== Link
+* https://ja.stackoverflow.com/q/73000/2808[サーバーサイドから取得した静的リソースをユーザーごとにアクセス制限をかけたい] - Stack Overflow
+
+== 実行方法
+
+....
+mvn spring-boot:run
+....
+
+で起動して
+
+* http://localhost:8080/data/pic/pic1.jpg
+* http://localhost:8080/data/pic/pic2.jpg
+* http://localhost:8080/data/pic/pic3.jpg
+
+へアクセスする。
+
+ログインIDは `user1`, `user2`, `user3` のいずれか。パスワードはIDと同じ。
+
+`user1` なら `pic1.jpg` へはアクセスできる(注)が、 `pic2.jpg`, `pic3.jpg` へのアクセス権限はない(`403 Forbidden`)。
+
+注: コミット時点ではリソース保存ディレクトリのパスを `\file:///C:/work/pic/` としている。
+このため、このディレクトリにリソースを置くか、パスを変更しない場合には `404 Not Found` 。
+
+(`files` ディレクトリに画像ファイルを置いているので、このパスを指定すれば画像表示可能。)
