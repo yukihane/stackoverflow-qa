@@ -1,0 +1,11 @@
+== https://stackoverflow.com/a/65615235/4506703[Application works good but while testing, a repository bean isn't create]
+
+> Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.example.toucan.repository.RepositoryNote' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+
+インジェクション対象となる `RepositoryNote` コンポーネントが存在しない旨のエラー。
+
+https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#boot-features-testing-spring-boot-applications-testing-autoconfigured-mvc-tests[4.26.3. Testing Spring Boot Applications > Auto-configured Spring MVC Tests] にある通り、コンポーネントはスキャンされないのでmockを突っ込む必要がある。
+
+
+回答では、現状発生している問題を解消するための方法を提示した。
+ただしこの場合また別のエラーが出る。 `JwtUtil` がインジェクションできないというものだが、これをmock化すると実施したいテストが行えないのではないかと思い、`@WebMvcTest` を使うべきではないかもという示唆を行った。
