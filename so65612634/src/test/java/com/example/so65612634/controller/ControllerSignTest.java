@@ -3,6 +3,8 @@ package com.example.so65612634.controller;
 import com.example.so65612634.So65612634Application;
 import com.example.so65612634.model.dto.DtoUsernamePassword;
 import com.example.so65612634.model.entity.EntityUser;
+import com.example.so65612634.repository.RepositoryNote;
+import com.example.so65612634.repository.RepositoryUser;
 import com.example.so65612634.service.ServiceSign;
 import com.example.so65612634.util.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,6 +49,11 @@ public class ControllerSignTest {
 
     @Autowired
     private JwtUtil jwtUtil;
+    
+    @MockBean
+    private RepositoryNote repositoryNote;
+    @MockBean
+    private RepositoryUser repositoryUser;
 
     @BeforeEach
     void printApplicationContext() {
