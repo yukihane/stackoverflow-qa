@@ -1,0 +1,22 @@
+== https://stackoverflow.com/a/65616165/4506703[Springboot exception handling when there is no controllers]
+
+
+=== 回答について
+
+"no controllers" とは書かれているが、web application を作ろうとしているのかそれ以外(例えばbatchアプリ)を作ろうとしているのかが読み取れませんでした。
+
+最終的には、 `@ControllerAdvice` を試してみた、と書かれているので、回答の前提としては web application を作ろうとしていることにしました(が、意味がわからないので取り敢えず試してみただけで、実際にはweb applicationを作りたいわけではない可能性は残ります)。
+
+=== サンプルコードについて
+
+サンプルコードは、 フィルタで発生する例外は `@ControllerAdvice` でハンドルできないが、 `ErrorController` ならハンドルできることを示しています。
+
+まず、 `MyFilter`, `MyErrorController` の2クラスを削除した状態で実行し http://localhost:8080 にアクセスするとコントローラが `MyException` をスローします。
+この例外は `MyControllerAdvise` がハンドルします。
+
+続いて、 `MyFilter` を復元して実行し、同じく http://localhost:8080 にアクセスします。
+この場合、 `MyFilter` が  `MyException` をスローします。
+しかし、この例外は `MyControllerAdvise` でハンドルされません。
+
+今度は `MyErrorController` も復元して(つまりリポジトリにコミットされている状態に戻して)、同様に実行、アクセスします。
+そうそうると、 `MyFilter` がスローした例外は `MyErrorController` でハンドルされているのがわかります。
