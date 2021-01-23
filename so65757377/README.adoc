@@ -1,0 +1,4 @@
+== ControllerでUnauthorizedExceptionを投げると401でなく403になる
+
+* https://stackoverflow.com/q/65757377/4506703[Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter] - Stack Overflow
+* https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/[blog記事]
