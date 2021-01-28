@@ -1,0 +1,3 @@
+* https://ja.stackoverflow.com/q/73625/2808[テーブルから得た List が外部キーだけ持っているが外部のそのキー（id）に対応するデータを取得し、 thymeleaf で HTML(view) に表示したい]
+
+JPA & Thymeleaf の質問。
