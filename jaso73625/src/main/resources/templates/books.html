@@ -18,7 +18,7 @@
         <tr th:each="books : ${booklist}">
           <td th:text="${books.id}">a</td>
           <td th:text="${books.name}">b</td>
-          <td th:text="${books.bookCategoryId}">c</td>
+          <td th:text="${books.bookCategory.category}">c</td>
         </tr>
       </tbody>
     </table>
