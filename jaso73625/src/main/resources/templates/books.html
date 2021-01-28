@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>本の名前</th>
+          <th>カテゴリ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="books : ${booklist}">
+          <td th:text="${books.id}">a</td>
+          <td th:text="${books.name}">b</td>
+          <td th:text="${books.bookCategoryId}">c</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
