@@ -12,7 +12,8 @@ public class WebSecurityBasicConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http.antMatcher("/sample/json3/**");
         http.authorizeRequests().anyRequest().authenticated();
-        http.httpBasic().realmName("Basic Authentication NG");
+        http.httpBasic().realmName("Basic Authentication NG")
+            .authenticationEntryPoint(new CustomAuthenticationEntryPoint());
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
 
