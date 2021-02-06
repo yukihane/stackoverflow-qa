@@ -1,6 +1,6 @@
 package com.example.so66054392;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class MyController {
 
-    @Qualifier("Example.A")
-    private ClassA obj;
+    @Resource(name = "Example.A")
+    private ClassA Example_A;
 
     @GetMapping
     public String index() {
