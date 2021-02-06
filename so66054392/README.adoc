@@ -1,0 +1,8 @@
+* https://stackoverflow.com/q/66054392/4506703[Spring @Bean with different name but same method name throws Bean creation exception]
+
+bean名によるインジェクトの質問(だと思われる)。
+
+bean名にドットが入っているのでフィールド名に拠るインジェクトは行えない。こういう場合は `@Resource` を利用すれば良い。
+
+* https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/core.html#beans-resource-annotation[1.9.7. Injection with @Resource]
+* https://qiita.com/kazuki43zoo/items/4597476607cf921c1453[Springの@AutowiredにBy Nameによるfallbackの仕組みがあった件・・・] - Qiita
