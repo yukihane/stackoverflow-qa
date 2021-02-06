@@ -1,3 +1,8 @@
+* https://stackoverflow.com/a/66082840/4506703[Spring autowiring dependency with constructor arguments]
+
+request-scoped な `String[]` オブジェクトをコンストラクタインジェクションしたい、という質問。
+
+実行方法:
 [code]
 ----
 curl -X POST -H 'Content-Type: application/json' -d '{"testStrings": ["aaa","bbbb"]}' http://localhost:8080/test
