@@ -6,9 +6,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
     private final String p = "Prop";
+    private final String q = "AnotherProp";
 
     @Bean
     public String getP() {
         return p;
+    }
+
+    @Bean
+    public String getQ() {
+        return q;
     }
 }
