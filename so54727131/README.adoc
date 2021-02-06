@@ -1,0 +1,3 @@
+* https://stackoverflow.com/a/66081107/4506703[Spring bean with same method name but different qualifier fail to load]
+
+so41570821 と同じく、Beanで定義した`String`オブジェクトのインジェクト方法。
