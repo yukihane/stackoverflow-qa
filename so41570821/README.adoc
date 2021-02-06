@@ -1,0 +1,5 @@
+* https://stackoverflow.com/a/66081422/4506703[Spring: How to inject a String bean to the constructor?]
+
+`@Bean` で定義した `String` オブジェクトをインジェクトする方法について。
+
+既存の回答は、name と qualifier の区別を付けていなかったので改めて回答した。
