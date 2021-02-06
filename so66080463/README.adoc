@@ -1,0 +1,4 @@
+[code]
+----
+curl -X POST -H 'Content-Type: application/json' -d '{"testStrings": ["aaa","bbbb"]}' http://localhost:8080/test
+----
