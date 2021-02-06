@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ClsB {
 
-    @Bean
-    @Qualifier("ClsB")
+    @Bean("clsBText")
+    @Qualifier("clsB")
     public String getSomething() {
         return "somethingB";
     }

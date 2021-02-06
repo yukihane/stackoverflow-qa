@@ -1,5 +1,7 @@
 package com.example.so54727131;
 
+import java.util.Map;
+import javax.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,13 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class MyController {
 
-    @Autowired
-    @Qualifier("ClasA")
+    @Resource(name = "clasAText")
     private String text;
 
+    @Autowired
+    @Qualifier("clsB")
+    private String text2;
+
     @GetMapping
-    public String index() {
-        return text;
+    public Map<String, String> index() {
+        return Map.of("by name", text, "by qualifier", text2);
     }
 
 }
