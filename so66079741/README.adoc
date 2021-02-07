@@ -1,0 +1,9 @@
+* https://stackoverflow.com/a/66084951/4506703[How to add a form in my .jsp file to send the values in the URL as pathvariabls not params . like this :- http://localhost:9091/getFeedback/138]
+
+`form` で入力した値を、 `@PathVariable` で受け取りたい、という質問。
+
+`onsubmit` で `action` を書き換えてそのようなURLになるようにすれば良い。
+
+* https://stackoverflow.com/a/63760880/4506703[How can I fill the action parameter of a form with values from the form's input?]
+
+を参考にした。
