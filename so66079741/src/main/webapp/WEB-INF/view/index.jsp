@@ -7,7 +7,11 @@ pageEncoding="UTF-8"%>
     <title>SpringBoot + JSP</title>
   </head>
   <body>
-    <form method="Get" action="getFeedback/">
+    <form
+      method="Get"
+      action="getFeedback/"
+      onsubmit="this.action = this.action + this.name.value; this.submit();"
+    >
       ID: <input type="text" name="name" id="name" /><br />
       <input type="submit" value="Submit" />
     </form>

@@ -3,9 +3,8 @@ package com.example.so66079741;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/")
@@ -19,15 +18,9 @@ public class MyController {
         return "index";
     }
 
-    @GetMapping("/getFeedback")
-    @ResponseBody
-    public Feedback getFeedback(@RequestParam("name") final Integer id) {
+    // Get /http://localhost:9091/getFeedback/138
+    @GetMapping("/getFeedback/{id}")
+    public Feedback getFeedback(@PathVariable final Integer id) {
         return service.getFeedback(id);
     }
-
-    //    // Get /http://localhost:9091/getFeedback/138
-    //    @GetMapping("/getFeedback/{id}")
-    //    public Feedback getFeedback(@PathVariable Integer id) {
-    //        return service.getFeedback(id);
-    //    }
 }
