@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="utf-8">
+
+<title>This is home page</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}">
+
+<script type="text/javascript"
+    th:href="@{/richtext/jquery.richtext.min.js}"></script>
+
+</head>
+
+<body>
+
+    <!-- This is card section -->
+    <section>
+
+        <div class="card">
+            <div class="card-body text-center">
+                <h1>Add Blog</h1>
+                <div class="container-fluid mt-1">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+
+                            <form action="#" th:object="${blog}"
+                                enctype="multipart/form-data" method="post"
+                                th:action="@{/user/process-blog}" class="mt-2">
+
+
+                                <!--  Title------------------------------------------------------------------------------------- -->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-plus">+</i>
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                    <input type="text" id="title" name="title"
+                                        placeholder="Enter Your Title" class="form-control">
+
+                                </div>
+
+                                <!-- title------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                                <!-- shortDescription--------------------------------------------------------------------------------------------------------------------------- -->
+
+
+                                <div class="input-group mt-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <<i class="glyphicon glyphicon-user"> </i>
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                    <input type="text" id="shortDescription"
+                                        name="shortDescription"
+                                        placeholder="Short Description About Your Blog"
+                                        class="form-control">
+
+                                </div>
+
+                                <!-- shortDescription---------------------------------------------------------------------------------------------------------------------------- -->
+                                <!-- img Upload-------------------------------------------------------------------------- -->
+
+                                <div class="custom-file">
+                                 <input type="file" name="display_image">
+                                
+                                
+                                </div>
+
+
+
+                                <!-- img Upload-------------------------------------------------------------------------- -->
+
+
+                                <!-- Description===============------------------------------- -->
+
+                                <div class="form-group">
+                                    <label for="Password-F">Enter Something Yourself</label>
+                                    <textarea class="form-control" id="Description"
+                                        placeholder="Enter about your self" cols="40" rows="10"
+                                        name="description"> 
+                                        
+                                        
+                                </textarea>
+                                </div>
+                                <!-- th:value="${user.about}" -->
+
+                                <!-- Description===============------------------------------- -->
+
+
+
+                                <!-- img upload in description -->
+
+
+<!-- 
+                                <div class="custom-file">
+                                 <input type="file" name="image">
+                                
+                                
+                                </div>
+ --
+
+                                <!-- img upload in description -->
+
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn bg-primary text-white">
+                                        Add</button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End of the card section  -->
+
+
+    <script src="js/scripts.js">
+        $(document).ready(function() {
+            $("#Description").richText();
+
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
