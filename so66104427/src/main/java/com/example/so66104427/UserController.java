@@ -17,9 +17,9 @@ public class UserController {
     private UserRepo userRepo;
 
     @RequestMapping("/index")
-    public String dashboard(Model model, Principal principal) {
+    public String dashboard(Model model) {
 
-        String username = principal.getName();
+        String username = "testuser";
         System.out.println("User name " + username);
 
         User user = userRepo.getUserByUserName(username);
