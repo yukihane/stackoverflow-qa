@@ -1,0 +1,6 @@
+* https://stackoverflow.com/a/66164776/4506703[rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@e960796\];]
+
+ファイルアップロードの問題。
+`multipart/form-data` でアップロードしたファイルは `MultipartFile` 型で受ける。
+
+`MultipartFile` は JPA Entity に含めることができないので、別途型を変換する必要がある。
