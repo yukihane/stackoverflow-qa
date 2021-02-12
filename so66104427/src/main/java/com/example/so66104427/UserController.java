@@ -31,36 +31,34 @@ public class UserController {
 
     }
 
-    
-    
     @GetMapping("/add-blog")
     public String AddBlog(Model model) {
         model.addAttribute("title", "Add Blog");
         model.addAttribute("blog", new Blog());
-        
+
         return "normal/add_blog";
-        
+
     }
-    
-    
+
     @PostMapping("/process-blog")
-    public String BlogProcess(@ModelAttribute Blog blog,Principal principal) {
-        
-        
-        String name=principal.getName();
+    public String BlogProcess(@ModelAttribute BlogForm form) {
+
+        String name = "testuser";
         User user = this.userRepo.getUserByUserName(name);
-        
+
+        Blog blog = new Blog();
+        blog.setTitle(form.getTitle());
+        blog.setShortDescription(form.getShortDescription());
+        blog.setDisplay_image(form.getDisplay_image().getName());
+
         user.getBlogs().add(blog);
         this.userRepo.save(user);
-        
-        
-        System.out.println("data "+ blog);
-        
+
+        System.out.println("data " + blog);
+
         System.out.println("Added to the data base ");
-        
-            
+
         return "normal/add_blog";
-        
-        
+
     }
 }
