@@ -1,0 +1,12 @@
+* https://stackoverflow.com/q/66221972/4506703[spring boot UUID converter]
+
+
+Spring MVC のハンドラ引数に `UUID` 型の変数を付与したが想定通り変換できない、という問題。
+
+`@RequestParam` を付与する必要がある。
+
+確認方法:
+[soruce]
+----
+curl http://localhost:8080/test?uuid=0459828a-a630-491d-80b9-ab9a412f066e
+----
