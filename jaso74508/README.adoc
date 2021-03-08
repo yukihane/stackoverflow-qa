@@ -1,0 +1,11 @@
+* https://ja.stackoverflow.com/q/74508/2808[WildFlyでシステムプロパティを取得する方法]
+
+表題の通り。次のリンクを参照。
+
+* https://docs.wildfly.org/18/Admin_Guide.html#adding-reading-and-removing-system-property-using-cli
+
+ちなみに、このコードを記述するのに `wildfly-archetypes` リポジトリを参照したが、最近はちゃんと更新されているようだ(一時期は https://himeji-cs.jp/wiki/WildFly#archetype[更新が滞っていた])。
+
+* https://github.com/wildfly/wildfly-archetypes
+
+利用法は https://github.com/yukihane/maven-archetype-java-quickstart[この辺り] に書いたものと同じ
