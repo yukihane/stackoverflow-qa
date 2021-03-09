@@ -9,3 +9,9 @@
 * https://github.com/wildfly/wildfly-archetypes
 
 利用法は https://github.com/yukihane/maven-archetype-java-quickstart[この辺り] に書いたものと同じ
+
+'''
+
+* https://ja.stackoverflow.com/q/74517/2808[WildFlyでwarフォルダ下のファイルを読み込む方法]
+
+についても追記。
