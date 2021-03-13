@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFileAttributeView;
 
 class FileInputDemoStream {
 
@@ -29,6 +32,7 @@ class FileInputDemoStream {
         try {
             System.out.println("ファイル存在確認：" + file.exists()); // falseになる
             System.out.println("ディスクリプタ：" + fos.getFD().valid()); // trueのまま
+            System.out.println("i-node: " + Files.getAttribute(file.toPath(), "unix:ino"));
             Writer writer = new OutputStreamWriter(os);
             writer.write(str + "\n"); // エラーにならない
             writer.flush(); // エラーにならない
