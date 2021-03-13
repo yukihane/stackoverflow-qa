@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-class FileInputDemo {
+public class FileInputDemo {
     
     private static FileInputDemoStream fi = new FileInputDemoStream();
     
