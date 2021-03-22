@@ -13,12 +13,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-    //フォームの値と比較するDBから取得したパスワードは暗号化されているのでフォームの値も暗号化するために利用
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
+//    //フォームの値と比較するDBから取得したパスワードは暗号化されているのでフォームの値も暗号化するために利用
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        return bCryptPasswordEncoder;
+//    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
