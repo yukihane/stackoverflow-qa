@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/component :: head('ログイン')}">
+<body>
+<th:block th:replace="~{layout/component :: header}"></th:block>
+<div class="container">
+    <th:block th:replace="~{layout/component :: container_top('ログイン')}"></th:block>
+    <div class="row justify-content-start">
+        <form method="post" th:action="@{/sign_in}">
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <label>ログインID</label>
+                    </td>
+                    <td>
+                        <input type="text" name="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>パスワード</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password">
+                    </td>
+                </tr>
+            </table>
+            <div class="mb-3">
+                <input type="submit" value="確認" class="btn btn-outline-secondary">
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{layout/component :: footer}"></footer>
+</body>
+</html>
