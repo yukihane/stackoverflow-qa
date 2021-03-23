@@ -1,0 +1,3 @@
+* https://ja.stackoverflow.com/q/74796/2808[SpringSecurity　ログイン機能　formで変遷する時に必ずfailureUrlに飛ばされてしまう]
+
+`BCryptPasswordEncoder` を設定してしまっているので、認証が通らない。
