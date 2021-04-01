@@ -22,7 +22,7 @@ public class ResetPasswordController {
     }
 
     @PostMapping("/reset-password-result")
-    public String resetPassword(@Valid final PasswordResetForm passwordResetForm,
+    public String resetPassword(@Valid final PasswordResetForm passwordResetForm, final Model model,
         final BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "reset-password";
