@@ -1,0 +1,14 @@
+* https://stackoverflow.com/q/66814965/4506703[Spring Boot custom validator doesn't return to Controller]
+
+下記の公式リファレンスの説明の通り、 `BindingResult` の引数の並び順がおかしいのでは、という指摘。
+
+[quote,'https://docs.spring.io/spring-framework/docs/5.3.5/reference/html/web.html#mvc-ann-arguments[Method Arguments]']
+____
+You must declare an Errors, or BindingResult argument immediately after the validated method argument.
+____
+
+日本語文章を含め、同様に誤っていたものが複数見つけられる。
+
+* https://qiita.com/salvage0707/items/e6a26671a368af877c47[springのバリデーションの実装時のエラーについて] - Qiita
+* https://dev.classmethod.jp/articles/invalid-ordering-of-bindingresult-and-modelattribute/[@ModelAttributeとBindingResultの順序を正しく設定しないとリクエストがマッピングされない件 – Springバッドノウハウ] - DevelopersIO
+* https://stackoverflow.com/q/29432717/4506703[Spring MVC validation status 400] - Stack Overflow
