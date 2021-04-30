@@ -16,15 +16,23 @@ function App() {
         <th>Gender</th>
         <th>Email</th>
       </tr>
-      {users.results.map((result) => {
-        return (
-          <tr>
-            <td>{result.name.first}</td>
-            <td>{result.gender}</td>
-            <td>{result.email}</td>
-          </tr>
-        );
-      })}
+      {users ? (
+        users.results.map((result) => {
+          return (
+            <tr>
+              <td>{result.name.first}</td>
+              <td>{result.gender}</td>
+              <td>{result.email}</td>
+            </tr>
+          );
+        })
+      ) : (
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+        </tr>
+      )}
     </table>
   );
 }
