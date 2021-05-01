@@ -1,0 +1,21 @@
+== ajaxで読み込まれたバナーのクリックイベントを取得したい
+
+* https://ja.stackoverflow.com/q/75587/2808
+
+=== 実行・確認
+
+必要に応じて link:src/main/resources/static/index.html[] のトラッキングIDを書き換える。
+
+[source]
+----
+mvn spring-boot:run
+----
+
+http://localhost:8080
+
+リンクをクリックしたとき、Google Analytics へデータ送信しているのを、devtools の Networkタブで確認する。
+
+=== 関連リンク
+
+* https://developers.google.com/analytics/devguides/collection/gtagjs/events?hl=ja
+* Google Analytics の 行動 > イベント
