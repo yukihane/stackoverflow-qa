@@ -1,0 +1,15 @@
+== ajax の then の function 中から 返り値を受け取りたい
+
+* https://ja.stackoverflow.com/q/75599/2808
+
+jQuery `$.ajax()` の戻り値の取り扱い方に関する質問。
+
+link:src/main/resources/static/index.html[] が質問/回答の本質部分。
+
+=== 実行方法
+
+[source]
+----
+mvn spring-boot:run
+----
+で実行して http://localhost:8080 にアクセス。結果が consoleに出力される。
