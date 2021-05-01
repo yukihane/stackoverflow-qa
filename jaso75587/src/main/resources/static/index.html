@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-24685954-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-24685954-1");
+    </script>
+  </head>
+  <body>
+    <div>
+      <ul id="here">
+        <li>
+          <a href="static" class="ga_banner"
+            ><img src="http://original.example.com" alt="バナータイトル"
+          /></a>
+        </li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).on("click", ".ga_banner", function () {
+        const $this = $(this);
+        const altBnr = $this.find("img").attr("alt");
+
+        console.log(altBnr); // これは取れています
+
+        gtag("event", "ga_banner", {
+          event_category: "バナークリック",
+          event_label: altBnr,
+        });
+      });
+      window.onload = () => {
+        // <li><a href="リンク先URL" class="ga_banner"><img src="画像URL" alt="バナータイトル"></a></li>
+        const img = document.createElement("img");
+        img.setAttribute("src", "http://img.example.com");
+        img.setAttribute("alt", "新しいバナー");
+        const a = document.createElement("a");
+        a.setAttribute("href", "dynamic");
+        a.setAttribute("class", "ga_banner");
+        const ul = document.getElementById("here");
+        const li = document.createElement("li");
+
+        a.appendChild(img);
+        li.appendChild(a);
+        ul.appendChild(li);
+      };
+    </script>
+  </body>
+</html>
