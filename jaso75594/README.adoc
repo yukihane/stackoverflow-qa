@@ -1,0 +1,7 @@
+== APIからjsonを得た後にページをロードするとjsonが読めなくなる
+
+* https://ja.stackoverflow.com/q/75594/2808
+
+React の `useState` に関する質問。
+
+初期値に対する考慮を行う必要がある。
