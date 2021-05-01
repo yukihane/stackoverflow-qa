@@ -29,13 +29,17 @@
       console.log(post);
       var result = ajax_func(post);
 
-      result.then(function (data) {
-        console.log(data);
-        if (data != "") {
-          return true; // (1) このtrue を受け取りたい
-        }
-      });
-      //(2) true を受け取った処理を書きたい
+      result
+        .then(function (data) {
+          console.log(data);
+          if (data != "") {
+            return true; // (1) このtrue を受け取りたい
+          }
+        })
+        .then(function (retVal) {
+          //(2) true を受け取った処理を書きたい
+          console.log("retVal: " + retVal);
+        });
     </script>
   </body>
 </html>

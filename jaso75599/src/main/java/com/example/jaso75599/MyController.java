@@ -13,7 +13,6 @@ public class MyController {
 
     @PostMapping("ajax.php")
     public Result index() {
-        System.out.println("hello");
         return new Result(true);
     }
 
