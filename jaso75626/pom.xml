@@ -22,9 +22,15 @@
     <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
     <mapstruct.version>1.4.2.Final</mapstruct.version>
     <lombok.version>1.18.16</lombok.version>
+    <jackson.version>2.12.3</jackson.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct</artifactId>
