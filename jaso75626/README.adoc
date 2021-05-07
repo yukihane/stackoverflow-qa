@@ -1,0 +1,22 @@
+== jsoupでのWebサイトの値取得について
+
+* https://ja.stackoverflow.com/q/75626/2808
+
+NHK特設サイト https://www3.nhk.or.jp/news/special/coronavirus/data/ のスクレイピングについて。
+
+感染者数を取得したいが、静的htmlで提供されているわけではないのでスクレイピングで取得することはできない。
+
+代わりに、このページのJavaScriptが呼んでいる以下のエンドポイントへ直接アクセスしてJSON形式のデータを取得する。
+
+* https://www3.nhk.or.jp/news/special/coronavirus/data/47newpatients-data.json
+* https://www3.nhk.or.jp/news/special/coronavirus/data/latest-pref-data.json
+
+
+=== 実行方法
+
+[source]
+----
+mvn clean compile exec:java
+----
+
+都道府県ごとの感染者数を取得、表示します。また、質問文に即して、最後に大阪府だけを再度出力しています。
