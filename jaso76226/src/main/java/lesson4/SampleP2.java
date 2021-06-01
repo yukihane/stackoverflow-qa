@@ -26,7 +26,7 @@ public class SampleP2 extends Application {
     {
         Label lb = new Label("This is me");
         CheckBox ch = new CheckBox("画像の表示");
-        im = new Image(getClass().getResourceAsStream("file:///C:/Users/USER/Pictures/1414406%20.jpg"));
+        im = new Image(getClass().getResourceAsStream("1414406%20.jpg"));
         iv = new ImageView(im);
 
         lb.setGraphic(new ImageView(im));
