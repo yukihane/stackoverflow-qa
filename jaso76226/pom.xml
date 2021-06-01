@@ -31,7 +31,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.3</version>
         <configuration>
-          <mainClass>com.github.yukihane.App</mainClass>
+          <mainClass>lesson4.SampleP2</mainClass>
         </configuration>
       </plugin>
     </plugins>
