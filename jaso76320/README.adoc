@@ -1,0 +1,8 @@
+* https://ja.stackoverflow.com/q/76320/2808[JavaFX でボタンを押したら背景色が変わるコードを作成したい - スタック・オーバーフロー]
+
+実行方法
+
+[source]
+----
+mvn clean javafx:run
+----
