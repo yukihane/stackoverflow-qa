@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<!-- http://logback.qos.ch/manual/appenders_ja.html#SiftingAppender -->
+<!-- http://logback.qos.ch/manual/loggingSeparation_ja.html -->
+<configuration>
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator class="com.example.jaso77488.MyDiscriminator" />
+        <sift>
+            <appender name="FILE-${name}" class="ch.qos.logback.core.FileAppender">
+                <file>logs/log-${name}.log</file>
+                <append>false</append>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%d [%thread] %level %logger{35} - %msg%n</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="SIFT" />
+    </root>
+</configuration>
