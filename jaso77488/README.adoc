@@ -1,0 +1,5 @@
+* https://ja.stackoverflow.com/q/77488/2808[SpringBootのLogbackで出力するログファイル名を、呼び出し元のプログラム名に応じて動的に変更したい - スタック・オーバーフロー]
+
+クラス名(回答ではロガー名)ごとにログファイルを分ける。
+
+http://logback.qos.ch/manual/appenders_ja.html#SiftingAppender[`SiftingAppender`] を利用して実現。
