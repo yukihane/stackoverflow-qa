@@ -17,7 +17,9 @@ public class TurtleTrap4 {
     this.t.penDown();
     }
 
-    public void setColor(java.awt.Color c)
+    public static void setColor(java.awt.Color c) {
+        // ここにメソッドが呼ばれたときの処理を実装する
+    }
 
     public void step() {
     if (this.x < 20 || 340 < this.x)
