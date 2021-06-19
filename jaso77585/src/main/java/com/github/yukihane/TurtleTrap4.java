@@ -1,5 +1,7 @@
 package com.github.yukihane;
 
+import static java.awt.Color.RED;
+
 public class TurtleTrap4 {
     Turtle t;
     int x, y;
