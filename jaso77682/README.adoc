@@ -1,0 +1,5 @@
+* https://ja.stackoverflow.com/q/77682/2808[spring-bootでの複数ファイルアップロードの進捗表示]
+
+サーバサイドの実装は https://spring.io/guides/gs/uploading-files/[公式ガイド] をベースに改変しています。
+
+複数ファイル一括アップロード時、全体の進捗の他、各ファイルの進捗も計測する。
