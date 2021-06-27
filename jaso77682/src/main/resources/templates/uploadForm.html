@@ -35,23 +35,32 @@
       const form = document.getElementById("form");
       form.addEventListener("submit", (ev) => {
         ev.preventDefault();
-        const input = document.getElementById("input");
+        const data = new FormData(form);
+        const files = data.getAll("files");
+        console.log(files);
 
-        const files = input.files;
-        for (let i = 0; i < files.length; i++) {
-          const file = files[i];
-          const data = new FormData();
-          data.set("files", file);
+        const request = new XMLHttpRequest();
+        request.upload.addEventListener("progress", (e) => {
+          console.log(
+            "TOTAL: " + ((100 * e.loaded) / e.total).toFixed(2) + "%"
+          );
 
-          const request = new XMLHttpRequest();
-          request.upload.addEventListener("progress", (e) => {
-            console.log(
-              file.name + ": " + ((100 * e.loaded) / e.total).toFixed(2) + "%"
-            );
-          });
-          request.open("POST", "/upload");
-          request.send(data);
-        }
+          /* アップロード済みサイズから各ファイルのアップロード状況を逆算 */
+          let remain = e.loaded;
+          for (const file of files) {
+            if (file.size <= remain) {
+              console.log(file.name + ": 100.00%");
+              remain = remain - file.size;
+            } else {
+              console.log(
+                file.name + ": " + ((100 * remain) / file.size).toFixed(2) + "%"
+              );
+              remain = 0;
+            }
+          }
+        });
+        request.open("POST", "/upload");
+        request.send(data);
       });
     </script>
   </body>
