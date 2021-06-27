@@ -3,6 +3,8 @@ package com.example.fileupload;
 import com.example.fileupload.storage.StorageFileNotFoundException;
 import com.example.fileupload.storage.StorageService;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -46,15 +48,17 @@ public class FileUploadController {
             "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("files") final MultipartFile[] files,
         final RedirectAttributes redirectAttributes) {
 
+        final List<String> names = new ArrayList<>();
         for (final MultipartFile file : files) {
             storageService.store(file);
-            redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+            names.add(file.getOriginalFilename());
         }
+        redirectAttributes.addFlashAttribute("message",
+            "You successfully uploaded: " + names);
 
         return "redirect:/";
     }

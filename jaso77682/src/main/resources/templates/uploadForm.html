@@ -5,7 +5,12 @@
     </div>
 
     <div>
-      <form id="form" method="POST" enctype="multipart/form-data" action="/">
+      <form
+        id="form"
+        method="POST"
+        enctype="multipart/form-data"
+        action="/upload"
+      >
         <table>
           <tr>
             <td>File to upload:</td>
@@ -44,7 +49,7 @@
               file.name + ": " + ((100 * e.loaded) / e.total).toFixed(2) + "%"
             );
           });
-          request.open("POST", "http://localhost:8080/");
+          request.open("POST", "/upload");
           request.send(data);
         }
       });
