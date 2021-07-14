@@ -1,3 +1,5 @@
+* https://ja.stackoverflow.com/q/78174/2808
+
 == 問題点
 
 ビルド時に次の警告が出る:
