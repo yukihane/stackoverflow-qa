@@ -1,0 +1,26 @@
+== 問題点
+
+ビルド時に次の警告が出る:
+[source]
+----
+WARNING in ./src/main/js/index.ts 8:21-29
+export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (module has no exports)
+----
+
+実行時に次のエラーが出る:
+[source]
+----
+Uncaught TypeError: ua_parser_js__WEBPACK_IMPORTED_MODULE_1__.UAParser is not a constructor
+    at Module.hello (index.ts:7)
+    at (index):14
+----
+
+== 再現手順
+
+[source]
+----
+yarn install && yarn build:dev && yarn webpack serve
+----
+を実行して、次のURLにアクセスする。
+
+* http://localhost:8080/build/resources/main/static/index.html
