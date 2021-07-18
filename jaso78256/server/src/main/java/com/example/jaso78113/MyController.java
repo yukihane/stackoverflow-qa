@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("")
 public class MyController {
 
-    @RequestMapping(value = "/*", consumes = "text/plain")
+    @RequestMapping(value = "/", consumes = "text/plain")
     public String index(@RequestBody final String body) {
         System.out.print(body);
         return body;
