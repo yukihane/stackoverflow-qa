@@ -1,0 +1,23 @@
+* CORS policy とは何ですか？[https://ja.stackoverflow.com/q/78256/2808]
+
+単純リクエストの場合、サーバに送信は行っていることを示すコードです。
+
+== 実行方法
+
+サーバを起動:
+[source]
+----
+cd server
+mvn spring-boot:run
+----
+
+クライアントhttpサーバを起動:
+[source]
+----
+cd client
+npx serve .
+----
+
+http://localhost:5000 へアクセスすると、サーバにリクエストが飛びます(サーバコンソールに受信したデータが出力される)。
+
+このとき、ウェブブラウザのコンソールには、CORS制約でブロックされた旨のログが出力されます。
