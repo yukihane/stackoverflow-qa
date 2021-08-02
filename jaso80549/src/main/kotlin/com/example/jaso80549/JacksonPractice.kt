@@ -2,6 +2,7 @@ package com.example.jaso80549
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -21,8 +22,7 @@ class JacksonPractice {
         println("----- json data -----")
         println(json)
         println("")
-        val mapper = ObjectMapper()
-        mapper.registerModule(JavaTimeModule())
+        val mapper = ObjectMapper().registerModules(KotlinModule(), JavaTimeModule())
         val jsonData = mapper.readValue<JsonData>(json)
         println("----- json serialize -----")
         println(jsonData)
