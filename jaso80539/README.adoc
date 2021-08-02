@@ -1,1 +1,11 @@
 * https://ja.stackoverflow.com/q/80539/2808
+
+
+```
+docker run --rm -v $PWD/sql:/sql -p 3306:3306 --name jaso -e MYSQL_ROOT_PASSWORD=jaso -d mysql:latest
+```
+```
+mysql -uroot -p -h127.0.0.1
+```
+
+`setup.sql` が初期設定用、 `select.sql` が回答のクエリ。
