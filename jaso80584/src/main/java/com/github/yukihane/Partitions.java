@@ -1,8 +1,8 @@
 package com.github.yukihane;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.Stream.Builder;
 
 public class Partitions {
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Partitions {
     }
 
     static void write(int r) {
-        String numbers = popAll(r).stream().map(String::valueOf).collect(Collectors.joining(","));
+        String numbers = stream(r).map(String::valueOf).collect(Collectors.joining(","));
         System.out.println("{" + numbers + "}");
     }
 
@@ -35,13 +35,13 @@ public class Partitions {
         return (r << 3) | j;
     }
 
-    static List<Integer> popAll(int r) {
-        List<Integer> ret = new ArrayList<>();
+    static Stream<Integer> stream(int r) {
+        Builder<Integer> ret = Stream.builder();
         while (r > 0) {
             int v = r & 0x7;
             ret.add(v);
             r = r >>> 3;
         }
-        return ret;
+        return ret.build();
     }
 }
