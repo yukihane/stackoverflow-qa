@@ -61,6 +61,10 @@ export default function CheckoutForm() {
     setError(event.error ? event.error.message : "");
   };
 
+  if (!stripe || !elements) {
+    return;
+  }
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
