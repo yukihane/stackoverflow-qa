@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CardList extends JPanel implements MouseListener{
+public class CardList extends JPanel implements MouseListener {
     PairMatchListener pairMatchListener;
     JLabel[] cards = new JLabel[52];
     // cardの表裏 : 裏 -> false 表 -> true
@@ -76,18 +76,18 @@ public class CardList extends JPanel implements MouseListener{
 
     // card : back -> 0, open -> 1
     int[] Array = {
-            0,0,0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,0,0
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
 
     // ２次元 -> １次元に割り当て
     int[][] Array2 = {
-            {1,2,3,4,5,6,7,8,9,10,11,12,13},
-            {14,15,16,17,18,19,20,21,22,23,24,25,26},
-            {27,28,29,30,31,32,33,34,35,36,37,38,39},
-            {40,41,42,43,44,45,46,47,48,49,50,51,52}
+        { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 },
+        { 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 },
+        { 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 },
+        { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52 }
     };
 
     // カードを開く処理
@@ -96,18 +96,18 @@ public class CardList extends JPanel implements MouseListener{
     int o1 = 52, o2 = 52;
 
     public CardList() {
-        int x = 8 , y = 8 , yc = 9;
+        int x = 8, y = 8, yc = 9;
         setPreferredSize(new Dimension(1150, 600));
 
         // back_label
-        for(int i = 0; i < 52; i++) {
+        for (int i = 0; i < 52; i++) {
             cards[i] = new JLabel();
             cards[i].setLocation(x, y);
-            if(i == yc) {
+            if (i == yc) {
                 y += 85;
                 x = 8;
                 yc += 10;
-            }else {
+            } else {
                 x += 60;
             }
             cards[i].setIcon(card_back);
@@ -119,7 +119,17 @@ public class CardList extends JPanel implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         // マウスボタン押下 -> 離すとEvent発生
+        for (int i = 0; i < 52; i++) {
+            if (cards[i] == e.getSource()) {
+                // cards[i]: クリックしたカード
 
+                // 裏向いていたらめくる
+                if (Array[i] == 0) {
+                    Array[i] = 1;
+                    ...
+                }
+            }
+        }
     }
 
     @Override
