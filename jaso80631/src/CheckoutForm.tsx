@@ -5,6 +5,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { StripeCardElementChangeEvent } from "@stripe/stripe-js";
 
 export default function CheckoutForm() {
   // useStateに型を追加した。
@@ -53,7 +54,7 @@ export default function CheckoutForm() {
     },
   };
   // ここのeventにどうやって型を当てて良いか分からない。
-  const handleChange = async (event) => {
+  const handleChange = async (event: StripeCardElementChangeEvent) => {
     // Listen for changes in the CardElement
     // and display any errors as the customer types their card details
     setDisabled(event.empty);
