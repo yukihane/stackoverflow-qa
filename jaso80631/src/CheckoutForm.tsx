@@ -12,7 +12,7 @@ export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // 下記のstringの型をanyにすると最後のエラーが取れる。
-  const [processing, setProcessing] = useState<string | boolean>("");
+  const [processing, setProcessing] = useState<boolean>(false);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
