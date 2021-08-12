@@ -19,7 +19,7 @@ public class CardList extends JPanel{
     
     /* カード画像 */
     // 裏面
-    ImageIcon card_back = new ImageIcon("image/card_back.png");
+    ImageIcon card_back = new ImageIcon("image/card/PNG.png");
     // 表面
     ImageIcon[][] card_array = new ImageIcon[4][13];
     String filename;
@@ -55,12 +55,13 @@ public class CardList extends JPanel{
                 }
                 // ファイル名に数字を足す -> 拡張子を足す
                 filename = String.format(filename + "%02d", j+1);
-                filename = filename + ".png";
+                filename =  "image/card/PNG.png";
                 card_array[i][j] = new ImageIcon(filename);
                 CardLabel tmp_label = new CardLabel(card_array[i][j],card_back,j);
                 // tmp_labelを押下したら、ひっくり返るのはtmp_label
                 tmp_label.addMouseListener(new Cardclick_Listener(tmp_label));
                 cards.add(tmp_label);
+                add(tmp_label);
             }
         }
         

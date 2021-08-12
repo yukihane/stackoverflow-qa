@@ -14,6 +14,7 @@ public class CardLabel extends JLabel{
         this.open_icon = open_icon;
         this.reverse_icon = revers_icon;
         this.number = number;
+        setIcon(revers_icon);
     }
 
     public int getNumber() {
