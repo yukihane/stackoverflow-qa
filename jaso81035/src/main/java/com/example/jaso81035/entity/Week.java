@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Week {
-    private List<Integer> weekdays = new ArrayList<>();
+    // 1週(7日間)を管理するListを、 1月分Listで保持
+    private List<List<Integer>> weekList = new ArrayList<>();
 
-    public List<Integer> getWeekdays() {
-        return weekdays;
+    public List<List<Integer>> getWeekList() {
+        return weekList;
     }
 
-    public void setWeekdays(final List<Integer> weekdays) {
-        this.weekdays = weekdays;
+    public void setWeekList(final List<List<Integer>> weekList) {
+        this.weekList = weekList;
     }
 }

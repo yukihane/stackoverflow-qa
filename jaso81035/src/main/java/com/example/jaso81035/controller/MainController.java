@@ -18,59 +18,48 @@ public class MainController {
 
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
-        final int day = calendar.get(Calendar.DATE);
 
-        // 今月の始まり
+        // 今月1日
+        calendar.clear();
         calendar.set(year, month, 1);
-        final int startWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
-        // 先月分の日数
-        calendar.set(year, month, 0);
-        final int beforeMonthlastDay = calendar.get(Calendar.DATE);
+        // 今月1日を含む週の始まり(日曜日) = カレンダーの初日
+        final Calendar firstDayOfCalendar = (Calendar) calendar.clone();
+        firstDayOfCalendar.add(Calendar.DATE, Calendar.SUNDAY - firstDayOfCalendar.get(Calendar.DAY_OF_WEEK));
 
-        // 今月分の日数
-        calendar.set(year, month + 1, 0);
-        final int thisMonthlastDay = calendar.get(Calendar.DATE);
+        System.out.print("今月1日を含む週の始まり(日曜日) = カレンダーの初日: ");
+        System.out.printf("%d %d %d\n", firstDayOfCalendar.get(Calendar.YEAR), firstDayOfCalendar.get(Calendar.MONTH),
+            firstDayOfCalendar.get(Calendar.DAY_OF_MONTH));
+
+        // 今月末日を含む週の終わり(土曜日) = カレンダーの末日
+        final Calendar lastDayOfCalendar = (Calendar) calendar.clone();
+        lastDayOfCalendar.add(Calendar.MONTH, 1);
+        lastDayOfCalendar.add(Calendar.DAY_OF_MONTH, -1);
+        lastDayOfCalendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+
+        System.out.print("今月末日を含む週の終わり(土曜日) = カレンダーの末日: ");
+        System.out.printf("%d %d %d\n", lastDayOfCalendar.get(Calendar.YEAR), lastDayOfCalendar.get(Calendar.MONTH),
+            lastDayOfCalendar.get(Calendar.DAY_OF_MONTH));
+
+        final List<List<Integer>> weeklist = new ArrayList<>();
+        final Calendar day = (Calendar) firstDayOfCalendar.clone();
+        while (day.compareTo(lastDayOfCalendar) <= 0) {
+
+            final List<Integer> weekDays = new ArrayList<>();
+            for (int i = 0; i < 7; i++) {
+                weekDays.add(day.get(Calendar.DAY_OF_MONTH));
+                day.add(Calendar.DATE, 1);
+
+            }
+            weeklist.add(weekDays);
+        }
+
+        System.out.println("カレンダー: " + weeklist);
 
         final Week week = new Week();
-        final int[] calday = new int[42]; // 最大で7日6週
-        final List<Integer> weeklist = new ArrayList<>();
-        int count = 0;
+        week.setWeekList(weeklist);
 
-        // 先月分の日付を格納
-        for (int i = startWeek - 2; i >= 0; i--) {
-            calday[count++] = beforeMonthlastDay - i;
-        }
-
-        // 今月分の日付を格納
-        for (int i = 1; i <= thisMonthlastDay; i++) {
-            calday[count++] = i;
-        }
-
-        // 翌月分の日付を格納
-        int nextMonthDay = 1;
-        while (count % 7 != 0) {
-            calday[count++] = nextMonthDay++;
-        }
-
-        final int weekCount = count / 7;
-
-        for (int i = 0; i < weekCount; i++) {
-            for (int j = i * 7; j < i * 7 + 7; j++) {
-
-                if (calday[j] < 10) {
-                    //                  System.out.println(calday[j]);
-                } else {
-                    //                  System.out.println(calday[j]);
-                }
-                weeklist.add(calday[j]);
-                week.setWeekdays(weeklist);
-            }
-        }
-
-        model.addAttribute("weekday", week.getWeekdays());
-        System.out.println(week.getWeekdays());
-
+        model.addAttribute("week", week);
         return "index";
     }
 

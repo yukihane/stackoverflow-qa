@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>カレンダー</title>
-</head>
-<body>
-<h1>カレンダー</h1>
-<h3>2021年 8月</h3>
-<table border="1" th:object="${weekday}">
-<tr>
-<td>日</td>
-<td>月</td>
-<td>火</td>
-<td>水</td>
-<td>木</td>
-<td>金</td>
-<td>土</td>
-</tr>
-<tr th:each = "i : ${#numbers.sequence(1,6)}">
-<td th:each = "j : ${#numbers.sequence(1,7)}"><span th:text="${weekday}"></span></td>
-</tr>
-</table>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>カレンダー</title>
+  </head>
+  <body>
+    <h1>カレンダー</h1>
+    <h3>2021年 8月</h3>
+    <table border="1" th:object="${week}">
+      <tr>
+        <td>日</td>
+        <td>月</td>
+        <td>火</td>
+        <td>水</td>
+        <td>木</td>
+        <td>金</td>
+        <td>土</td>
+      </tr>
+      <tr th:each="weekDays : *{weekList}">
+        <td th:each="day : ${weekDays}"><span th:text="${day}"></span></td>
+      </tr>
+    </table>
+  </body>
 </html>
