@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>カレンダー</title>
+  </head>
+  <body th:object="${calendar}">
+    <h1>カレンダー</h1>
+    <h3>2021年 8月</h3>
+    <table border="1" th:object="${calendar}">
+      <tr>
+        <td>日</td>
+        <td>月</td>
+        <td>火</td>
+        <td>水</td>
+        <td>木</td>
+        <td>金</td>
+        <td>土</td>
+      </tr>
+      <tr th:each="week : *{weeks}">
+        <td th:each="day : ${week}">
+          <span th:text="${day.dayOfMonth}" th:style="${(day.today ? 'background: red;' : '')}"></span>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

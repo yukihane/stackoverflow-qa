@@ -1,6 +1,11 @@
 package com.example.jaso81035.controller;
 
+import com.example.jaso81035.entity.Day;
+import com.example.jaso81035.entity.MyCalendar;
 import com.example.jaso81035.entity.Week;
+import java.time.LocalDate;
+import java.time.temporal.TemporalField;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -61,6 +66,46 @@ public class MainController {
 
         model.addAttribute("week", week);
         return "index";
+    }
+
+    // 週の始まりが日曜日
+    private static final TemporalField DAY_OF_WEEK = WeekFields.SUNDAY_START.dayOfWeek();
+
+    @GetMapping("/calendar")
+    public String calendar(final Model model) {
+        // 今日
+        final LocalDate today = LocalDate.now();
+        // 今月初日
+        final LocalDate beginOfMonth = today.withDayOfMonth(1);
+        // 今月末日
+        final LocalDate endOfMonth = today.withDayOfMonth(today.lengthOfMonth());
+        // カレンダー初日
+        // 月初日の週の1日目(=日曜日)
+        final LocalDate beginOfCalendar = beginOfMonth.with(DAY_OF_WEEK, 1);
+        // カレンダー末日
+        // 月末日の週の7日目(=土曜)
+        final LocalDate endOfCalendar = endOfMonth.with(DAY_OF_WEEK, 7);
+
+        final List<List<Day>> weeks = new ArrayList<>();
+        for (LocalDate day = beginOfCalendar; day.isBefore(endOfCalendar);) {
+            final List<Day> week = new ArrayList<>();
+            weeks.add(week);
+            for (int i = 0; i < 7; i++) {
+                final Day d = new Day();
+                d.setDayOfMonth(day.getDayOfMonth());
+                if (day.isEqual(today)) {
+                    d.setToday(true);
+                }
+                week.add(d);
+                day = day.plusDays(1);
+            }
+        }
+
+        final MyCalendar cal = new MyCalendar();
+        cal.setWeeks(weeks);
+
+        model.addAttribute("calendar", cal);
+        return "my_calendar";
     }
 
 }
