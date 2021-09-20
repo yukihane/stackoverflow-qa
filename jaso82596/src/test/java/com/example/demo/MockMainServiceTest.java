@@ -20,11 +20,12 @@ public class MockMainServiceTest {
     MainService mainService;
 
     @MockBean
-    SubMainService subMainService;
+    SubSubMainService subSubMainService;
 
     @Test
     public void サブクラスをMock化() {
-        doReturn("SubMainServiceはMock化されたよ").when(subMainService).subSayHello();
-        Assert.assertThat(mainService.mainSayHello(), is("MainSayHello. Also...SubMainServiceはMock化されたよ"));
+        doReturn("SubSubMainServiceはMock化されたよ").when(subSubMainService).subSubSayHello();
+        Assert.assertThat(mainService.mainSayHello(),
+            is("MainSayHello. Also...SubSayHello. Also...SubSubMainServiceはMock化されたよ"));
     }
 }
