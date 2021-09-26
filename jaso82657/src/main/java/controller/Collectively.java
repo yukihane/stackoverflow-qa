@@ -71,7 +71,7 @@ public class Collectively extends HttpServlet {
    ps.setString(3, "" + search + "");
    ps.setString(4, "" + timestamp + "");
    ps.executeUpdate();
-   response.sendRedirect("/B31/Collectively");
+   response.sendRedirect("./Collectively");
    
   } catch (Exception e) {
    e.printStackTrace();

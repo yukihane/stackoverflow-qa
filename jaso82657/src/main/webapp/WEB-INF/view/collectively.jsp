@@ -32,7 +32,7 @@ th, td {
  <p>売上日:${dtsql}</p>
 
  <!-- <form action="/B31/CollectivelyPost" method="post">-->
- <form action="/B31/Collectively" method=Post>
+ <form action="Collectively" method=Post>
   <select name="DropDownList">
    <c:forEach var="item" items="${list}">
     <option value="${item.getProduct_code()}">${item.getProduct_name()}</option>
