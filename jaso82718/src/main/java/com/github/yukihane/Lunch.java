@@ -1,9 +1,12 @@
 package com.github.yukihane;
 
+import lombok.Data;
+
+@Data
 public class Lunch {
 
-    public Lunch(final int product_code, final String product_name, final int total) {
-        // TODO Auto-generated constructor stub
-    }
+    private final int product_code;
+    private final String product_name;
+    private final int total;
 
 }

@@ -35,6 +35,10 @@ public class App {
                 insertTwo(product_name, product_code, total);
                 list.add(l);
             }
+            for (final Lunch l : list) {
+                System.out.println(l);
+            }
+
             //クローズ処理
             rs.close();
             ps.close();
@@ -66,7 +70,7 @@ public class App {
         final App app = new App();
         try {
             app.prepare();
-            app.findFour(10, 50);
+            app.findFour(2, 9);
         } finally {
             app.shutdown();
         }
