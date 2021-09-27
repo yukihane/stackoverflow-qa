@@ -1,0 +1,5 @@
+* https://ja.stackoverflow.com/q/82718/2808[Unknown column&#39;&#39; in field list というエラーについて - スタック・オーバーフロー]
+
+DB作成方法は https://github.com/yukihane/hello-java/tree/master/spring/mysql-timezone-example[こちら]と同じ。 
+
+問題は再現しない。
