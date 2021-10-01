@@ -1,6 +1,6 @@
-export type NewData = { name: string };
+export type MyData = { name: string };
 
-export type NewDataState = {
-  data: NewData;
+export type MyDataState = {
+  data: MyData;
   checked: boolean;
 };

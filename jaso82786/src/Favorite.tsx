@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useSWR from "swr";
 import FavoriteBuild from "./FavoriteBuild";
-import { NewData as MyData, NewDataState as MyDataState } from "./DataTypes";
+import { MyData, MyDataState } from "./DataTypes";
 import { UserFavoriteHeader } from "./UserFavoriteHeader";
 
 export const Favorite = () => {

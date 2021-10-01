@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { NewData, NewDataState } from "./DataTypes";
+import { MyData, MyDataState } from "./DataTypes";
 
 type Props = {
-  changeChecked: (newdata: NewData) => void;
-  newDataState: NewDataState[];
+  changeChecked: (newdata: MyData) => void;
+  newDataState: MyDataState[];
 };
 
 export const FavoritecheckBox: FC<Props> = (props) => {
