@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import useSWR from "swr";
 import FavoriteBuild from "./FavoriteBuild";
-import { NewData, NewDataState } from "./DataTypes";
+import { NewData as MyData, NewDataState as MyDataState } from "./DataTypes";
 import { UserFavoriteHeader } from "./UserFavoriteHeader";
 
 export const Favorite = () => {
-  const [state, setState] = useState<NewDataState[]>([]);
+  const [state, setState] = useState<MyDataState[]>([]);
 
   const testUrl = "http://localhost:8080/";
   const fetcher = (url: string) =>
     fetch(url)
       .then((r) => r.json())
-      .then((newdata: NewData[]) => {
+      .then((newdata: MyData[]) => {
         const newState = newdata.map((v) => {
           return {
             newdata: v,
@@ -20,13 +20,13 @@ export const Favorite = () => {
                 .filter((s) => s.newdata.name === v.name)
                 .map((s) => s.checked)
                 .shift() || false,
-          } as NewDataState;
+          } as MyDataState;
         });
         setState(newState);
       });
   useSWR(testUrl, fetcher);
 
-  const changeChecked = (d: NewData) => {
+  const changeChecked = (d: MyData) => {
     const newState = [...state];
     const s = newState.filter((s) => s.newdata.name === d.name)[0];
     s.checked = !s.checked;
