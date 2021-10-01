@@ -8,13 +8,15 @@ type Props = {
 
 export const FavoritecheckBox: FC<Props> = (props) => {
   const inputs = props.newDataState.map((value) => (
-    <input
-      key={value.data.name}
-      type="checkbox"
-      onChange={() => props.changeChecked(value.data)}
-      checked={value.checked}
-    />
+    <label key={value.data.name}>
+      <input
+        type="checkbox"
+        onChange={() => props.changeChecked(value.data)}
+        checked={value.checked}
+      />
+      {value.data.name}
+    </label>
   ));
 
-  return <>{inputs}</>;
+  return <div>{inputs}</div>;
 };
