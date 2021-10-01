@@ -11,13 +11,13 @@ export const Favorite = () => {
   const fetcher = (url: string) =>
     fetch(url)
       .then((r) => r.json())
-      .then((newdata: MyData[]) => {
-        const newState = newdata.map((v) => {
+      .then((newData: MyData[]) => {
+        const newState = newData.map((v) => {
           return {
-            newdata: v,
+            myData: v,
             checked:
               state
-                .filter((s) => s.newdata.name === v.name)
+                .filter((s) => s.myData.name === v.name)
                 .map((s) => s.checked)
                 .shift() || false,
           } as MyDataState;
@@ -28,7 +28,7 @@ export const Favorite = () => {
 
   const changeChecked = (d: MyData) => {
     const newState = [...state];
-    const s = newState.filter((s) => s.newdata.name === d.name)[0];
+    const s = newState.filter((s) => s.myData.name === d.name)[0];
     s.checked = !s.checked;
     setState(newState);
   };

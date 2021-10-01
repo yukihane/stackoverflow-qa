@@ -1,6 +1,6 @@
 export type NewData = { name: string };
 
 export type NewDataState = {
-  newdata: NewData;
+  myData: NewData;
   checked: boolean;
 };
