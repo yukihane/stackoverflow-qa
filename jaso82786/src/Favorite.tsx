@@ -15,11 +15,10 @@ export const Favorite = () => {
         const newState = newData.map((v) => {
           return {
             data: v,
-            checked:
-              state
-                .filter((s) => s.data.name === v.name)
-                .map((s) => s.checked)
-                .shift() || false,
+            checked: !!state
+              .filter((s) => s.data.name === v.name)
+              .map((s) => s.checked)
+              .shift(),
           } as MyDataState;
         });
         setState(newState);
