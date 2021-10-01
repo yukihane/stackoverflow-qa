@@ -23,6 +23,13 @@ export const Favorite = () => {
           } as MyDataState;
         });
         setState(newState);
+      })
+      .catch(() => {
+        setState([
+          { myData: { name: "foo" }, checked: false },
+          { myData: { name: "bar" }, checked: false },
+          { myData: { name: "baz" }, checked: false },
+        ]);
       });
   useSWR(testUrl, fetcher);
 
