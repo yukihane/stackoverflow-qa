@@ -14,10 +14,10 @@ export const Favorite = () => {
       .then((newData: MyData[]) => {
         const newState = newData.map((v) => {
           return {
-            myData: v,
+            data: v,
             checked:
               state
-                .filter((s) => s.myData.name === v.name)
+                .filter((s) => s.data.name === v.name)
                 .map((s) => s.checked)
                 .shift() || false,
           } as MyDataState;
@@ -26,16 +26,16 @@ export const Favorite = () => {
       })
       .catch(() => {
         setState([
-          { myData: { name: "foo" }, checked: false },
-          { myData: { name: "bar" }, checked: false },
-          { myData: { name: "baz" }, checked: false },
+          { data: { name: "foo" }, checked: false },
+          { data: { name: "bar" }, checked: false },
+          { data: { name: "baz" }, checked: false },
         ]);
       });
   useSWR(testUrl, fetcher);
 
   const changeChecked = (d: MyData) => {
     const newState = [...state];
-    const s = newState.filter((s) => s.myData.name === d.name)[0];
+    const s = newState.filter((s) => s.data.name === d.name)[0];
     s.checked = !s.checked;
     setState(newState);
   };
