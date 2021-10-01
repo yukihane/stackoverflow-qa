@@ -6,6 +6,8 @@ type Props = {
 export const UserFavoriteHeader: FC<Props> = (props) => {
   const [selectedAll, setSelectedAll] = useState(false);
 
+  const label = selectedAll ? "unselect all" : "select all";
+
   const handleClick = () => {
     const v = !selectedAll;
     setSelectedAll(v);
@@ -14,11 +16,7 @@ export const UserFavoriteHeader: FC<Props> = (props) => {
 
   return (
     <div>
-      <input
-        type="button"
-        onClick={handleClick}
-        value="UserFavoriteHeader button"
-      />
+      <input type="button" onClick={handleClick} value={label} />
     </div>
   );
 };
