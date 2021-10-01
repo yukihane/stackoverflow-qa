@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import FavoriteBuild from "./FavoriteBuild";
+import { FavoriteBuild } from "./FavoriteBuild";
 import { MyData, MyDataState } from "./DataTypes";
 import { UserFavoriteHeader } from "./UserFavoriteHeader";
 
@@ -19,7 +19,7 @@ export const Favorite = () => {
               .filter((s) => s.data.name === v.name)
               .map((s) => s.checked)
               .shift(),
-          } as MyDataState;
+          };
         });
         setState(newState);
       })

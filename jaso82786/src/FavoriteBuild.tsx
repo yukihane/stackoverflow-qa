@@ -7,10 +7,8 @@ type Prop = {
   state: MyDataState[];
 };
 
-const FavoriteBuild: FC<Prop> = (props) => {
+export const FavoriteBuild: FC<Prop> = (props) => {
   return (
     <FavoritecheckBox changeChecked={props.changeChecked} state={props.state} />
   );
 };
-
-export default FavoriteBuild;
