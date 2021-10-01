@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { MyData, MyDataState } from "./DataTypes";
 
 type Props = {
-  changeChecked: (newdata: MyData) => void;
-  newDataState: MyDataState[];
+  changeChecked: (data: MyData) => void;
+  state: MyDataState[];
 };
 
 export const FavoritecheckBox: FC<Props> = (props) => {
-  const inputs = props.newDataState.map((value) => (
+  const inputs = props.state.map((value) => (
     <label key={value.data.name}>
       <input
         type="checkbox"
