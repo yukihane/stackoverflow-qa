@@ -108,6 +108,14 @@
 	</distributionManagement>
 
 	<!-- Build Settings -->
+	<properties>
+		<java.version>11</java.version>
+		<!-- Maven Central Repository に登録されているもののうちで近いバージョン -->
+		<!-- https://search.maven.org/artifact/org.seasar.doma/doma -->
+		<doma.version>1.38.2</doma.version>
+		<javax.annotation.version>1.3.2</javax.annotation.version>
+	</properties>
+
 	<build>
 		<defaultGoal>validate</defaultGoal>
 		<pluginManagement>
@@ -120,12 +128,26 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.3.2</version>
+					<version>3.8.1</version>
 					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
 						<encoding>UTF-8</encoding>
-						<compilerArgument>-proc:none</compilerArgument>
+						<!-- https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html -->
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.seasar.doma</groupId>
+								<artifactId>doma</artifactId>
+								<version>${doma.version}</version>
+							</path>
+							<!-- Java9 以降 javax.annotation.Generated は無い -->
+							<!-- https://stackoverflow.com/q/48238014/4506703 -->
+							<path>
+								<groupId>javax.annotation</groupId>
+								<artifactId>javax.annotation-api</artifactId>
+								<version>${javax.annotation.version}</version>
+							</path>
+						</annotationProcessorPaths>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -150,24 +172,6 @@
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.bsc.maven</groupId>
-				<artifactId>maven-processor-plugin</artifactId>
-				<version>2.0.5</version>
-				<executions>
-					<execution>
-						<id>process</id>
-						<goals>
-							<goal>process</goal>
-						</goals>
-						<phase>process-resources</phase>
-						<configuration>
-							<outputDirectory>${project.build.directory}/apt_generated</outputDirectory>
-							<failOnError>false</failOnError>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -217,8 +221,14 @@
 		<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
-			<version>1.35.0</version>
+			<version>${doma.version}</version>
 			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${javax.annotation.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
