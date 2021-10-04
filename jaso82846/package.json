@@ -53,5 +53,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.175",
+    "@types/node-sass": "^4.11.2",
+    "@types/prettier": "^2.4.1",
+    "@types/react-helmet": "^6.1.3",
+    "@types/stylelint": "^13.13.2",
+    "@types/testing-library__jest-dom": "^5.14.1",
+    "@types/testing-library__user-event": "^4.2.0",
+    "@types/yup": "^0.29.13"
   }
 }
