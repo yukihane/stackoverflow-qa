@@ -1,0 +1,18 @@
+== https://ja.stackoverflow.com/q/82842/2808[Java domaのImplで出るエラーの解消方法]
+
+http://doma.seasar.org/downloads.html からダウンロードできるチュートリアル
+
+* http://doma.seasar.org/download/2013-09-28/doma-tutorial-1.35.0.zip
+
+を Java11 でビルドできるように `pom.xml` を書き換えたもの。
+
+=== 対応差分
+
+* https://github.com/yukihane/stackoverflow-qa/commit/32fc464e61bc168d9bf171f806cb0767ec9eb592
+
+=== 実行方法
+
+[code]
+----
+mvn clean package
+----
