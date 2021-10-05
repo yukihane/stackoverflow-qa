@@ -16,14 +16,20 @@ export const RhfEmailField: VFC<RhfEmailFieldProps> = (props) => (
     name={props.name}
     control={props.control}
     defaultValue=""
-    render={({ field, formState: { errors } }) => (
+    render={({
+      field: { onChange, onBlur, value, ref },
+      formState: { errors },
+    }) => (
       <EmailField
         label={props.label}
         id={props.id}
         placeholder={props.placeholder}
         isRequired={props.required}
         showIcon={props.showIcon}
-        {...field}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+        inputRef={ref}
         errorMessage={
           errors[props.name] &&
           `${(errors[props.name] as DeepMap<FieldValues, FieldError>)?.message}`
