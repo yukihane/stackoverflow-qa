@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="https://ja.stackoverflow.com/" id="link"
+      >スタック・オーバーフロー</a
+    >
+
+    <script>
+      link.addEventListener("auxclick", (e) => {
+        console.log("auxclick: " + e.button);
+        if (e.button === 1) {
+          //   e.preventDefault();
+        }
+      });
+
+      //   link.addEventListener("mousedown", (e) => {
+      //     console.log("mousedown: " + e.which);
+      //     if (e.which === 2) {
+      //       console.log("stop");
+      //       e.preventDefault();
+      //       e.stopPropagation();
+      //       e.stopImmediatePropagation();
+      //     }
+      //   });
+      //   link.addEventListener("mouseup", (e) => {
+      //     console.log("mouseup: " + e.button);
+      //     if (e.button === 1) {
+      //       e.preventDefault();
+      //     }
+      //   });
+      //   link.addEventListener("click", (e) => {
+      //     console.log("click: " + e.button);
+      //     if (e.button === 1) {
+      //       e.preventDefault();
+      //     }
+      //   });
+    </script>
+  </body>
+</html>
