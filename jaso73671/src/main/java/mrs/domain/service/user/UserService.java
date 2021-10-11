@@ -16,6 +16,12 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+    
+    public void save() {
+        final User user = new User();
+        user.setUserId("1");
+        userRepository.save(user);
+    }
 
     public void saveOrUpdate(User user, String userId) throws DataAccessException {
         System.out.println("beforeFix: " + userId);
