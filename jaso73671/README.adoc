@@ -1,0 +1,44 @@
+* https://ja.stackoverflow.com/a/82999/2808[@AutowiredでインジェクトしたUserServiceがnullになってしまう]
+
+カスタム JPA Validator にインジェクションしたい、という質問だと思われます。
+
+このタイミングの validation は、 Spring フレームワークとは独立した JPA の枠組みの中で行われます。
+
+そのためデフォルトだと valdiator は通常の `new` でインスタンス化されるので Spring のインジェクション指示は効きません。
+
+対応としては、インスタンス化を Spring フレームワーク側に移譲するような設定を行うことになります。
+
+これに対する解説は既にいくつかあります。
+
+* https://qiita.com/tag1216/items/76b8c1087d6b4b83550b[Spring BootでカスタムValidatorにInjectionしたい時の設定 - Qiita]
+** 前半は Spring MVC で行う validation の設定の話(のはず)、後半が今回関係するもの
+** https://github.com/spring-projects/spring-boot/issues/2924[Unable to set javax.persistence.validation.factory (spring.jpa.properties) as string cannot be cast to class #2924 - spring-projects/spring-boot]
+* https://stackoverflow.com/a/54747658/4506703[Spring Data REST(using Spring Boot) - Hibernate Validation Localization - Stack Overflow]
+
+というわけで、次のような設定を行えば良い、ということになります。
+
+.link:./src/main/java/mrs/MyConfig.java[]
+[source,java]
+----
+import java.util.Map;
+import javax.validation.Validator;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MyConfig {
+
+    @Bean
+    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(final Validator validator) {
+        return new HibernatePropertiesCustomizer() {
+            @Override
+            public void customize(Map<String, Object> hibernateProperties) {
+                hibernateProperties.put("javax.persistence.validation.factory", validator);
+            }
+        };
+    }
+}
+----
+
+ちなみに、質問コードは、この対応を行っても別の問題が発生します。
