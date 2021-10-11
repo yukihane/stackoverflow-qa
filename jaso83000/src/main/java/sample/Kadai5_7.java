@@ -21,7 +21,7 @@ public class Kadai5_7 {
         if (orderType == true) {
             for (int i = 0; i < array.length; i++) {
                 for (int j = i; j < array.length; j++) {
-                    if (array[i] < array[j]) {
+                    if (array[i] > array[j]) {
                         change(array, i, j);
                     }
                 }
@@ -29,7 +29,7 @@ public class Kadai5_7 {
         } else {
             for (int i = 0; i < array.length; i++) {
                 for (int j = i; j < array.length; j++) {
-                    if (array[i] > array[j]) {
+                    if (array[i] < array[j]) {
                         change(array, i, j);
                     }
                 }
@@ -52,10 +52,8 @@ public class Kadai5_7 {
     }
 
     public static void change(int[] array, int i, int j) {
-        int[] tmp = new int[array.length];
-        tmp[i] = array[i];
-        tmp[j] = array[j];
-        array[i] = tmp[i];
-        array[j] = tmp[j];
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
     }
 }
