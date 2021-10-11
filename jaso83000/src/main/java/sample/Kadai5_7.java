@@ -42,11 +42,13 @@ public class Kadai5_7 {
             System.out.println("****並び替え後****");
         } else {
             System.out.println("****並び替え前****");
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + ",");
-            }
         }
 
+        // 配列の出力方法は並び替え前後で同じ
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ",");
+        }
+        System.out.println();
     }
 
     public static void change(int[] array, int i, int j) {
