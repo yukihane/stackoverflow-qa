@@ -24,7 +24,7 @@ public class DemoController {
 
   @GetMapping("/search")
   public ModelAndView search(@RequestParam String empname, ModelAndView mav) {
-    List<Employee> emplist = empRepository.findByempnameLike("%" + empname + "%");
+    List<Employee> emplist = empRepository.findByEmpnameLike("%" + empname + "%");
     mav.addObject("employeelist", emplist);
     mav.setViewName("/search");
     return mav;
