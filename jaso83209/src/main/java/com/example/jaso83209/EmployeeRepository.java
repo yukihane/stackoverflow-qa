@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository //JpaRepository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-  List<Employee> findByEmpnameLike(String string);
+  List<Employee> findByEmpnameContaining(String empname);
 
 }
