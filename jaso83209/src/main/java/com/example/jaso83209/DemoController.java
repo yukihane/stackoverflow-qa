@@ -2,6 +2,7 @@ package com.example.jaso83209;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.query.EscapeCharacter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class DemoController {
 
   @GetMapping("/search")
   public ModelAndView search(@RequestParam String empname, ModelAndView mav) {
+    empname = EscapeCharacter.DEFAULT.escape(empname);
     List<Employee> emplist = empRepository.findByEmpnameLike("%" + empname + "%");
     mav.addObject("employeelist", emplist);
     mav.setViewName("/search");
