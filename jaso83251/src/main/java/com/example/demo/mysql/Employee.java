@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Employee {
   @Id
   @Column(name="ID")
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
+//  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private String ID;
   @Column(name="PASS")
   private String PASS;
