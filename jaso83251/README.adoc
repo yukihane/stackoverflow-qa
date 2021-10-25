@@ -1,1 +1,1 @@
-* https://ja.stackoverflow.com/q/83209[Spring bootでの部分一致検索が上手くいかない]
+* [Spring boot 部分一致検索　何がおかしいのか分からない](https://ja.stackoverflow.com/q/83251)
