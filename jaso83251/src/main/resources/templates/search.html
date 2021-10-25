@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>search.html</title>
+<title>searchhtml</title>
 <meta charset="utf-8" />
 </head>
 <body>
   <table>
-    <tr th:each="emp : ${employeelist}" th:object="${emp}">
-      <td th:text="*{empno}"></td>
-      <td th:text="*{empname}"></td>
+  <tr><th>コード</th><th>商品名</th></tr>
+    <tr th:each="emp : ${list}" th:object="${emp}">
+      <td th:text="*{ID}"></td>
+      <td th:text="*{NAME}"></td>
     </tr>
   </table>
 </body>
