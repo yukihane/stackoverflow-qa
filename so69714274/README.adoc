@@ -1,0 +1,10 @@
+* https://stackoverflow.com/a/69716223/4506703[org.postgresql.util.PSQLException: ERROR: argument of AND must be type boolean, not type record]
+
+`NULL` の比較対象が `List` 型なので、そのままでは比較できず `COALESCE` 関数の結果と比較する必要があります。
+
+
+[source,sh]
+----
+ docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword --rm -d postgres
+ ----
+ 
