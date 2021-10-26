@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface MyEntityRepository extends JpaRepository<MyEntity, Long> {
 
     @Query(
-        value = "select * from my_entity where (COALESCE(:names, NULL) IS NULL OR (cast(name as VARCHAR) IN (:names)))",
+        value = "select * from my_entity where (COALESCE(:names) IS NULL OR (cast(name as VARCHAR) IN (:names)))",
         nativeQuery = true)
     List<MyEntity> filterByName(@Param("names") List<String> names);
 }
