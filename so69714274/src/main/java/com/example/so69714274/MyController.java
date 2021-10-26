@@ -17,6 +17,12 @@ public class MyController {
         return res;
     }
 
+    @GetMapping("/empty")
+    public List<MyEntity> empty() {
+        final List<MyEntity> res = repository.filterByName(List.of());
+        return res;
+    }
+
     @GetMapping("/insert")
     public String insert() {
         final MyEntity e1 = new MyEntity();
