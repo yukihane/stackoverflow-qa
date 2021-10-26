@@ -17,6 +17,12 @@ public class MyController {
         return res;
     }
 
+    @GetMapping("/one")
+    public List<MyEntity> one() {
+        final List<MyEntity> res = repository.filterByName(List.of("a"));
+        return res;
+    }
+
     @GetMapping("/empty")
     public List<MyEntity> empty() {
         final List<MyEntity> res = repository.filterByName(List.of());
