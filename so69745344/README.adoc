@@ -1,0 +1,10 @@
+* https://stackoverflow.com/q/69745344/4506703[Spring Boot - created_at cannot be null. Spring JPA]
+
+Spring Data JPA を使って 作成日付、更新日付を自動設定する場合の設定について。
+
+`@EntityListeners(AuditingEntityListener.class)` に加え、 `@EnableJpaAuditing` も付与する必要がある。
+
+
+関連リンク:
+
+* https://docs.spring.io/spring-data/jpa/docs/2.5.6/reference/html/#jpa.auditing[5.1.10. JPA Auditing]
