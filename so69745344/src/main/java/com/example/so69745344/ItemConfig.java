@@ -14,7 +14,7 @@ public class ItemConfig {
     @Autowired
     CategoryRepository categoryRepository;
 
-    @Value("${STORE.ENV}")
+    @Value("${STORE.ENV:test}")
     private String env;
 
     @Bean
