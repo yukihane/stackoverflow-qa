@@ -1,0 +1,31 @@
+<! DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>検索画面</title>
+</head>
+<body>
+    <p>
+    <h2>社員情報検索</h2>
+    <h3>※前方一致で検索します</h3>
+    <form action="/search" method="post">
+        <p>
+            ID<input type="text" name="name"><br>
+            <!--  名前<input type="text" name="name"><br>
+            カナ<input type="text" name="name"><br>-->
+            <button type="submit">検索</button>
+            <button type="submit">新規登録</button>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>カナ</th>
+        </tr>
+        <tr th:each="list : ${list}" th:object="${list}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{kana}"></td>
+        </tr>
+    </table>
+</body>
+</html>

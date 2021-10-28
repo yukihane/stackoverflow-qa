@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Login</title>
+</head>
+<body>
+<h2>ログイン画面</h2>
+<form action="#" th:action="@{/yeah}" th:object="${userForm}" method="post">
+<table>
+<tr>
+<td>id:</td>
+<td><input type="text" name="id" th:field="*{id}" />
+<span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></td>
+</tr>
+<tr>
+<td>pass:</td>
+<td><input type="text" name="pass" th:field="*{pass}" />
+<span th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></span></td>
+</tr>
+<tr>
+<td><button type="submit">Submit</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
