@@ -1,0 +1,3 @@
+* https://ja.stackoverflow.com/q/83310/2808[Request method 'GET' not supported　のエラーを抜け出せない]
+
+質問コード中には問題は見当たらなかった。
