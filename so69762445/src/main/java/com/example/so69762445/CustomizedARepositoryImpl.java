@@ -32,7 +32,7 @@ public class CustomizedARepositoryImpl implements CustomizedARepository {
 
     @Override
     public List<A> getAll() {
-        // https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#sql-entity-associations-query
+        // https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#sql-entity-associations-query
         final Session sess = (Session) entityManager.getDelegate();
         final List<A> res = sess
             // If no duplicate column names, original sql can be used, too.
