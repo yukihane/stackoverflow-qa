@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.transform.BasicTransformerAdapter;
 import org.springframework.stereotype.Repository;
@@ -14,6 +18,17 @@ public class CustomizedARepositoryImpl implements CustomizedARepository {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Override
+    public List<A> getAllCriteria() {
+        // https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#criteria-from-fetch
+        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<A> criteria = builder.createQuery(A.class);
+        final Root<A> root = criteria.from(A.class);
+        root.fetch("bs", JoinType.LEFT);
+        criteria.select(root).distinct(true);
+        return entityManager.createQuery(criteria).getResultList();
+    }
 
     @Override
     public List<A> getAll() {

@@ -29,4 +29,9 @@ public class MyController {
     public List<A> jpa() {
         return repo.findAll();
     }
+
+    @GetMapping("/criteria")
+    public List<A> criteria() {
+        return repo.getAllCriteria();
+    }
 }
