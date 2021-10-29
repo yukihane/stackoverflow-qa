@@ -34,4 +34,9 @@ public class MyController {
     public List<A> criteria() {
         return repo.getAllCriteria();
     }
+
+    @GetMapping("/jpql")
+    public List<A> jpql() {
+        return repo.getAllJpqlFetch();
+    }
 }
