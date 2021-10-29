@@ -9,7 +9,16 @@
 mvn spring-boot:run
 ----
 
+=== Native query
+
 [source,sh]
 ----
 curl http://localhost:8080/
+----
+
+=== Hibernate subselect
+
+[source,sh]
+----
+curl http://localhost:8080/jpa
 ----
