@@ -20,6 +20,7 @@ public class CustomizedARepositoryImpl implements CustomizedARepository {
         // https://docs.jboss.org/hibernate/orm/5.6/userguide/html_single/Hibernate_User_Guide.html#sql-entity-associations-query
         final Session sess = (Session) entityManager.getDelegate();
         final List<A> res = sess
+            // If no duplicate column names, original sql can be used, too.
             .createNativeQuery("select {a.*},{b.*} from A as a left join B as b on a.ID = b.a ")
             .addEntity("a", A.class)
             .addJoin("b", "a.bs")
