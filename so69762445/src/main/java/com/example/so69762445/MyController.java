@@ -24,4 +24,9 @@ public class MyController {
 
         return res;
     }
+
+    @GetMapping("/jpa")
+    public List<A> jpa() {
+        return repo.findAll();
+    }
 }
