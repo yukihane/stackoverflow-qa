@@ -22,3 +22,10 @@ curl http://localhost:8080/
 ----
 curl http://localhost:8080/jpa
 ----
+
+=== JPA criteria
+
+[source,sh]
+----
+curl http://localhost:8080/criteria
+----
