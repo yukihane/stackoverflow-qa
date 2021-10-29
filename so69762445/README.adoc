@@ -16,6 +16,13 @@ mvn spring-boot:run
 curl http://localhost:8080/
 ----
 
+=== JPQL
+
+[source,sh]
+----
+curl http://localhost:8080/jpql
+----
+
 === Hibernate subselect
 
 [source,sh]
