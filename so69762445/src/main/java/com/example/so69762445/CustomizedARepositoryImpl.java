@@ -25,7 +25,7 @@ public class CustomizedARepositoryImpl implements CustomizedARepository {
         final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         final CriteriaQuery<A> criteria = builder.createQuery(A.class);
         final Root<A> root = criteria.from(A.class);
-        root.fetch("bs", JoinType.LEFT);
+        root.fetch(A_.bs, JoinType.LEFT);
         criteria.select(root).distinct(true);
         return entityManager.createQuery(criteria).getResultList();
     }
