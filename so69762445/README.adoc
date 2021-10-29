@@ -1,0 +1,15 @@
+= https://stackoverflow.com/q/69762445/4506703[Hibernate native query also gets JPA select]
+
+(native query を使って) 1 回の `select` で one-to-many のエンティティを一気に取得する。
+
+== Usage
+
+[source,sh]
+----
+mvn spring-boot:run
+----
+
+[source,sh]
+----
+curl http://localhost:8080/
+----
