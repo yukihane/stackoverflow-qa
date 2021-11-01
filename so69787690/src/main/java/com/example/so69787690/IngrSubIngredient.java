@@ -25,7 +25,6 @@ public class IngrSubIngredient {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("subIngredientId")
-    @JsonBackReference
     private Ingredient subIngredient;
     
     private double quantity;

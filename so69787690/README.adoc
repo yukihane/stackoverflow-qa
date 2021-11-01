@@ -1,0 +1,10 @@
+= https://stackoverflow.com/q/69787690/4506703[Spring JPA hibernate persist RestFull Object @OneToMany children (remove, add, or update) issues?]
+
+cannot reproduce.
+
+[source,sh]
+----
+curl --location --request PUT 'http://localhost:8080/ingredients' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id":101,"ingrSubIngredients":[{"embId":{"ingredientId":101,"subIngredientId":103},"subIngredient":{"id":103,"ingrSubIngredients":[]},"quantity":801.0},{"embId":{"ingredientId":101,"subIngredientId":102},"subIngredient":{"id":102,"ingrSubIngredients":[]},"quantity":501.0}]}'
+----
