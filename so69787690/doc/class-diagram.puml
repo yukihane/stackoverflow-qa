@@ -1,0 +1,4 @@
+@startuml
+Ingredient "1" --> "*" IngrSubIngredient
+IngrSubIngredient "*" -- "1" > Ingredient
+@enduml
