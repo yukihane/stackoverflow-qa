@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Order(1)
 public class ApplicationFilter implements Filter {
-    @Autowired
-    private UserDetails userDetails;
+//    @Autowired
+//    private UserDetails userDetails;
     
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
