@@ -1,0 +1,10 @@
+* https://stackoverflow.com/q/69796060/4506703[Create a Jar From a Spring Boot Console App That Requires Injection From Custom Arguments]
+
+Cannot reporoduce.
+
+== How to execute
+
+[source,sh]
+----
+mvn clean package && java -jar target/so69796060-0.0.1-SNAPSHOT.jar --param.date=01-11-2021
+----
