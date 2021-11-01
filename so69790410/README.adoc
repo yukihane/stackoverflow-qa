@@ -1,0 +1,13 @@
+= https://stackoverflow.com/a/69791490/4506703[json object returns null spring boot]
+
+== Usage
+
+[source,sh]
+----
+mvn spring-boot:run
+----
+
+[source,sh]
+----
+curl http://localhost:8080
+----
