@@ -1,0 +1,1 @@
+https://stackoverflow.com/a/69792071/4506703[Autorization token from React doesn't pass Java Spring Boot filter]
