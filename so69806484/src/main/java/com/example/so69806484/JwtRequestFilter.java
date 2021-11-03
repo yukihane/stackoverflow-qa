@@ -16,7 +16,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain)
         throws ServletException, IOException {
 
-        throw new BadCredentialsException("exception");
+        filterChain.doFilter(request, response);
     }
 
 }
