@@ -1,0 +1,35 @@
+= https://stackoverflow.com/q/69806484/4506703[antMatchers() is not working , and gives forbidden error]
+
+== Description
+
+結構 Spring Security あるある、な話ではないかと思います。
+
+自前で セキュリティフィルタを作って適用したものの、 `permitAll` で認証対象外としたはずのエンドポイントでも認証処理が走ってしまう、という話。
+
+セキュリティ(認証)フィルタの評価の結果は
+
+* 認証OK
+* 認証NG
+
+の2種類だけではなく、
+
+* このフィルタでは評価不能(なので他のフィルタに委ねる)
+
+という結果もあり得ます。
+
+3つめの場合は、何もせず次の処理に進めばよいです
+(`AbstractAuthenticationProcessingFilter` を継承して作成している場合は、 https://docs.spring.io/spring-security/site/docs/5.5.3/api/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.html#attemptAuthentication(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)[`attemptAuthentication` メソッド]で `null` を返すことになります)。
+
+
+== Usage 
+
+[soruce,sh]
+----
+mvn spring-boot:run
+----
+
+[soruce,sh]
+----
+curl -H http://localhost:8080/authenticate
+curl -H http://localhost:8080/secure
+----
