@@ -1,3 +1,5 @@
+mvnw*
+.mvn/
 .gradle/
 .attach_pid*
 node_modules/
