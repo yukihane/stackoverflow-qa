@@ -16,6 +16,4 @@ import lombok.NoArgsConstructor;
 public class CourseKeywordKey implements Serializable {
     @Column(name = "course_id")
     private Long courseId;
-    @Column(name = "keyword_id")
-    private Long keywordId;
 }
