@@ -28,4 +28,9 @@ public class Course {
     private String description;
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     List<CourseKeyword> keywords = new ArrayList<>();
+
+    public void addKey(CourseKeyword key) {
+        keywords.add(key);
+        key.setCourse(this);
+    }
 }
