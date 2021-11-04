@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> </head>
+
+  <body>
+    <form action="#" th:action="@{/create}" th:object="${createForm}"
+        method="post">
+        <table>
+            <tr>
+                <th>id</th>
+                <td><input type="text" name="id" th:field="*{id}"><br>
+                    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></td>
+            </tr>
+            <tr>
+                <th>pass</th>
+                <!-- ポイント2 -->
+                <td><input type="text" name="pass" th:field="*{pass}"><br>
+                    <span th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></span></td>
+            </tr>
+            <tr>
+                <th>reenter</th>
+                <td><input type="text" name="reenter" th:field="*{reenter}"><br>
+                    <span th:if="${#fields.hasErrors('reenter')}"
+                    th:errors="*{reenter}"></span></td>
+            </tr>
+            <tr>
+                <td><span th:if="${#fields.hasErrors('check')}"
+                    th:errors="*{check}"></span></td>
+            </tr>
+            <tr>
+                <th>name</th>
+                <td><input type="text" name="name" th:field="*{name}"><br>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
+            </tr>
+            <tr>
+                <th>kana</th>
+                <td><input type="text" name="kana" th:field="*{kana}"><br>
+                    <span th:if="${#fields.hasErrors('kana')}" th:errors="*{kana}"></span></td>
+            </tr>
+
+            <tr>
+                <th>birth</th>
+                <td><input type="text" name="birth" th:field="*{birth}"><br>
+                    <span th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}"></span></td>
+            </tr>
+            <tr>
+                <th>club</th>
+                <td><input type="text" name="club" th:field="*{club}"><br>
+                    <span th:if="${#fields.hasErrors('club')}" th:errors="*{club}"></span></td>
+            </tr>
+
+        </table>
+        <input type="submit" value="登録">
+    </form>
+
+  </body>
+</html>
