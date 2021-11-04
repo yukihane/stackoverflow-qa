@@ -19,7 +19,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class CourseKeyword {
     @EmbeddedId
-    private CourseKeywordKey courseKeywordKey;
+    private CourseKeywordKey courseKeywordKey = new CourseKeywordKey();
     @CreationTimestamp
     private LocalDateTime created;
 
