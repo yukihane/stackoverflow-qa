@@ -27,12 +27,12 @@ public class MyController {
 
         return create(createForm);
       }
-        User user = new User();
-        Userdetail userdetail = new Userdetail();
-        BeanUtils.copyProperties(createForm, user);
-        BeanUtils.copyProperties(createForm, userdetail);
-        sevi.insert(user);
-        sevi.insert2(userdetail);
+//        User user = new User();
+//        Userdetail userdetail = new Userdetail();
+//        BeanUtils.copyProperties(createForm, user);
+//        BeanUtils.copyProperties(createForm, userdetail);
+//        sevi.insert(user);
+//        sevi.insert2(userdetail);
 
   return "redirect:/create";
 
