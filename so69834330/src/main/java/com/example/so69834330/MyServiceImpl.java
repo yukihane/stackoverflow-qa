@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MyServiceImpl implements MyService {
 
+    private final KeywordRepository keywordRepository;
     private final CourseRepository courseRepository;
 
     @Transactional
@@ -18,8 +19,12 @@ public class MyServiceImpl implements MyService {
         course.setName("new course");
         course.setDescription("" + LocalDateTime.now());
 
-        CourseKeyword key = new CourseKeyword();
-        course.addKey(key);
+        keywordRepository.findAll().stream()
+            .forEach(key -> {
+                CourseKeyword ret = new CourseKeyword();
+                ret.setKeyword(key);
+                course.addKey(ret);
+            });
 
         return courseRepository.save(course);
     }

@@ -27,4 +27,10 @@ public class CourseKeyword {
     @MapsId("courseId")
     @JoinColumn(name = "course_id")
     Course course;
+
+    @ManyToOne
+    @MapsId("keywordId")
+    @JoinColumn(name = "keyword_id")
+    Keyword keyword;
+
 }
