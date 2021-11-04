@@ -1,0 +1,4 @@
+* https://stackoverflow.com/q/69834330/4506703[Error in app: org.hibernate.id.IdentifierGenerationException: attempted to assign id from null one-to-one property]
+
+`EmbeddedId` と `MapsId` を利用した親子関係の永続化について。
+
