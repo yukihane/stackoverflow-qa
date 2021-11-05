@@ -9,15 +9,14 @@ public class MyServiceImpl {
     
     private final UserRepository userRepository;
 
-    public User doubleCheck(String id) {
-
-        User u = userRepository.getById(id);
-
-        if (u.getId().equals(id)) {
-        //if (null != u) {
-            return u;
-        }
-        return null;
+        public User doubleCheck(String id) {
+            try {
+              User u = userRepository.getById(id);
+              u.getName();
+              return u;
+            } catch (Exception e) {
+              return null;
+            }
     }
 
 
