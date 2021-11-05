@@ -1,0 +1,1 @@
+* https://ja.stackoverflow.com/q/83428/2808[アノテーション @AssertTrue での入力値チェックが意図した通り動作しない]
