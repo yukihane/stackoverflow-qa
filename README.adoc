@@ -1,0 +1,7 @@
+* https://stackoverflow.com/q/69846052/4506703[Spring RequestMapping Annotation Path Value from Properties (Config) File]
+
+アノテーションの配列パラメータに外から値を設定する方法。
+
+コンパイル時に決定する必要があるので、実行時には無理そう。
+
+* https://stackoverflow.com/q/2065937/4506703[How to supply value to an annotation from a Constant java]
