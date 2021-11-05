@@ -1,5 +1,6 @@
 package com.example.jaso83428;
 
+import java.util.Objects;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -15,8 +16,7 @@ public class CreateForm {
   private String reenter;
   @AssertTrue(message = "PASSが一致しません")
   public boolean isCheck() {
-    if (pass != reenter) return true;
-return false;
+      return Objects.equals(pass, reenter);
     }
   @NotBlank
   private String name;
