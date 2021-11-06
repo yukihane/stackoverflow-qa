@@ -46,8 +46,7 @@ public class MyController {
   @PostMapping(path = "update", params = "update")
     String update(@RequestParam String id, @ModelAttribute CreateForm createForm) {
       Optional<User> opt = sevi.selectById(id);
-      User u = opt.get();
-      BeanUtils.copyProperties(u, createForm);
+      opt.ifPresent(u -> BeanUtils.copyProperties(u, createForm));
       return "update";
     }
 
