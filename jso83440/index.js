@@ -31,7 +31,9 @@ app.get("/", async ({ query }, response) => {
           authorization: `${oauthData.token_type} ${oauthData.access_token}`,
         },
       });
-      console.log(await userResult.json());
+
+      const resultJson = await userResult.json();
+      console.log(resultJson.username);
     } catch (error) {
       // NOTE: An unauthorized token will not throw an error;
       // it will return a 401 Unauthorized response in the try block above
