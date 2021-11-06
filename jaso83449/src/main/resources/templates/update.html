@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- scripts import -->
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script
+      th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.bundle.min.js}"
+    ></script>
+    <!-- style import -->
+    <link
+      th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.css}"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <div class="col-sm-5">
+      <div class="page-header">
+        <h1>編集画面</h1>
+      </div>
+      <form th:action="@{/update}" th:object="${createForm}" method="post">
+        <table class="table table-bordered table-hover">
+          <!-- ユーザーID -->
+          <tr>
+            <th class="active col-sm-3">ユーザID</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="id"
+                th:field="*{id}"
+                th:classappend="${#fields.hasErrors('id')} ? 'is-invalid'"
+              />
+              <span
+                class="text-danger"
+                th:if="${#fields.hasErrors('id')}"
+                th:errors="*{id}"
+              ></span>
+            </td>
+          </tr>
+          <!-- 名前 -->
+          <tr>
+            <th class="active">名前</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                th:field="*{name}"
+                th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'"
+              />
+              <span
+                class="text-danger"
+                th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}"
+              ></span>
+            </td>
+          </tr>
+          <!-- カナ -->
+          <tr>
+            <th class="active">カナ</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="kana"
+                th:field="*{kana}"
+                th:classappend="${#fields.hasErrors('kana')} ? 'is-invalid'"
+              />
+              <span
+                class="text-danger"
+                th:if="${#fields.hasErrors('kana')}"
+                th:errors="*{kana}"
+              ></span>
+            </td>
+          </tr>
+          <!-- 生年月日 -->
+          <tr>
+            <th class="active">生年月日(yyyy/mm/dd)</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="birth"
+                th:field="*{birth}"
+                th:classappend="${#fields.hasErrors('birth')} ? 'is-invalid'"
+              />
+              <span
+                class="text-danger"
+                th:if="${#fields.hasErrors('birth')}"
+                th:errors="*{birth}"
+              ></span>
+            </td>
+          </tr>
+          <!-- 委員会 -->
+          <tr>
+            <th class="active">委員会</th>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="club"
+                th:field="*{club}"
+                th:classappend="${#fields.hasErrors('club')} ? 'is-invalid'"
+              />
+              <span
+                class="text-danger"
+                th:if="${#fields.hasErrors('club')}"
+                th:errors="*{club}"
+              ></span>
+            </td>
+          </tr>
+        </table>
+        <input
+          type="submit"
+          class="btn btn-outline-dark mt-3"
+          name="back"
+          value="戻る"
+        />
+        <input
+          type="submit"
+          class="btn btn-primary mt-3"
+          name="regist"
+          value="実行"
+        />
+        <input type="hidden" name="id" th:value="${param.id[0]}" />
+      </form>
+    </div>
+  </body>
+</html>

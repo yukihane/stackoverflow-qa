@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>検索画面</title>
+  </head>
+  <body>
+    <h2>社員情報検索</h2>
+    <h3>※前方一致で検索します</h3>
+    <form
+      action="#"
+      th:action="@{/search}"
+      th:object="${searchForm}"
+      method="post"
+    >
+      <table>
+        <tr>
+          <td>
+            id: <input type="text" name="id" th:field="*{id}" /><br />
+            <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            名前:<input type="text" name="name" th:field="*{name}" /><br />
+            <span
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}"
+            ></span>
+          </td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td>
+            カナ:<input type="text" name="kana" th:field="*{kana}" /><br />
+            <span
+              th:if="${#fields.hasErrors('kana')}"
+              th:errors="*{kana}"
+            ></span>
+          </td>
+        </tr>
+        <tr>
+          <td><button type="submit">検索</button></td>
+        </tr>
+      </table>
+    </form>
+    <button
+      type="submit"
+      class="btn btn--blue"
+      onClick="location.href='http://localhost:8080/create'"
+    >
+      新規登録
+    </button>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>カナ</th>
+        <th>生年月日</th>
+        <th>委員会</th>
+        <th>操作</th>
+      </tr>
+      <tr th:each="search:${search}">
+        <td th:text="${search.user.id}"></td>
+        <td th:text="${search.user.name}"></td>
+        <td th:text="${search.user.kana}"></td>
+        <td th:text="${search.birth}"></td>
+        <td th:text="${search.club}"></td>
+        <td>
+          <form th:action="@{/update}" method="post">
+            <input type="submit" name="update" value="編集" />
+            <input type="hidden" name="birth" th:value="${search.birth}" />
+            <!-- ←これするとupdate.htmlに遷移したとき-->
+            <input type="hidden" name="club" th:value="${search.club}" />
+            <!-- テキストボックスに文字はいる-->
+            <input type="hidden" name="id" th:value="${search.user.id}" />
+          </form>
+        </td>
+        <td>
+          <form th:action="@{/delete}" method="post">
+            <input type="submit" name="delete" value="削除" />
+            <input type="hidden" name="id" th:value="${search.user.id}" />
+          </form>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
