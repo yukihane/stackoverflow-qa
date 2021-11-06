@@ -5,11 +5,9 @@ const { clientId, clientSecret, port } = require("./config.json");
 const app = express();
 
 app.get("/", async ({ query }, response) => {
-  console.log("hello");
   const { code } = query;
 
   if (code) {
-    console.log(`code: ${code}`);
     try {
       const oauthResult = await fetch("https://discord.com/api/oauth2/token", {
         method: "POST",
@@ -27,14 +25,12 @@ app.get("/", async ({ query }, response) => {
       });
 
       const oauthData = await oauthResult.json();
-      console.log(oauthData);
 
       const userResult = await fetch("https://discord.com/api/users/@me", {
         headers: {
           authorization: `${oauthData.token_type} ${oauthData.access_token}`,
         },
       });
-
       console.log(await userResult.json());
     } catch (error) {
       // NOTE: An unauthorized token will not throw an error;
