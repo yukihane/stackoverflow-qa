@@ -1,0 +1,5 @@
+* https://stackoverflow.com/q/69862210/4506703[java.lang.IllegalStateException: Cannot load configuration class: com.javainuse.SpringBootHelloWorldApplication]
+
+Spring Boot 1.x は Java 9 以上では動かない。
+
+Java 7 か 8 が必要。
