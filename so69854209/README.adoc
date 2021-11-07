@@ -1,0 +1,12 @@
+* https://stackoverflow.com/q/69854209/4506703[how to set the findAll() on springboot to only return one column of it's foreign key's table]
+
+クエリでエンティティでなくDTOを返す。
+
+カスタム `ResultTransformer` の利用。
+
+[quote,'https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#best-practices-fetching[26.6. Fetching]']
+____
+Hibernate supports both entity queries (JPQL/HQL and Criteria API) and native SQL statements. Entity queries are useful only if you need to modify the fetched entities, therefore benefiting from the automatic dirty checking mechanism.
+
+For read-only transactions, you should fetch DTO projections because they allow you to select just as many columns as you need to fulfill a certain business use case. This has many benefits like reducing the load on the currently running Persistence Context because DTO projections don’t need to be managed.
+____
