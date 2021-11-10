@@ -1,0 +1,2 @@
+* https://ja.stackoverflow.com/q/83538/2808[mysqlでUPDATE文のWHERE句で日付比較を行うとincorrect datetime valueが発生する]
+
