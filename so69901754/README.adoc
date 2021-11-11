@@ -1,0 +1,5 @@
+https://stackoverflow.com/q/69901754/4506703[Why do the % operators in the query not work for strings containing numbers? (JPA)]
+
+Spring Data JPA で `like` 条件を構築するときのやり方について。
+
+`%` を取り扱うには `SpEL` を利用するみたいです。
