@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CarportLocationEntityViewRepository extends JpaRepository<CarportLocationEntityView, Long> {
-    @Query("SELECT d FROM CarportLocationEntityView d WHERE d.externalId LIKE %:filterCriteria% OR lower(d.carportName) LIKE lower(concat('%',:filterCriteria,'%')) ")
+    @Query("SELECT d FROM CarportLocationEntityView d WHERE d.externalId LIKE %:#{#filterCriteria}% OR lower(d.carportName) LIKE %:#{#filterCriteria.toLowerCase()}% ")
     List<CarportLocationEntityView> filterCarportList(@Param("filterCriteria") String filterCriteria);
 }

@@ -1,5 +1,6 @@
 package com.example.so69901754;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,8 +19,8 @@ public class So69901754Application {
     private final CarportLocationEntityViewRepository repository;
 
     @GetMapping
-    public String index() {
-        repository.filterCarportList("xx");
-        return "hello";
+    public List<CarportLocationEntityView> index() {
+        final List<CarportLocationEntityView> ret = repository.filterCarportList("xYZ");
+        return ret;
     }
 }
