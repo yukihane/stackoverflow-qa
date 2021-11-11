@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Child } from "./Child.js";
+import Child from "./Child";
 
 const App = () => {
   const [child, setChild] = useState("");
