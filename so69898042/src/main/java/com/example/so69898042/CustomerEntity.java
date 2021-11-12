@@ -4,6 +4,8 @@ import java.util.UUID;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityResult;
@@ -15,6 +17,7 @@ import javax.persistence.SqlResultSetMapping;
 import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -25,18 +28,22 @@ import org.hibernate.annotations.Type;
 
 @SqlResultSetMappings(value = {
     @SqlResultSetMapping(name = "nativeMapping",
-        entities = {
-            @EntityResult(
-                entityClass = CustomerEntity.class,
-                fields = {
-                    @FieldResult(name = "name", column = "customer_name"),
-                    @FieldResult(name = "email", column = "customer_email")
-                }) }) })
+        classes = @ConstructorResult(
+            columns = { @ColumnResult(name = "customer_name"), @ColumnResult(name = "customer_email") },
+            targetClass = CustomerEntity.class)) })
 @Entity
 @Table(name = "customer")
 @Getter
 @Setter
 public class CustomerEntity {
+    public CustomerEntity() {
+    }
+
+    public CustomerEntity(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     //getter and setter fields
     @Column(name = "customer_name")
     private String name;
