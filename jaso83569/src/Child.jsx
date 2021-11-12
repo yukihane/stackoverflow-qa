@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 
-type Props = {
-  test: React.Dispatch<React.SetStateAction<string>>;
-};
-const Child = ({ test }: Props) => {
+const Child = ({ test }) => {
   const message = "ハローワールド";
   useEffect(() => test(message), [test]);
   return <p></p>;
