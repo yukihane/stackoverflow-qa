@@ -5,6 +5,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Maps;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +19,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-@SpringBootTest(classes = TestApplication.class)
+@SpringBootTest
 @ActiveProfiles("dev")
 @AutoConfigureMockMvc
 
@@ -29,18 +33,28 @@ public class SwStatusCheckTest {
     @DisplayName("GET Method /SwCheckStatus check success")
     public void testStatusSuccess() throws Exception {
 
-        MvcResult result =  mvc.perform(get("/status/SwCheckStatus"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-                //.andExpect(content().json("{\"services\":[\"OutboundMessageService\"]}", true));
+        MvcResult result = mvc.perform(get("/status/SwCheckStatus"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andReturn();
+        //.andExpect(content().json("{\"services\":[\"OutboundMessageService\"]}", true));
 
-        String actualJson = result.getResponse().getContentAsString();
-        String expectedJson = "[{\"instanceName\":\"Instance C\", \"read\" : 1, \"swProduct\" : \"Area 3\", \"swProductModule\" : \"Spring Boot 3\"}]";
+        ObjectMapper mapper = new ObjectMapper();
 
+        List<? extends Map<String, Object>> actualJson = mapper.readValue(result.getResponse().getContentAsString(),
+            List.class);
 
-        assertThat(expectedJson).isIn(actualJson);
+        Map<String, Object> expected = Map.of("instanceName", "", "read", 1, "swProduct", "Area 1", "swProductModule",
+            "Regular 1");
 
+        boolean contains = false;
+        for (Map<String, Object> a : actualJson) {
+            boolean res = Maps.difference(a, expected).areEqual();
+            if (res) {
+                contains = true;
+                break;
+            }
+        }
+        assertThat(contains).isTrue();
+    }
 }
-}
-
