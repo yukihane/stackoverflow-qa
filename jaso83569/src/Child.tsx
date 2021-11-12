@@ -1,7 +1,11 @@
-const Child = (props: {
+import { useEffect } from "react";
+
+type Props = {
   test: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+};
+const Child = ({ test }: Props) => {
   const message = "ハローワールド";
-  return <p>{() => props.test(message)}</p>;
+  useEffect(() => test(message), [test]);
+  return <p></p>;
 };
 export default Child;
