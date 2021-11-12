@@ -1,0 +1,5 @@
+* https://stackoverflow.com/q/22663502/4506703[How to use @ConstructorResult annotation]
+
+`@SqlResultSetMapping` で POJOにマッピングする方法。
+
+再現しない。
