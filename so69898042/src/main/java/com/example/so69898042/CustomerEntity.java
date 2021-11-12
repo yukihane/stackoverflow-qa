@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.SqlResultSetMapping;
 import javax.persistence.SqlResultSetMappings;
+import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -30,7 +33,10 @@ import org.hibernate.annotations.Type;
                     @FieldResult(name = "email", column = "customer_email")
                 }) }) })
 @Entity
-class CustomerEntity {
+@Table(name = "customer")
+@Getter
+@Setter
+public class CustomerEntity {
     //getter and setter fields
     @Column(name = "customer_name")
     private String name;
@@ -45,6 +51,6 @@ class CustomerEntity {
     @Column(columnDefinition = "VARCHAR(36)", name = "customer_guid")
     @Type(type = "uuid-char")
     private UUID guid;
-    @Embedded
-    private AuditFields audit;
+    //    @Embedded
+    //    private AuditFields audit;
 }
