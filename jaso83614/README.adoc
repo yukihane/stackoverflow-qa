@@ -1,0 +1,30 @@
+
+== 環境設定
+
+* https://code.visualstudio.com/docs/remote/containers#_debugging-in-a-container[Developing inside a Container] - Developing inside a Container using Visual Studio Code Remote Development
+
+機能拡張 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Remote - Containers] をローカルの VSCode にインストールします。
+
+コマンドパレット(`Ctrl` + `Shift` + `P`)で "**Remote-Containers: Add Development Container Configuration Files...**" を選択します。
+
+ウィザードを進め、構築する環境を設定します。例えば Java 11 の Maven 環境であれば:
+
+* "Java > 11 > None(Node をインストールしない) > Install Maven にチェック > (何もチェックしない) "
+
+ウィザードを完了させると、 `.devcontainer` ディレクトリに 2 ファイル `devcontainer.json`, `Dockerfile` が作成されます。
+
+`devcontainer.json` を編集し、 機能拡張 https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack[Spring Boot Extension Pack] をインストールするように次の通り設定を追記します。
+
+[source]
+----
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "Pivotal.vscode-boot-dev-pack"
+  ],
+----
+
+コマンドパレットで "**Remote-Containers: Open Folder in Container...**" を選択します。 Docker イメージが構築され、コンテナが起動します。
+
+== コンテナ停止方法
+
+https://code.visualstudio.com/docs/remote/containers#_managing-containers
