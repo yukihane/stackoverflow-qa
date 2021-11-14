@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Jaso83614Application<jaso83614>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.jaso83614.Jaso83614Application",
+            "projectName": "jaso83614",
+            "args": ""
+        }
+    ]
+}
