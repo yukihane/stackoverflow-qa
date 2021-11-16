@@ -9,14 +9,14 @@ $(function () {
     if (tf == true) {
       tf = false;
       num = 0;
-      myTIme = setInterval(nemui, 1000);
+      myTime = setInterval(nemui, 1000);
     }
   });
 
   $("#bt2").click(function () {
     if (tf == false) {
       tf = true;
-      clearInterval(myTIme);
+      clearInterval(myTime);
     }
   });
 });
