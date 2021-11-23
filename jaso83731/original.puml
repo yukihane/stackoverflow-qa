@@ -1,0 +1,33 @@
+@startuml
+autonumber
+ユーザエージェント -> クライアント:  /secure/endpoint\nへアクセス
+activate クライアント
+クライアント -> クライアント: 認可済みチェック -> NG
+クライアント --> ユーザエージェント: 認可のためのリダイレクト指示
+deactivate クライアント
+
+ユーザエージェント -> 認可サーバ: 認可リクエスト
+activate 認可サーバ
+認可サーバ -> 認可サーバ: (認証及び)認可
+認可サーバ --> ユーザエージェント: redirect-uriへリダイレクト指示 with 認可コード
+deactivate 認可サーバ
+
+ユーザエージェント -> クライアント: redirect-uri with 認可コード
+activate クライアント
+クライアント -> 認可サーバ: /code with 認可コード
+activate 認可サーバ
+認可サーバ --> クライアント: アクセストークン
+deactivate 認可サーバ
+クライアント --> ユーザエージェント: 元々のリクエスト\n/secure/endpoint\nへリダイレクト指示
+deactivate クライアント
+
+ユーザエージェント -> クライアント: /secure/endpoint
+activate クライアント
+クライアント -> リソースサーバ: リソース要求 with アクセストークン
+activate リソースサーバ
+リソースサーバ --> クライアント: リソース
+deactivate リソースサーバ
+クライアント --> ユーザエージェント: 応答
+deactivate クライアント
+
+@enduml
