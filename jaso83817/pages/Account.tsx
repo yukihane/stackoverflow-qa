@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 
 const Account: NextPage = () => {
-  let title = "Title";
+  const [title, setTitle] = useState("Title");
 
   function chnageTitle() {
-    title = "Changed Title";
+    setTitle("Change title");
   }
 
   return (
