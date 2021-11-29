@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //サブクラス
 public class SubClass extends SuperClass {
     public SubClass(int[] array) {
@@ -10,6 +12,6 @@ public class SubClass extends SuperClass {
     }
 
     protected int sum() {
-        throw new UnsupportedOperationException();
+        return Arrays.stream(〇〇()).sum();
     }
 }
