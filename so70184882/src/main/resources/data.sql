@@ -1,0 +1,1 @@
+insert into my_entity (id, name) values (1, 'myname'), (2,null);
