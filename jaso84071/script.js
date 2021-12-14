@@ -2,21 +2,54 @@ function submit() {
   discord();
 }
 
+// channel を key にした map を返すように変更
 function get_value() {
   var sheet1 = SpreadsheetApp.getActive().getSheetByName("Sheet1");
 
   var [[date], [format]] = sheet1.getRange("C2:C3").getValues();
   format = format.replace(/[ 　"+]+/g, "").replace("date", date);
-  var values = sheet1.getRange("D11:R" + sheet1.getLastRow()).getValues();
+  // C列(discord名前/channel) を含める
+  var values = sheet1.getRange("C11:R" + sheet1.getLastRow()).getValues();
   var messages_array = values
     .filter((r) => r[2] != 0)
-    .map(([allpoint, , haisintime, haisinkaisu, , , , , , , , , , , comrank]) =>
-      Object.entries({ allpoint, haisintime, haisinkaisu, comrank }).reduce(
-        (s, e) => s.replace(...e).replace(/\\n/g, "\n"),
-        format
-      )
+    .map(
+      ([
+        channel,
+        allpoint,
+        ,
+        haisintime,
+        haisinkaisu,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        comrank,
+      ]) => {
+        const message = Object.entries({
+          allpoint,
+          haisintime,
+          haisinkaisu,
+          comrank,
+        }).reduce((s, e) => s.replace(...e).replace(/\\n/g, "\n"), format);
+
+        return [channel, message];
+      }
     );
-  return messages_array;
+
+  return new Map(messages_array);
+  // // 参考: V8 が OFF の場合
+  // // https://officeforest.org/wp/2020/02/06/google-apps-script%E3%81%AEv8-runtime%E5%AF%BE%E5%BF%9C%E3%82%92%E6%A4%9C%E8%A8%BC%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/#Map
+  // // https://stackoverflow.com/a/26265095/4506703
+  //   return messages_array.reduce(function (map, obj) {
+  //     map[obj[0]] = obj[1];
+  //     return map;
+  //   }, {});
 }
 
 //googleスプレットシート  自動送信
