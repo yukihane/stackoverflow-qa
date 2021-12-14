@@ -3,7 +3,7 @@ function submit() {
 }
 
 function get_value() {
-  var sheet1 = SpreadsheetApp.getActiveSheet();
+  var sheet1 = SpreadsheetApp.getActive().getSheetByName("Sheet1");
 
   var [[date], [format]] = sheet1.getRange("C2:C3").getValues();
   format = format.replace(/[ 　"+]+/g, "").replace("date", date);
@@ -27,9 +27,7 @@ function get_sheet(gss_url, sheet_num) {
 }
 
 function get_sheet2(gss_url, sheet_num) {
-  var discord = SpreadsheetApp.openByUrl(gss_url);
-  var sheet2 = discord.getSheets()[sheet_num];
-  return sheet2;
+  return SpreadsheetApp.getActive().getSheetByName("Sheet2");
 }
 
 function discord(message) {
@@ -85,7 +83,7 @@ function discord(message) {
     };
     Utilities.sleep(500);
 
-    response = UrlFetchApp.fetch(url, params);
+    // response = UrlFetchApp.fetch(url, params);
     //実行ログ
     console.log(channel + " : " + text);
   }
