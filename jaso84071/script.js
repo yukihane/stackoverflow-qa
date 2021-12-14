@@ -89,8 +89,8 @@ function discord(message) {
     const url = webhook;
     const token = dtoken;
     const channel = dchannel;
-    const text = messages[j - 11];
-    if (text === "None") {
+    const text = messages.get(channel);
+    if (!text) {
       console.log(channel + " : 送信なし");
       continue;
     }
