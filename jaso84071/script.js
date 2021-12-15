@@ -43,13 +43,6 @@ function get_value() {
     );
 
   return new Map(messages_array);
-  // // 参考: V8 が OFF の場合
-  // // https://officeforest.org/wp/2020/02/06/google-apps-script%E3%81%AEv8-runtime%E5%AF%BE%E5%BF%9C%E3%82%92%E6%A4%9C%E8%A8%BC%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/#Map
-  // // https://stackoverflow.com/a/26265095/4506703
-  //   return messages_array.reduce(function (map, obj) {
-  //     map[obj[0]] = obj[1];
-  //     return map;
-  //   }, {});
 }
 
 //googleスプレットシート  自動送信
