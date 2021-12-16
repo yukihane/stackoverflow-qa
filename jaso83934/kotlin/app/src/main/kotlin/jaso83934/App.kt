@@ -3,13 +3,12 @@
  */
 package jaso83934
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
+import java.time.DayOfWeek
+import java.time.LocalDate
+import java.time.temporal.TemporalAdjusters
 
 fun main() {
-    println(App().greeting)
+    val base = LocalDate.of(2021, 12, 3)
+    val date = base.with(TemporalAdjusters.dayOfWeekInMonth(2, DayOfWeek.WEDNESDAY))
+    println(date) // 2021-12-08
 }
