@@ -10,7 +10,7 @@ echo '* text eol=crlf' > .gitattributes
 git add .gitattributes && git commit -m 'add .gitattributes'
 git checkout -b feature
 git rm .gitattributes && git commit -m 'remove .gitattributes'
-echo -e 'hello\nworld' | unix2dos > hello.txt
+echo $'hello\r\nworld' > hello.txt
 git add hello.txt && git commit -m 'add hello.txt with CRLF'
 GIT_SEQUENCE_EDITOR="sed -i '1d'" git rebase -i main
 git checkout -f main
