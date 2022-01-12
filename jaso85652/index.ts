@@ -1,4 +1,10 @@
-const objectMap = (obj, fun) =>
+type ObjectMap = <V, R>(
+  obj: { [s: string]: V } | ArrayLike<V>,
+  fun: (arg: [string, V]) => [string, R]
+) => { [s: string]: R };
+
+const objectMap: ObjectMap = (obj, fun) =>
   Object.fromEntries(Object.entries(obj).map(fun));
 
-objectMap({ a: 2, b: 4 }, ([key, val]) => [key, val * 2]); // {a: 4, b: 8}
+const result = objectMap({ a: 2, b: 4 }, ([key, val]) => [key, val * 2]);
+console.log(result); // {a: 4, b: 8}
