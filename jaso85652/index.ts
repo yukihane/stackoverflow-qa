@@ -1,6 +1,6 @@
 type ObjectMap = <V, R>(
   obj: { [s: string]: V } | ArrayLike<V>,
-  fun: (arg: [string, V]) => [string, R]
+  fun: (arg: [string, V]) => [PropertyKey, R]
 ) => { [s: string]: R };
 
 const objectMap: ObjectMap = (obj, fun) =>
