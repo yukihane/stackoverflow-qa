@@ -18,25 +18,20 @@ public class MyController extends JFrame implements ActionListener,ChangeListene
 
         public MyController()
         {
-                this.slider = new JSlider();
+                // 0.5秒おきに1回呼び出し; 1分(60,000ミリ秒)おきに120回呼び出し
+                final int initialValue = 120;
+                final int initialDelay = 60_000 / initialValue;
 
+                this.timer = new Timer(initialDelay, this); // 0.5秒ごとにthisのactionPerformedメソッドを呼び出す様に設定
 
-                this.timer = new Timer(90, this); // 0.5秒ごとにthisのactionPerformedメソッドを呼び出す様に設定
-                this.timer.start();                // タイマースタート
+                this.slider = new JSlider(1, 240, initialValue);
+                this.slider.addChangeListener(this);
 
                 Toolkit tk = Toolkit.getDefaultToolkit();
                 this.tracker = new MediaTracker(this);
 
-                this.slider = new JSlider();
                 this.panel = new JPanel();
-
-                this.slider.setMaximum(5000); /* スライダの最大値 */
-                this.slider.addChangeListener(this);
-
                 this.label = new JLabel();
-                //label.setText("風の強さ：" + slider.getValue());
-
-
 
                 Image[] chara_array = new Image[3]; // Imageクラスの配列
                 for (int i = 0; i < 3; i++)
@@ -53,6 +48,8 @@ public class MyController extends JFrame implements ActionListener,ChangeListene
 
                   super.getContentPane().add(this.mp);
 
+                  // 手動でイベント発火させることで初期状態設定
+                  SwingUtilities.invokeLater(()-> stateChanged(new ChangeEvent(this.slider)));
         }
 
         public void actionPerformed(ActionEvent e){
@@ -62,8 +59,10 @@ public class MyController extends JFrame implements ActionListener,ChangeListene
         }
 
         public void stateChanged(ChangeEvent e0){
-                this.timer = new Timer(this.slider.getValue(), this);
-                this.timer.start();
+                // スライダーの値を基にタイマーを再設定
+                int value = 60_000 / ((JSlider)e0.getSource()).getValue();
+                this.timer.setDelay(value);
+                this.timer.restart();
                 this.label.setText("風の強さ：" + slider.getValue());
         }
 
