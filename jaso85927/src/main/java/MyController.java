@@ -18,13 +18,12 @@ public class MyController extends JFrame implements ActionListener,ChangeListene
 
         public MyController()
         {
-                // 0.5秒おきに1回呼び出し; 1分(60,000ミリ秒)おきに120回呼び出し
-                final int initialValue = 120;
-                final int initialDelay = 60_000 / initialValue;
+                // 0.5秒おきに1回呼び出し
+                final int initialValue = 500;
 
-                this.timer = new Timer(initialDelay, this); // 0.5秒ごとにthisのactionPerformedメソッドを呼び出す様に設定
+                this.timer = new Timer(initialValue, this); // 0.5秒ごとにthisのactionPerformedメソッドを呼び出す様に設定
 
-                this.slider = new JSlider(1, 240, initialValue);
+                this.slider = new JSlider(1, 5000, initialValue);
                 this.slider.addChangeListener(this);
 
                 Toolkit tk = Toolkit.getDefaultToolkit();
@@ -60,8 +59,7 @@ public class MyController extends JFrame implements ActionListener,ChangeListene
 
         public void stateChanged(ChangeEvent e0){
                 // スライダーの値を基にタイマーを再設定
-                int value = 60_000 / ((JSlider)e0.getSource()).getValue();
-                this.timer.setDelay(value);
+                this.timer.setDelay(((JSlider)e0.getSource()).getValue());
                 this.timer.restart();
                 this.label.setText("風の強さ：" + slider.getValue());
         }
