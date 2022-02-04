@@ -1,14 +1,19 @@
-type valueType = 'foo_1' | 'foo_2';
+type Prefix = "foo";
+type Postfix = "1" | "2";
+type ValueType = `${Prefix}_${Postfix}`;
 
-const prefix = ( value: string ): string => {
-    const prefix = 'foo';
-    return `${prefix}_${value}`;
-}
+const prefix = (value: Postfix): ValueType => {
+  const prefix = "foo";
+  return `${prefix}_${value}`;
+};
 
-const process = (): valueType => {
-    if ( /* 省略 */ ) {
-        return prefix('1');
-    } else {
-        return prefix('2');
-    }
-}
+const process = (i: number): ValueType => {
+  if (i > 0) {
+    return prefix("1");
+  } else {
+    return prefix("2");
+  }
+};
+
+console.log(process(10)); // "foo_1"
+console.log(process(-10)); // "foo_2"
