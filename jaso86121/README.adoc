@@ -1,0 +1,10 @@
+= https://ja.stackoverflow.com/q/86121/2808[javaのzip4jでパスワード付きのzipファイルを作りたい]
+
+https://github.com/srikanth-lingala/zip4j[zip4j] を用いたパスワード付きzipファイル生成。
+
+質問文の事象は再現せず、想定通り動作しているように見えます。
+
+[source]
+----
+mvn clean compile exec:java -Dexec.args='output.zip mypass data'
+----
