@@ -19,7 +19,8 @@ public class Register {
             System.out.println("名前を入力してください");
             name = scan.next();
             kaiinAll.add(r.kaiinAdd(id, name));
-            System.out.println(kaiinAll.get(id));
+            Kaiin lastElement = kaiinAll.get(kaiinAll.size() - 1);
+            System.out.println(lastElement);
             
         }
 
