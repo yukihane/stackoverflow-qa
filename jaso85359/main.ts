@@ -12,3 +12,9 @@ const v1: ExampleType = { foo: "foo_val", bar: "bar_val" }; // OK
 const v2: ExampleType = { foo: "foo_val", bar: null }; // OK
 const v3: ExampleType = { foo: null, bar: "bar_val" }; // OK
 const v4: ExampleType = { foo: null, bar: null }; // NG
+
+type AllProps = {
+  baz: string;
+} & ExampleType;
+
+const v5: AllProps = { foo: null, bar: null, baz: "baz_val" };
