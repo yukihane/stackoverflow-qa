@@ -1,10 +1,23 @@
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
     <p>画像表示</p>
-    <img th:src="@{/getImg?name=IMGP12345}" th:width="600">
-</body>
+    <img th:src="@{/getImg?name=IMGP12345}" th:width="600" />
+
+    <script th:inline="javascript">
+      const url = /*[[@{/getText}]]*/ "/dummy-url";
+      fetch(url)
+        .then((resp) => resp.text())
+        .then((text) => {
+          const div = document.createElement("div");
+          div.textContent = text;
+          const body = document.getElementsByTagName("body")[0];
+          body.insertAdjacentElement("afterbegin", div);
+        });
+    </script>
+  </body>
 </html>
