@@ -9,15 +9,17 @@
     <img th:src="@{/getImg?name=IMGP12345}" th:width="600" />
 
     <script th:inline="javascript">
-      const url = /*[[@{/getText}]]*/ "/dummy-url";
-      fetch(url)
-        .then((resp) => resp.text())
-        .then((text) => {
-          const div = document.createElement("div");
-          div.textContent = text;
-          const body = document.getElementsByTagName("body")[0];
-          body.insertAdjacentElement("afterbegin", div);
-        });
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const url = /*[[@{/getText}]]*/ "/dummy-url";
+        fetch(url)
+          .then((resp) => resp.text())
+          .then((text) => {
+            const div = document.createElement("div");
+            div.textContent = text;
+            const body = document.getElementsByTagName("body")[0];
+            body.insertAdjacentElement("afterbegin", div);
+          });
+      });
     </script>
   </body>
 </html>
