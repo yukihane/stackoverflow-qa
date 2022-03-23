@@ -1,0 +1,7 @@
+version: "3"
+services:
+  elixir:
+    build: .
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
