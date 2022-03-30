@@ -1,6 +1,0 @@
-archetype: https://docs.payara.fish/enterprise/docs/documentation/ecosystem/maven-archetype.html
-[source]
-----
-mvn archetype:generate -DarchetypeGroupId=fish.payara.maven.archetypes \
--DarchetypeArtifactId=payara-micro-maven-archetype
-----
