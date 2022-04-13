@@ -13,7 +13,7 @@ public class Main{
         languages.add("Swift");
         languages.add("Python");
 
-        String language = languages[random.nextInt(5)];
+        String language = languages.get(random.nextInt(5));
         System.out.println(language);
 
     }
