@@ -1,7 +1,11 @@
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 
 
 public class Main {
@@ -13,16 +17,27 @@ public class Main {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(new FlowLayout());
 
-        final JButton button = new JButton("Click here or Press\"w\":)"); //ここのボタンでwを押せるようにしたい
-        frame.getContentPane().add(button);
-
         final JLabel label = new JLabel("クリックもしくはキーボード入力に反応しました。");
-        frame.getContentPane().add(label);
         label.setVisible(false);
 
-        button.addActionListener(e -> { //マウスカーソルだけでなく、キーボードにも反応してほしい
-            label.setVisible(true);
-        });
+        final Action buttonClickedAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                label.setVisible(true);
+            }
+        };
+
+        final JButton button = new JButton("Click here or Press\"w\":)"); //ここのボタンでwを押せるようにしたい
+
+        button.addActionListener(buttonClickedAction);
+
+
+        button.getInputMap().put(KeyStroke.getKeyStroke('w'), "buttonClicked");
+        button.getActionMap().put("buttonClicked", buttonClickedAction);
+
+        frame.getContentPane().add(button);
+
+        frame.getContentPane().add(label);
 
     }
 }
