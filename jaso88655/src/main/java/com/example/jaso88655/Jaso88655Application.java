@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = ScanBaseMarker.class)
+@ComponentScan(basePackageClasses = {ScanBaseMarker.class,Jaso88655Application.class})
 public class Jaso88655Application {
 
     public static void main(String[] args) {
