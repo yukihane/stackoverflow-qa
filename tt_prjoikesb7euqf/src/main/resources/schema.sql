@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS memos (
+    id INT(50) PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
+    mark_div INT(50) NOT NULL
+);
