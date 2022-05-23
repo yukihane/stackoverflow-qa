@@ -18,19 +18,35 @@ async fn example_feed() -> Result<Channel, Box<dyn Error>> {
 }
 
 #[tauri::command]
-async fn get_rss() -> Result<String, String> {
+async fn get_rss(_state: tauri::State<'_, StateValue>) -> Result<String, ()> {
     let a: Result<Channel, Box<dyn Error>> = example_feed().await;
     match a {
         Ok(result) => {
             println!("{:?}", result);
-            Ok(result.title)
         }
         Err(msg) => {
             println!("No");
-            Err(msg.to_string())
         }
     }
+
+    Ok(String::from("test"))
 }
+
+// 別解
+// #[tauri::command]
+// async fn get_rss() -> String {
+//     let a: Result<Channel, Box<dyn Error>> = example_feed().await;
+//     match a {
+//         Ok(result) => {
+//             println!("{:?}", result);
+//         }
+//         Err(msg) => {
+//             println!("No");
+//         }
+//     }
+
+//     String::from("test")
+// }
 
 fn main() {
     tauri::Builder::default()
