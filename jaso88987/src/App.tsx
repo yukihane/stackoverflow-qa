@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { invoke } from "@tauri-apps/api";
+import React, { ChangeEvent, useState } from "react";
 
 function App() {
+  const [message, setMessage] = useState("");
+
+  const submit = () => {
+    invoke<string>("get_rss")
+      .then((resp) => {
+        console.log("recv:" + resp);
+        setMessage(resp);
+      })
+      .catch((e) => setMessage(e));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div style={{ padding: 10 }}>
+        <input type="button" value="送信" onClick={submit} />
+      </div>
+      <div style={{ padding: 10 }}>
+        <input
+          readOnly
+          type="text"
+          name="response"
+          id="response"
+          value={message}
+          style={{ width: 300 }}
+        />
+      </div>
     </div>
   );
 }
