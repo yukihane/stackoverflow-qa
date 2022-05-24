@@ -1,0 +1,10 @@
+* https://ja.stackoverflow.com/q/89029/2808[コンソール上に文字をアニメーション付きで出力したい]
+
+Java でコンソール上に出力する文字列をフェードインさせます。
+
+実行方法:
+
+[source, java]
+----
+mvn clean compile exec:java
+----
