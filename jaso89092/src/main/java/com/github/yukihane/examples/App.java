@@ -21,11 +21,16 @@ public class App {
     public static void main(final String[] args) {
         final Display display = new Display();
         final Shell shell = new Shell(display);
-        //        final boolean isFontLoaded = shell.getDisplay().loadFont("A.ttf");
+        final boolean isFontLoaded = shell.getDisplay().loadFont("Cica-Regular.ttf");
         shell.setBounds(10, 10, 200, 200);
 
         final Label label = new Label(shell, SWT.NONE | SWT.BORDER);
-        final Font font = new Font(Display.getDefault(), "Cika", 8, SWT.NONE);
+        System.out.println(label.getFont().getFontData()[0].name);
+        if (isFontLoaded) {
+            final Font font = new Font(Display.getDefault(), "Cika", 8, SWT.NONE);
+            label.setFont(font);
+            System.out.println(font.getFontData()[0].name);
+        }
         //        final FontData[] fontData = label.getFont().getFontData();
         //        for (final FontData fd : fontData) {
         //            fd.setName("Cika");
@@ -33,7 +38,6 @@ public class App {
         //            fd.setStyle(SWT.NONE);
         //        }
         //        final Font font = new Font(Display.getDefault(), fontData);
-        label.setFont(font);
         label.setText("Hello, world! Hello, world! Hello, world!");
 
         final FormLayout layout = new FormLayout();
@@ -45,7 +49,7 @@ public class App {
             if (!display.readAndDispatch())
                 display.sleep();
         }
-        font.dispose();
+        //        font.dispose();
         display.dispose();
     }
 }
