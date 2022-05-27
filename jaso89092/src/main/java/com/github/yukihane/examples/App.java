@@ -2,6 +2,7 @@ package com.github.yukihane.examples;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.layout.FormAttachment;
@@ -23,7 +24,14 @@ public class App {
         shell.setBounds(10, 10, 200, 200);
 
         final Label label = new Label(shell, SWT.NONE | SWT.BORDER);
-        final Font font = new Font(Display.getDefault(), "Arial", 8, SWT.NONE);
+        //        final Font font = new Font(Display.getDefault(), "Arial", 8, SWT.NONE);
+        final FontData[] fontData = label.getFont().getFontData();
+        for (final FontData fd : fontData) {
+            fd.setName("Arial");
+            fd.setHeight(8);
+            fd.setStyle(SWT.NONE);
+        }
+        final Font font = new Font(Display.getDefault(), fontData);
         label.setFont(font);
         label.setText("Hello, world! Hello, world! Hello, world!");
 
