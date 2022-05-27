@@ -21,17 +21,18 @@ public class App {
     public static void main(final String[] args) {
         final Display display = new Display();
         final Shell shell = new Shell(display);
+        //        final boolean isFontLoaded = shell.getDisplay().loadFont("A.ttf");
         shell.setBounds(10, 10, 200, 200);
 
         final Label label = new Label(shell, SWT.NONE | SWT.BORDER);
-        //        final Font font = new Font(Display.getDefault(), "Arial", 8, SWT.NONE);
-        final FontData[] fontData = label.getFont().getFontData();
-        for (final FontData fd : fontData) {
-            fd.setName("Arial");
-            fd.setHeight(8);
-            fd.setStyle(SWT.NONE);
-        }
-        final Font font = new Font(Display.getDefault(), fontData);
+        final Font font = new Font(Display.getDefault(), "Cika", 8, SWT.NONE);
+        //        final FontData[] fontData = label.getFont().getFontData();
+        //        for (final FontData fd : fontData) {
+        //            fd.setName("Cika");
+        //            fd.setHeight(8);
+        //            fd.setStyle(SWT.NONE);
+        //        }
+        //        final Font font = new Font(Display.getDefault(), fontData);
         label.setFont(font);
         label.setText("Hello, world! Hello, world! Hello, world!");
 
