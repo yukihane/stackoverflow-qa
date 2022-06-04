@@ -17,7 +17,7 @@ public class User {
     @Id
     @Column(name = "ID") //DB上のどのカラムなのかを記載
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String ID;
+    private Long ID;
 
     @Column(name = "NAME")
     private String NAME;
@@ -25,11 +25,11 @@ public class User {
     @Column(name = "SEX")
     private String SEX;
 
-    public String getID() {
+    public Long getXD() {
         return ID;
     }
 
-    public void setID(final String iD) {
+    public void setXD(final Long iD) {
         ID = iD;
     }
 
