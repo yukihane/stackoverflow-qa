@@ -25,12 +25,12 @@ public class MyController {
     }
 
     @PostMapping
-    public String post(@RequestParam("input") final String input,
-        @Validated final Form Form,
+    public String post(@RequestParam(value = "input", required = false) final String input,
+        @Validated final Form form,
         final BindingResult result, final Model model) {
         if (result.hasErrors()) {
             //エラーの場合の処理
-            // 　　　※②System.out.println(Form);
+            System.out.println(form);
             return "errorpage";
         } else {
             // 　　　//正常時の処理
