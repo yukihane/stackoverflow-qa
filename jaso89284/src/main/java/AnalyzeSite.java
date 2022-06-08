@@ -6,9 +6,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class AnalyzeSite {
-  private static final String LOGIN_URL = "example.com/login";
-  private final String USERNAME = "username@example.com";
-  private final String PASSWORD = "pass1234";
+  private static final String LOGIN_URL = "http://localhost:8080/login";
+  private final String USERNAME = "user";
+  private final String PASSWORD = "password";
   private final String UA = "Mozilla/5.0";
   private Map<String, String> cookie;
 
@@ -17,7 +17,7 @@ public class AnalyzeSite {
     try {
       if (cookie == null) {
         Response response = Jsoup.connect(LOGIN_URL).method(Connection.Method.GET).execute();
-        response = Jsoup.connect(LOGIN_URL).data("Username", USERNAME, "Password", PASSWORD)
+        response = Jsoup.connect(LOGIN_URL).data("username", USERNAME, "password", PASSWORD)
             .userAgent(UA).cookies(response.cookies()).method(Connection.Method.POST).timeout(10000).execute();
         System.out.println(response.statusCode());// httpステータス200 問題なし
         System.out.println(response.parse()); // ログインできてるHTMLが出る
@@ -34,7 +34,7 @@ public class AnalyzeSite {
 
   public static void main(String[] args) {
     AnalyzeSite as = new AnalyzeSite();
-    doSomething(as.getDocument("example.com/mypage"));// ここで取ったdocumentを解析したい
+    doSomething(as.getDocument("http://localhost:8080/"));// ここで取ったdocumentを解析したい
   }
 
 private static void doSomething(Document document) {
