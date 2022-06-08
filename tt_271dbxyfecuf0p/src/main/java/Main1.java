@@ -9,5 +9,8 @@ public class Main1 {
         assert str1 == str2;
         assert str1 != str3;
         assert str1 == str4;
+
+        // 異なるオブジェクトでも hashCode() 値は同一
+        assert str1.hashCode() == str3.hashCode();
     }
 }
