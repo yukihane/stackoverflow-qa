@@ -24,8 +24,8 @@ public class RootController {
 /***** 略 *****/
 
     @GetMapping("/item/create")
-    public String itemCreate(Item itemForm) {
-        
+    public String itemCreate(Item itemForm, Model model) {
+        model.addAttribute("itemForm", itemForm);
         return "root/item/create";
     }
 
