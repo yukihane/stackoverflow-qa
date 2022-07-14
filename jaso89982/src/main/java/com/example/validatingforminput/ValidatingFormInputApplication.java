@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ValidatingFormInputApplication {
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(ValidatingFormInputApplication.class, args);
-	}
+    public static void main(final String[] args) throws Exception {
+        SpringApplication.run(ValidatingFormInputApplication.class, args);
+    }
 
 }
