@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * カードクラス．絵柄，数字を持つ， 
  * 
@@ -149,5 +151,21 @@ public class Card {
     public void show() {
         System.out.println(toString());
     }
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, suit);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Card other = (Card) obj;
+        return number == other.number && suit == other.suit;
+    }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * カードデッキクラス． 
@@ -143,5 +144,23 @@ public class CardDeck {
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cards);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        CardDeck other = (CardDeck) obj;
+        return Objects.equals(cards, other.cards);
+    }
+    
     
 }
