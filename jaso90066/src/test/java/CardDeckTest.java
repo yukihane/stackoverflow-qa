@@ -86,11 +86,15 @@ public class CardDeckTest extends TestCase {
     }
 
     public void testTakeCard() {
-        assertEquals(deckEmpty,deckJ.takeCard());
+        // joker だけが入った deck から 1枚抜き取る
+        deckJ.takeCard();
+        // 空の deck と比較
+        assertEquals(deckEmpty, deckJ);
     }
 
     public void testTakeCardInt() {
-        assertEquals(deck2,deck1.takeCard(3));
+        deck1.takeCard(3);
+        assertEquals(deck2, deck1);
     }
 
     public void testSeeCard() {
