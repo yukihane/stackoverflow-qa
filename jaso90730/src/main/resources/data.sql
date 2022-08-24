@@ -1,0 +1,1 @@
+insert into greeting_table (message) values ('a'),('b');
