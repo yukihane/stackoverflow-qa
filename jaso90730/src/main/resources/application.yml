@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    mysql:
+      url: jdbc:h2:mem:testdb
+      password: hoge
+      username: hgoe
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    oracle:
+      url: hoge
+      username: hoge
+      password: hoge
+      driver-class-name: hoge
+  sql:
+    init:
+      schema-locations: classpath*:schema.sql
