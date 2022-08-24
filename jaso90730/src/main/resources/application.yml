@@ -6,10 +6,10 @@ spring:
       username: hgoe
       driver-class-name: org.h2.Driver
     oracle:
-      url: hoge
-      username: hoge
+      url: jdbc:h2:mem:testdb2
       password: hoge
-      driver-class-name: hoge
+      username: hgoe
+      driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
       schema-locations: classpath*:schema.sql
