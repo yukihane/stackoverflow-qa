@@ -4,7 +4,7 @@ spring:
       url: jdbc:h2:mem:testdb
       password: hoge
       username: hgoe
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: org.h2.Driver
     oracle:
       url: hoge
       username: hoge
