@@ -10,15 +10,17 @@ interface MyMapper {
 
     @Select(
         """
-            SELECT 
-                COUNT(*)
-            FROM 
-                order
-            WHERE 
-                order_id IN 
-            <foreach item="id" collection="orderIds" open="(" separator="," close=")" >
-                #{id}
-            </foreach>
+            <script>
+                SELECT 
+                    COUNT(*)
+                FROM 
+                    `order`
+                <where>
+                    <foreach item="id" collection="orderIds" open="order_id IN (" separator="," close=")" >
+                        #{id}
+                    </foreach>
+                </where>
+            </script>
         """
     )
     fun findByOrderIds(@Param(value = "orderIds") orderIds: List<String>): Int

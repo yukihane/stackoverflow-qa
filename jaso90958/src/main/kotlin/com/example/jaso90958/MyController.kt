@@ -9,8 +9,8 @@ class MyController(
 ) {
 
     @GetMapping
-    fun index(): String{
-        val res = myMapper.findByOrderIds(listOf("1"))
+    fun index(): String {
+        val res = myMapper.findByOrderIds(listOf("1", "2", "3"))
         return res.toString()
     }
 }
