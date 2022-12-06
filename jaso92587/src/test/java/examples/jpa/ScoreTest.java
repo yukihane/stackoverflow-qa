@@ -31,7 +31,7 @@ public class ScoreTest {
     private final SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
 
     @Test
-    public void testApp() {
+    public void test() {
         doInJPA(this::getEntityManagerFactory, em -> {
             persist(em, "山田", YearMonth.of(2022, 4), 1, 60, 43, 72);
             persist(em, "山田", YearMonth.of(2022, 5), 1, 63, 52, 68);
