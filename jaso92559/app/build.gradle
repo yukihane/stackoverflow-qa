@@ -6,6 +6,7 @@
 
 plugins {
     id 'jaso92559.java-application-conventions'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 dependencies {
@@ -16,4 +17,10 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'jaso92559.app.App'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "jaso92559.app.App"
+    }
 }
