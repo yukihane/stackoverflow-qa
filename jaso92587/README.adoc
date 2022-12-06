@@ -1,0 +1,14 @@
+https://ja.stackoverflow.com/q/92587/2808[Javaでテーブルでの集計方法と画面に表示する集計方法が異なる場合の処理 - スタック・オーバーフロー]
+
+== 実行方法
+
+[source]
+----
+mvn clean test
+----
+
+link:src/test/java/examples/jpa/ScoreTest.java[] が本体コードです。
+
+`test` メソッドはDBから取得したデータを加工するサンプルです(ただし質問とは異なりJPAを利用)。
+
+`testWithoutDB` メソッドは、DB入出力は今回の質問の本質ではないと考えたため、そこを省略して書いたものです。
