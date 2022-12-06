@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker, { registerLocale } from "react-datepicker";
+// import ja from "date-fns/locale/ja"; // register it with the name you want
+
+// registerLocale("ja", ja);
+
+const App = () => {
+  const [startDate, setStartDate] = useState(new Date());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DatePicker
+      locale="ja-JP"
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      dateFormat="MM/yyyy"
+      showMonthYearPicker
+    />
   );
-}
+};
 
 export default App;
