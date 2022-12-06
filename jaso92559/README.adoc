@@ -1,0 +1,17 @@
+* https://ja.stackoverflow.com/q/92559/2808[settings.gradleから依存関係を持つjarファイルを作成する方法]
+
+
+`gradle init` で multi module project を選択した場合に fat-jar を作る方法。
+
+https://imperceptiblethoughts.com/shadow/introduction/[`com.github.johnrengelman.shadow` プラグイン]を、 main クラスを含むプロジェクトに設定する。
+
+`./gradle shadowJar` を実行すれば、 `*-all.jar` (今回の場合は `app-all.jar`) が生成される。
+
+[source]
+----
+java -jar app-all.jar
+----
+で実行可能。
+
+対応コミット:
+https://github.com/yukihane/stackoverflow-qa/commit/a0c11079fa689
