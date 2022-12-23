@@ -19,7 +19,7 @@ public class SampleService {
     private EntityManager entityManager;
 
     public List<SampleEntity> searchForm(SampleForm sampleForm) {
-        List<SampleEntity> list = repository.getDate(sampleForm.dateForm);
+        List<SampleEntity> list = repository.getDate(null);
         return list;
     }
 }
