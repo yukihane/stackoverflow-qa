@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <form th:method="post" th:action="@{/sample}" th:object="${sampleForm}">
+      <input type="date" th:field="*{dateForm}" />
+      <button type="submit">送信</button>
+    </form>
+  </body>
+</html>
