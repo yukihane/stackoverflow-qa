@@ -1,0 +1,1 @@
+create table booksinfo(id serial, title varchar(50), price int);

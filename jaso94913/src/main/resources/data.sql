@@ -1,0 +1,1 @@
+insert into booksinfo(title,price) values ('渋谷ではたらく社長の告白', 800),('起業家', 800), ('藤田晋の成長論', 1540);
