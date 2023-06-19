@@ -1,0 +1,1 @@
+twitter の js https://platform.twitter.com/widgets.js で画像を読み込んでいるのはどの部分か。
