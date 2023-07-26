@@ -1,11 +1,25 @@
 package com.github.yukihane.so;
 
-/**
- * Hello world!
- */
-public class App {
+import java.util.concurrent.CompletableFuture;
 
-    public static void main(final String[] args) {
-        System.out.println("Hello World!");
+public class App {
+    private final Provider kanaProvider = new Provider();
+
+    public CompletableFuture convert(String kana) {
+        String japanized = "text";
+        if (japanized.isEmpty()) {
+            return CompletableFuture.completedFuture(kana);
+        } else {
+            return kanaProvider.parse(japanized).thenApply(this::parse).exceptionally(e -> {
+                System.out.println("API returned unexpected result:" + e);
+                return "";
+            }).thenApply(text -> text.isEmpty() ? (japanized.isEmpty() ? kana : japanized) : text);
+        }
     }
+
+    public String parse(String value) {
+        String result = this.kanaProvider.parse(value);
+        return result;
+    }
+
 }
