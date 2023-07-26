@@ -10,7 +10,7 @@ public class App {
         if (japanized.isEmpty()) {
             return CompletableFuture.completedFuture(kana);
         } else {
-            return kanaProvider.parse(japanized).thenApply(this::parse).exceptionally(e -> {
+            return CompletableFuture.supplyAsync(() -> kanaProvider.parse(japanized)).thenApply(this::parse).exceptionally(e -> {
                 System.out.println("API returned unexpected result:" + e);
                 return "";
             }).thenApply(text -> text.isEmpty() ? (japanized.isEmpty() ? kana : japanized) : text);
