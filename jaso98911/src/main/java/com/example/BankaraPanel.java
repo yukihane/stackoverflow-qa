@@ -1,6 +1,4 @@
 package com.example;
 
-import javax.swing.*;
-
-public class BankaraPanel extends JPanel {
+public class BankaraPanel extends LabeledPanel {
 }
