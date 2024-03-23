@@ -1,0 +1,14 @@
+#sidebar {
+    width: 150px;
+    float: left;
+}
+
+#maincontent {
+    width: 730px;
+}
+
+.cf::after {
+    content:"";
+    display:table;
+    clear:both;
+}
