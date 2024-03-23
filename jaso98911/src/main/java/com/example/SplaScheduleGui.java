@@ -49,6 +49,7 @@ public class SplaScheduleGui extends JFrame {
         scrollPane.setViewportView(schedulePanel);
         add(scrollPane, BorderLayout.CENTER);
         add(lobbyPanel, BorderLayout.SOUTH);
+        validate();
     }
 
     private void onRegularButtonClick(ActionEvent e) {
