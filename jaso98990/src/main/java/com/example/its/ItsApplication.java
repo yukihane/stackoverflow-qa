@@ -16,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 @SpringBootApplication
 public class ItsApplication {
@@ -34,13 +35,16 @@ public class ItsApplication {
 	@Profile("!test")
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return args -> {
-			UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromUriString("https://graph.facebook.com/v19.0/[ビジネスアカウント情報]")
+			UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromUriString("https://graph.facebook.com/v19.0/my_id")
 					.queryParam("fields", "business_discovery.username(bluebottle){followers_count,media_count}")
-					.queryParam("access_token", "[アクセストークン]");
-			String url = uriComponentsBuilder.toUriString();
+					.queryParam("access_token", "my_token");
+			String url = uriComponentsBuilder.encode().build().toUriString();
+			// あるいは今回の文字列は encode() しても結果が変わらないのは自明なので
+			// String url = uriComponentsBuilder.build().toUriString();
+			System.out.println(url);
 
-			InstagramAccountEntity instagramAccountEntity = restTemplate.getForObject(url, InstagramAccountEntity.class);
-			log.info(instagramAccountEntity.toString());
+//			InstagramAccountEntity instagramAccountEntity = restTemplate.getForObject(url, InstagramAccountEntity.class);
+//			log.info(instagramAccountEntity.toString());
 		};
 	}
 }
