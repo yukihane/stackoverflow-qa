@@ -16,11 +16,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/secure/1").authenticated() // /secure/1 に対して Basic 認証を適用
-                .anyRequest().permitAll() // それ以外のリクエストは認証不要
+                .antMatcher("/secure/1").authorizeRequests()
+                .anyRequest().authenticated()
                 .and()
-                .httpBasic(); // Basic認証を有効にする
+                .httpBasic();
     }
 
 //    @Override
