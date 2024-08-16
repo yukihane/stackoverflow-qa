@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+    mysql:
+        image: mysql:latest
+        container_name: db-for-go
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+            - --sql-mode=ONLY_FULL_GROUP_BY,NO_ENGINE_SUBSTITUTION
+        environment:
+            MYSQL_ROOT_USER: ${ROOTUSER}
+            MYSQL_ROOT_PASSWORD: ${ROOTPASS}
+            MYSQL_DATABASE: ${DATABASE}
+            MYSQL_USER: ${USERNAME}
+            MYSQL_PASSWORD: ${USERPASS}
+            TZ: "Asia/Tokyo"
+        ports:
+            - "3306:3306"
+        volumes:
+            - db-volume:/var/lib/mysql
+
+volumes:
+    db-volume:
