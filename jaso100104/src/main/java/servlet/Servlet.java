@@ -46,6 +46,6 @@ public class Servlet extends HttpServlet {
         request.setAttribute("calculation", calculation);
         request.setAttribute("tokenizedResult", tokenizedResult);
 
-        request.getRequestDispatcher("/servletResult.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/servletResult.jsp").forward(request, response);
     }
 }

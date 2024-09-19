@@ -14,7 +14,7 @@
      <option value="calc_text" <%= "calc_text".equals(request.getParameter("actionOptions")) ? "selected" : "" %>>テキストを表示/計算</option>
      <option value="app" <%= "app".equals(request.getParameter("actionOptions")) ? "selected" : "" %>>アプリ</option>
 </select>
- <form action="/Servlet" method="post">
+ <form action="../Servlet" method="post">
     <div id="calcTextInput" style="display:<%= "calc_text".equals(request.getParameter("actionOptions")) ? "block" : "none" %>;">
         <label for="inputBox">テキスト入力ボックス:</label>
         <input type="text" id="inputBox" name="inputBox">
