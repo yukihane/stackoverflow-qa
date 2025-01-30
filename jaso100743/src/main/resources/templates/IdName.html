@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>IdName</title>
+</head>
+<body>
+<form th:action="@{/idNamePost}" th:object="${idNameForm}" method="post">
+    <p><label for="id">ID:</label><input type="text" th:field="*{id}"></p>
+    <span class="text-danger" th:errors="*{id}"></span>
+    <p th:text="*{name}"></p>
+    <span class="text-danger" th:errors="*{name}"></span>
+    <p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>
