@@ -9,7 +9,7 @@
 </head>
 <body>
 <form th:action="@{/idNamePost}" th:object="${idNameForm}" method="post">
-    <p><label for="id">ID:</label><input type="text" th:field="*{id}"></p>
+    <p><label for="id">ID:</label><input id="id" type="text" th:field="*{id}"></p>
     <span class="text-danger" th:errors="*{id}"></span>
     <p th:text="*{name}"></p>
     <span class="text-danger" th:errors="*{name}"></span>
