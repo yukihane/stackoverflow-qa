@@ -4,16 +4,12 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest {
+public class PersonTest {
 
-    /**
-     * Rigourous Test :-)
-     */
     @Test
     public void testApp() {
-        assertThat(true).isEqualTo(false);
+        var p = new Person("Alice", 20);
+        assertThat(p.getName()).isEqualTo("Alice");
+        assertThat(p.getAge()).isEqualTo(20);
     }
 }
