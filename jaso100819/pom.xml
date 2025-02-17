@@ -50,6 +50,7 @@
     </dependency>
   </dependencies>
 
+<!-- 無効化しても Lombok は動作する
   <build>
     <pluginManagement>
       <plugins>
@@ -80,4 +81,5 @@
       </plugin>
     </plugins>
   </build>
+-->
 </project>
